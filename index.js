@@ -33,7 +33,6 @@ async function getWord(word) {
     let cachedWord = cached.find(x => x.word === word);
 
     if (cachedWord) {
-        console.log("FOUND IN CACHE");
         if (cachedWord.state === "PROCESSED") {
             return getWordFromCache(cachedWord.id);
         } else if (cachedWord.state === "HTML") {
@@ -79,6 +78,7 @@ async function getWordFromRezoDump(word) {
     let cached = JSON.parse(fs.readFileSync("./cache/cached.json"));
 
     //Get the definition from the API with axios in windows-1252
+    //Be careful with the URL encoding
     let response = await axios.get(`http://www.jeuxdemots.org/rezo-dump.php?gotermsubmit=Chercher&gotermrel=${word}&rel=`, {
         responseType: 'arraybuffer'
     });
@@ -156,12 +156,12 @@ async function readLineByLine(wordId, wordString) {
             case "// les relations sortantes : r;rid;node1;node2;type;w ":
                 console.log("Beginning outgoing relationship");
                 reading = "outgoingRelationship";
-                word["outgoingRelationship"] = {};
+                word["outgoingRelationship"] = [];
                 break;
             case "// les relations entrantes : r;rid;node1;node2;type;w ":
                 console.log("Beginning ingoing relationship");
                 reading = "ingoingRelationship";
-                word["ingoingRelationship"] = {};
+                word["ingoingRelationship"] = [];
                 break;
             case "// END":
                 console.log("End of file");
@@ -196,18 +196,22 @@ async function readLineByLine(wordId, wordString) {
                             break;
                         case "outgoingRelationship":
                             lineSplitted = line.split(";");
-                            word["outgoingRelationship"][parseInt(lineSplitted[1])] = {
-                                outGoingNode: parseInt(lineSplitted[3]),
-                                type: parseInt(lineSplitted[4]),
-                                weight: parseInt(lineSplitted[5])
+                            if(lineSplitted.length > 1) {
+                                word["outgoingRelationship"].push({
+                                    node: parseInt(lineSplitted[3]),
+                                    type: parseInt(lineSplitted[4]),
+                                    weight: parseInt(lineSplitted[5])
+                                });
                             }
                             break;
                         case "ingoingRelationship":
                             lineSplitted = line.split(";");
-                            word["ingoingRelationship"][parseInt(lineSplitted[1])] = {
-                                inGoingNode: parseInt(lineSplitted[2]),
-                                type: parseInt(lineSplitted[4]),
-                                weight: parseInt(lineSplitted[5])
+                            if(lineSplitted.length > 1) {
+                                word["ingoingRelationship"].push({
+                                    node: parseInt(lineSplitted[2]),
+                                    type: parseInt(lineSplitted[4]),
+                                    weight: parseInt(lineSplitted[5])
+                                });
                             }
                             break;
                         default:
@@ -219,6 +223,126 @@ async function readLineByLine(wordId, wordString) {
     return word;
 }
 
-getWord("sdgsdhsdfh").then(result => {
+async function findLinkBetweenWords(w1, r, w2) {
+    //Check if relation exists inside relations as a key
+    if (r in relations) {
+        let relationId = relations[r];
 
-});
+        //Retrieve the two words
+        let words = await Promise.all([getWord(w1), getWord(w2)]);
+
+        //Check if relation exists in relationType
+        if (!(relationId in words[0].relationType) && !(relationId in words[1].relationType)) {
+            console.log("Il n'y a pas de relation explicite " + r + " entre " + w1 + " et " + w2);
+            return;
+        }
+
+        //Read all outgoing nodes for word1
+        let word1 = words[0].outgoingRelationship;
+        //Keep only the nodes that are related to the relation
+        let word1filtered = word1.filter(relation => relation.type === relationId);
+        //Keep only the node key
+        let word1filteredNodes = word1filtered.map(relation => relation.node);
+
+        //Read all ingoing nodes for word2
+        let word2 = words[1].ingoingRelationship;
+        //Keep only the nodes that are related to the relation
+        let word2filtered = word2.filter(relation => relation.type === relationId);
+        //Keep only the node key
+        let word2filteredNodes = word2filtered.map(relation => relation.node);
+
+        //Check if the relation exists between the two words
+        //w1 relation x new_relation w2
+        let a = word2.filter(node => word1filteredNodes.includes(node.node));
+        //Keep only positive correlations
+        a = a.filter(node => node.weight > 0);
+        //Sort by weight
+        a.sort((a, b) => b.weight - a.weight);
+        // for(let rel of a) {
+        //     console.log(w1 + " " + r + " " + words[1].nodeTerms[rel.node].name + " " + words[1].relationType[rel.type].name + " (" + rel.weight + ") " + w2);
+        // }
+        let interestingRelations1 = {};
+        for (let relation of a) {
+            if (!(relation.type in interestingRelations1)) {
+                interestingRelations1[relation.type] = {
+                    w1: w1,
+                    r1: r,
+                    y: words[1].nodeTerms[relation.node].name,
+                    r2: words[1].relationType[relation.type].name,
+                    weight: relation.weight,
+                    w2: w2
+                };
+            }
+        }
+
+        //w1 new_relation x relation w2
+        let b = word1.filter(node => word2filteredNodes.includes(node.node));
+        //Keep only positive correlations
+        b = b.filter(node => node.weight > 0);
+        //Sort by weight
+        b.sort((a, b) => b.weight - a.weight);
+        // for(let rel of b) {
+        //     console.log(w1 + " " + words[0].relationType[rel.type].name + " (" + rel.weight + ") " + words[0].nodeTerms[rel.node].name + " " + r + " " + w2);
+        // }
+        let interestingRelations2 = {};
+        for (let relation of b) {
+            if (!(relation.type in interestingRelations2)) {
+                interestingRelations2[relation.type] = {
+                    w1: w1,
+                    r1: words[0].relationType[relation.type].name,
+                    weight: relation.weight,
+                    y: words[0].nodeTerms[relation.node].name,
+                    r2: r,
+                    w2: w2
+                };
+            }
+        }
+
+        return [interestingRelations1, interestingRelations2];
+    } else {
+        throw new Error("La relation n'existe pas");
+    }
+}
+
+function prettyPrintRelations(relations) {
+    //Turn to array
+    let relationsArray = Object.keys(relations).map(key => relations[key]);
+    //Sort by weight
+    relationsArray.sort((a, b) => b.weight - a.weight);
+    //Only keep the 3 first
+    relationsArray = relationsArray.slice(0, 3);
+
+    for (let relation of relationsArray) {
+        console.log(relation.w1 + " " + relation.r1 + " " + relation.y + " " + relation.r2 + " " + relation.w2 + " (" + relation.weight + ")");
+    }
+}
+
+function executeInference(sentence) {
+    //Split the sentence into words
+    let words = sentence.split(" ");
+    //Check if one of the words is a relation
+    let relationsFound = words.filter(word => word in relations);
+    if(relationsFound.length === 0) {
+        console.log("La relation n'existe pas, avez-vous fait une faute d'orthographe ?");
+    } else if (relationsFound.length === 1) {
+        //Get the words and the relation
+        words = sentence.split(relationsFound[0]);
+        //Remove spaces for each word
+        words = words.map(word => word.trim());
+
+        findLinkBetweenWords(words[0], relationsFound[0], words[1])
+            .then(([r1, r2]) => {
+                prettyPrintRelations(r1);
+                console.log("\n");
+                prettyPrintRelations(r2);
+            })
+            .catch(console.log);
+    }
+
+}
+
+//Read relations.json
+let relations = JSON.parse(fs.readFileSync("./relations.json"));
+
+executeInference("pigeon r_agent-1 voler");
+
