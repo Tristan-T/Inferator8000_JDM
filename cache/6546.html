@@ -1,0 +1,3603 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html>
+ <head>
+    <title>Le Rézo sous forme DUMP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+
+<link rel="stylesheet" type="text/css" href="CSS/jdm.css"/>
+<link rel="stylesheet" type="text/css" href="CSS/smoothbox.css"/>
+<link rel="stylesheet" type="text/css" href="CSS/Roar.css"/>
+<link rel="stylesheet" type="text/css" href="jsscripts/humanejs/themes/libnotifybottom.css"/>
+<meta name="robots" content="nofollow, notranslate" />
+<meta name="googlebot" content="nofollow, notranslate" />
+
+<meta name="description" content="Jeu d'associations de termes, trés sympa et amusant. Mots à collectionner, capturer. Trouver les associations les plus pertinentes."/>
+<meta name="keywords" lang="fr" content="jeu, mots, mot, expression, collection, associations, fonctions lexicales, jeuxdemots, amusant, fonction lexicale, réseau, réseau lexical, TAL, TALN, langue, langage, lexique, dictionnaire"/>
+<META HTTP-EQUIV="Content-Language" content="fr"/>
+<meta name="reply-to" content="jeuxdemeaux@gmail.com"/>
+<meta name="category" content="Jeux"/>
+<meta name="distribution" content="global"/>
+<meta name="revisit-after" content="7 days"/><meta name="author" lang="fr" content="LIRMM, Mathieu Lafourcade"/>
+<meta name="copyright" content="LIRMM, Mathieu Lafourcade"/>
+<meta name="generator" content=""/>
+<meta name="identifier-url" content="http://www.lirmm.fr/jeuxdemots"/>
+<meta name="expires" content="never"/>
+<meta name="Date-Creation-yyyymmdd" content="mai 2006"/>
+<meta name="Date-Revision-yyyymmdd" content="septembre 2010"/>
+<meta name="google-site-verification" content="FJvgiMAOHMfdRtqEbU1H23AG_fLYRdz7fIioDc_oOxE" /><meta property="og:image" content="logo-jdm/logo1.jpg"/>
+<meta property="og:image" content="logo-jdm/Logo_JDMrect_fond noir.png"/>
+<meta property="og:image" content="logo-jdm/Logo_JDMrect_fond_blanc.png"/>
+<meta property="og:image" content="logo-jdm/Logo_JDMrect_fond_transp.png"/>
+<meta property="og:image" content="pics/logoJDMcarrevarianteFondNoir.png"/>
+<meta 
+	property="og:image" content="pics/logoJDMcarreFondBlanc.png"/>
+<meta property="og:image" content="pics/favicon-Je-32-bis.ico"/>
+
+<style>
+    @font-face {
+		font-family: "fontcandid";
+		src: url("fonts/TEMPSITC.TTF");
+	}
+</style>
+	
+<noscript>
+
+	<div style="position:absolute;z-index:10000;font-size:32pt;">
+
+	<CENTER>Javascript doit fonctionner ! Activez-le et rechargez cette page.
+
+	<br>
+
+	<IMG src="pics/error.png">
+
+	</CENTER>
+
+	<div>
+
+	<meta HTTP-EQUIV="Refresh" content="1;URL=http://jeuxdemots.org/"> 
+
+</noscript>
+
+
+<script type="text/javascript" src="jsscripts/mootools.js"></script>
+<script type="text/javascript" src="jsscripts/mootoolsmore.js"></script>
+<script type="text/javascript" src="jsscripts/jdm_twik_script.js"></script>
+<script type="text/javascript" src="jsscripts/jdm_duel_script.js"></script>
+<script type="text/javascript" src="jsscripts/jdm_shake_script.js"></script>
+<script type="text/javascript" src="jsscripts/jdm_beat_script.js"></script>
+<script type="text/javascript" src="jsscripts/jdm_nbrel_script.js"></script>
+<script type="text/javascript" src="jsscripts/jdm_playerstats_script.js"></script>
+<script type="text/javascript" src="jsscripts/shortcuts.js"></script>
+<script type="text/javascript" src="jsscripts/smoothbox.js"></script>
+<script type="text/javascript" src="jsscripts/overlay.js"></script>
+<script type="text/javascript" src="jsscripts/shake.js"></script>
+<script type="text/javascript" src="jsscripts/Roar.js"></script>
+<script type="text/javascript" src="jsscripts/humanejs/humane.js"></script>
+<link rel="shortcut icon" href="pics/favicon-Je-32-bis.ico" type="image/x-icon" />
+
+   	<link href='http://fonts.googleapis.com/css?family=Schoolbell' rel='stylesheet' type='text/css'>
+   	  </head>
+<body STYLE="overflow:auto;
+overflow-x:auto;
+overflow-y:visible;overflow-x:hidden;
+padding: 0px; margin: 0px; border: 0px;">
+
+<div class="jdm-level1-block">
+
+	<div class="jdm-prompt-block">
+    <div class="jdm-prompt">
+    Le Rézo format DUMP    </div>
+	</div>
+
+</div>
+
+<div class="jdm-level2-block">
+    <div id="rezoform" style="position:relative;top:-43px;left:100px;">
+    
+
+    Lien de cette page: <URL>?gotermsubmit=Chercher&gotermrel=vampire&rel=</URL>
+    <br>
+    <br>
+
+     <form id="gotermrel" name="gotermrel" method="get" action="rezo-dump.php" >
+	    <input id="gotermsubmit" type="submit" name="gotermsubmit" value="Chercher">
+	    le terme
+	    <input id="gotermrel" type="text" name="gotermrel" value="vampire" size=100>
+	    <br><fieldset>
+  <legend> Options </legend>
+	Numéro de relation
+	<input id="rel" type="text" name="rel" value="" size=10>
+  <div>
+    <input type="checkbox" id="relout" name="relout" value="norelout" >
+    <label for="relout">Pas de relations sortantes</label>
+  </div>
+  <div>
+    <input type="checkbox" id="relin" name="relin" value="norelin" >
+    <label for="relin">Pas de relations entrantes</label>
+  </div>
+</fieldset></form>
+<br>
+<br>FROM CACHE [6546.txt] : size=111649 - date=May 09 2022 11:34:22. - 8189 secondes ago - 0.094780092592593 days ago <br>
+
+<br>
+
+Code DUMP (cf source)<br>
+
+
+<CODE>
+// DUMP pour le terme 'vampire' (eid=6546)
+// NE PAS TENIR COMPTE DE L'ORDRE DES RELATIONS DANS CE DUMP
+
+<def>
+<br />
+Le vampire est un type de revenant qui fait partie des grandes créatures légendaires issues des mythologies où se combinent de diverses manières l'inquiétude de l'au-delà et le mystère du sang. Suivant différents folklores et selon la superstition la plus courante, ce mort-vivant se nourrit du sang des vivants afin d'en tirer sa force vitale, ses victimes devenant parfois des vampires après leur mort. La légende du vampire puise ses origines dans des traditions mythologiques anciennes et diverses, elle se retrouve dans toutes sortes de cultures à travers le monde.
+</def>
+
+
+
+// les types de noeuds (Nodes Types) : nt;ntid;'ntname'
+
+nt;1;'n_term'
+nt;2;'n_form'
+nt;4;'n_pos'
+nt;8;'n_chunk'
+nt;9;'n_question'
+nt;10;'n_relation'
+nt;18;'n_data'
+nt;36;'n_data_pot'
+nt;444;'n_link'
+nt;666;'n_AKI'
+nt;777;'n_wikipedia'
+
+// les noeuds/termes (Entries) : e;eid;'name';type;w;'formated name' 
+
+e;6546;'vampire';1;438
+e;239128;'_COM';36;50
+e;2983124;'_SW';36;50
+e;223172;'_POL-NEG';36;50
+e;132838;'mort-vivant';1;228
+e;14707487;':r350893984';10;0
+e;94990;'chauve-souris';1;156
+e;32303;'mythologie';1;3764
+e;2680;'sang';1;3868
+e;66460;'Dracula';1;136
+e;85447;'sucer';1;586
+e;10756;'personnage';1;3654
+e;74860;'homme';1;28860
+e;116675;'chiroptère';1;56
+e;175325;'chéiroptère';1;50
+e;244620;'être humain>74860';1;146;'être humain>homme'
+e;68439;'individu';1;6130
+e;49293;'humain';1;3437
+e;24956;'être humain';1;818
+e;63235;'mammifère';1;3621
+e;265839;'synapside';1;30
+e;152096;'victimes';1;3190
+e;110773;'amniote';1;82
+e;14710825;':r350900882';10;0
+e;91794;'tétrapode';1;96
+e;101018;'gnathostome';1;84
+e;86640;'vertébré';1;904
+e;19988;'Nosferatu le vampire';1;50
+e;195213;'entretien avec un vampire';1;50
+e;265277;'crâniate';1;58
+e;30729;'faux vampire';1;50
+e;176034;'vampire des enfers';1;50
+e;305995;'vampire des abysses';777;50
+e;89460;'Le Vol du vampire';1;50
+e;181481;'chauve-souris vampire';1;50
+e;272982;'Le Baiser du vampire';666;50
+e;217065;'dent de vampire';1;50
+e;252321;'Entretien avec un vampire';1;2
+e;241794;'_POL-NEUTRE';36;50
+e;317929;'olfactorien';1;40
+e;264881;'crânié';1;56
+e;142602;'cordé';1;112
+e;248081;'chordé';1;226
+e;330964;'cordé>117095';1;36;'cordé>zoologie'
+e;265220;'épineurien';1;20
+e;115304;'deutérostomien';1;114
+e;264880;'bilatérien';1;80
+e;264908;'eumétazoaire';1;80
+e;17559;'animal';1;14019
+e;55823;'métazoaire';1;174
+e;66517;'monstre';1;1808
+e;233133;'animal>117095';1;836;'animal>zoologie'
+e;325741;'choanobionte';1;76
+e;329657;'choano-organisme';1;62
+e;223173;'_POL-POS';36;50
+e;325738;'filozoaire';1;84
+e;116477;'personne';1;10307
+e;325736;'holozoaire';1;60
+e;325731;'opisthoconte';1;76
+e;274278;'créature imaginaire';1;52
+e;1733043;'vampire>171870';1;0;'vampire>Nom:'
+e;325728;'uniconte';1;42
+e;312770;'::>66:6546>17:108568';8;50;'vampire [carac] homosexuel'
+e;14400054;'::>66:6546>24:14400052';8;0;'vampire [peut] dormir [endroit] cercueil'
+e;14400051;'::>66:6546>24:43253';8;0;'vampire [peut] dormir'
+e;14902708;'::>66:6546>24:14902706';8;0;'vampire [peut] aspirer [objet] sang'
+e;14902705;'::>66:6546>24:110836';8;0;'vampire [peut] aspirer'
+e;64513;'mordre';1;604
+e;99408;'goule';1;58
+e;122930;'profiteur';1;74
+e;54794;'eucaryote';1;194
+e;19686;'fantôme';1;1535
+e;81713;'ogre';1;718
+e;37555;'exploiteur';1;68
+e;16508947;'::>66:6546>26:7943';8;0;'vampire [se faire] tuer'
+e;15838607;':r2843049';10;0
+e;16602575;'::>66:6546>24:1673338';8;0;'vampire [peut] dormir dans un cercueil'
+e;16606748;'::>66:6546>24:16606746';8;0;'vampire [peut] mordre [objet] jeune femme'
+e;16606745;'::>66:6546>24:64513';8;0;'vampire [peut] mordre'
+e;225916;'personne>24956';1;720;'personne>être humain'
+e;16606746;'::>14:30238>29:64513';8;0;'mordre [objet] jeune femme'
+e;83764;'créature';1;1665
+e;1673338;'dormir dans un cercueil';1;0
+e;15900460;':r414013449';10;0
+e;260820;'entité vivante';1;64
+e;1964021;':r13921344';10;0
+e;1964024;':r13982911';10;0
+e;1964025;':r14030188';10;0
+e;253770;'Vampirella';1;4
+e;1964022;':r2086342';10;0
+e;1964023;':r13722877';10;0
+e;1964026;':r13879598';10;0
+e;98971;'strige';1;50
+e;65081;'organisme vivant';1;146
+e;67271;'suceur de sang';1;52
+e;225847;'organisme>71624';1;98;'organisme>être vivant'
+e;237445;'être>68439';1;32;'être>individu'
+e;31085;'comte';1;3717
+e;131873;'légende';1;3177
+e;154718;'chauve souris';1;50
+e;27822;'mythe';1;2529
+e;14902706;'::>14:2680>29:110836';8;0;'aspirer [objet] sang'
+e;254878;'_POL-NEG_PC';36;50
+e;7943;'tuer';1;4408
+e;26979;'ail';1;774
+e;234036;'être vivant>123933';1;258;'être vivant>entité'
+e;16508946;'::>14:6546>29:7943';8;0;'tuer [objet] vampire'
+e;1733044;'vampire>171869';1;0;'vampire>Adj:'
+e;110836;'aspirer';1;500
+e;1964020;':r10927017';10;0
+e;43253;'dormir';1;6578
+e;14400052;'::>31:131418>29:43253';8;0;'dormir [endroit] cercueil'
+e;626;'peur';1;5423
+e;22264;'colère';1;2464
+e;90830;'dégoût';1;854
+e;1964018;':r11148475';10;0
+e;34901;'vampiriser';1;58
+e;265501;'comte Dracula';1;50
+e;395054;'Lestat le vampire';1;50
+e;14285287;'vampire>2946892';1;0;'vampire>Ver:Conjug'
+e;146883;'Adj:InvGen+SG';4;50
+e;146885;'Nom:Mas+SG';4;50
+e;120892;'méfiance';1;726
+e;20202;'tristesse';1;2622
+e;4552;'inquiétude';1;846
+e;60835;'terreur';1;1317
+e;144681;'angoisse';1;1858
+e;16606773;'::>66:6546>24:16606752';8;0;'vampire [peut] mordre [objet] femme'
+e;3177135;'Faux vampire';777;0
+e;23114;'anxiété';1;836
+e;270914;'Dracula>10756';1;40;'Dracula>personnage'
+e;214997;'vampire>132838';1;158;'vampire>mort-vivant'
+e;3743813;'dents de vampire sanguinolentes sur bave de crapaud pour Halloween';1;0
+e;16603557;'::>66:6546>24:16602581';8;0;'vampire [peut] dormir [endroit] cercueil>funérailles'
+e;1964017;':r11141854';10;0
+e;171870;'Nom:';4;50
+e;82489;'frustration';1;548
+e;17927;'haine';1;1984
+e;1964015;':r11128533';10;0
+e;1964016;':r11135236';10;0
+e;574841;'chauvesouris';777;50
+e;217271;'pieu>215825';1;14;'pieu>pièce de bois'
+e;71624;'être vivant';1;1888
+e;14771676;'::>14:116477>29:64513';8;0;'mordre [objet] personne'
+e;2835;'suceur';1;54
+e;2585996;'_INFO-CNRTL-YES';36;50
+e;396042;'tétrapode>86640';1;50;'tétrapode>vertébré'
+e;396149;'cynodonte';1;62
+e;1964014;':r11119062';10;0
+e;272985;'Comte Dracula';777;50
+e;5563394;'Suce-moi vampire';777;0
+e;9805948;'Armand le vampire';777;0
+e;9101992;'dents de vampire sanguinolentes sur bave de crapaud pour halloween';1;0
+e;9510432;'Zara la vampire';777;0
+e;10071367;'Ma baby-sitter est un vampire';777;0
+e;16507943;'L'attaque du vampire';777;0
+e;15237076;'Elle s'était déguisée en vampire.';1;0
+e;16166309;'calmar vampire des enfers';777;0
+e;17221908;'Vittorio le vampire';777;0
+e;191670;'_INFO-SEM-IMAGINARY';36;40
+e;214534;'_INFO-MEANING-FIGURED';36;50
+e;2362869;'faux-vampire';1;0
+e;14927608;'en:vampire';1;0
+e;214996;'vampire>94990';1;48;'vampire>chauve-souris'
+e;214998;'vampire>37555';1;8;'vampire>exploiteur'
+e;2586629;'Number:Sing';4;0
+e;391009;'célomate';1;50
+e;2586628;'Gender:Fem';4;0
+e;10430109;'petit vampire';777;0
+e;191668;'_INFO-SEM-THING-NATURAL';36;112
+e;438949;'_INFO-POLYMORPHIC';36;50
+e;216283;'dent>45311';1;284;'dent>dentaire'
+e;2586634;'Gender:Inv';4;0
+e;2586627;'Gender:Mas';4;0
+e;15513258;'prise vampire';1;0
+e;16606752;'::>14:61490>29:64513';8;0;'mordre [objet] femme'
+e;250116;'_INFO-SEM-PERS-MASC';36;50
+e;16602581;'::>31:234635>29:43253';8;0;'dormir [endroit] cercueil>funérailles'
+e;162761;'_INFO-SEM-PERS';36;732
+e;129044;'Roumanie';1;2903
+e;396247;'individu>24956';1;134;'individu>être humain'
+e;267642;'organisme animal';1;4
+e;64300;'célèbre';1;3736
+e;3576104;'Morpho:nospace';18;50
+e;1964019;':r14414146';10;0
+e;143669;'vertébrés';1;80
+e;124600;'mourir';1;2755
+e;87789;'coelomate';1;52
+e;10090793;'Journal d'un vampire';777;0
+e;10090791;'vampire diaries';777;0
+e;10090574;'L'Assistant du vampire';777;0
+e;1964027;':r172413';10;0
+e;100640;'roman';1;5248
+e;391010;'coelomé';1;50
+e;10071368;'Ma gardienne est un vampire';777;0
+e;10064383;'La Fiancée du vampire';777;0
+e;10760942;'Contes du vampire';777;0
+e;16166308;'tétra vampire';777;0
+e;67407;'Abraham Lincoln';1;62
+e;101193;'vampirisme';1;50
+e;86997;'sans âme';1;50
+e;217817;'_INFO-POLYSEMIC';36;50
+e;1964011;':r10755553';10;0
+e;38710;'littérature';1;4366
+e;164433;'canines';1;150
+e;77424;'oeil';1;3276
+e;9763;'croix';1;2882
+e;27890;'transformation';1;2963
+e;395040;'Anne Rice';1;12
+e;171869;'Adj:';4;50
+e;38988;'cape';1;186
+e;1964013;':r9611305';10;0
+e;1964028;':r1956150';10;0
+e;2394785;'vampirer';1;0
+e;29592;'film';1;7953
+e;142086;'jambe';1;3395
+e;140715;'jambes';1;1549
+e;10329335;'La Voix du vampire';777;0
+e;15237078;'canine de vampire';1;0
+e;10921519;'sucer du sang';1;0
+e;78053;'pieu';1;138
+e;60902;'dent';1;3454
+e;131514;'reflet';1;648
+e;166174;'Buffy';1;54
+e;38459;'simulacre';1;86
+e;42275;'loup-garou';1;398
+e;122864;'mort';1;7245
+e;77750;'chauves-souris';1;50
+e;117095;'zoologie';1;2392
+e;139272;'folklore';1;740
+e;166676;'Buffy contre les vampires';1;54
+e;43222;'effrayant';1;292
+e;4311427;'aux dépens d'autrui';1;0
+e;3093590;'VerbalMode:Indicatif';4;0
+e;109811;'revenant';1;258
+e;81934;'main';1;6788
+e;1636805;'oeil>44335';1;50;'oeil>organe'
+e;11347641;'Le Viol du vampire';777;0
+e;191669;'_INFO-SEM-LIVING-BEING';36;160
+e;1964012;':r10779398';10;0
+e;4311437;'bn:03660079n';444;0
+e;166173;'Vlad';1;76
+e;131418;'cercueil';1;558
+e;135544;'morsure';1;322
+e;117895;'elfe';1;298
+e;29672;'croyance';1;2145
+e;24207;'vampires';1;58
+e;47319;'colonne vertébrale';1;362
+e;5955321;'Un vampire à Brooklyn';777;0
+e;14738;'slave';1;118
+e;14338;'attaquer';1;1286
+e;58404;'canine';1;1614
+e;2935005;'VerbalTime:Present';4;0
+e;2946892;'Ver:Conjug';4;0
+e;32735;'poumons';1;395
+e;187620;'patte postérieure';1;6
+e;126285;'dos';1;2898
+e;16747;'adn';1;164
+e;10032448;'Un vampire au paradis';777;0
+e;10741629;'Baron vampire';777;0
+e;48855;'carnivore';1;1566
+e;224422;'manger>113902>119570';1;206;'manger>alimentation>absorber'
+e;39058;'hanter';1;306
+e;326931;'::>14:43945>29:39058';8;50;'hanter [objet] manoir'
+e;166175;'Spike';1;50
+e;59765;'crucifix';1;96
+e;119018;'exploitation';1;1319
+e;225934;'oeil>330323';1;224;'oeil>organe de la vue'
+e;16110;'bouche';1;4340
+e;96211;'coeur';1;2342
+e;39031;'cerveau';1;2776
+e;114327;'acide désoxyribonucléique';1;140
+e;36886;'faune';1;2225
+e;2384226;'demi-vampire';1;0
+e;10005789;'Dans les griffes du vampire';777;0
+e;49337;'crainte';1;1530
+e;1964010;':r10750266';10;0
+e;9677321;':r101433';10;0
+e;4311435;'bn:04759747n';444;0
+e;4311436;'bn:04028497n';444;0
+e;77389;'avarice';1;296
+e;247057;'symétrie bilatérale';1;10
+e;32851;'mammifères';1;2107
+e;589095;'suceur>171870';1;0;'suceur>Nom:'
+e;146894;'Adj:Fem+SG';4;50
+e;146888;'Adj:Mas+SG';4;50
+e;3093591;'VerbalMode:Subjonctif';4;0
+e;436570;'entité biologique';1;50
+e;77008;'yeux';1;4537
+e;152844;'sang chaud';1;88
+e;107477;'nez';1;2903
+e;233138;'tête>390963';1;72;'tête>extrémité supérieure du corps'
+e;3326768;'faux-vampire>171870';1;0;'faux-vampire>Nom:'
+e;226186;'crypte>84619';1;60;'crypte>souterrain'
+e;43945;'manoir';1;200
+e;32732;'crypte';1;128
+e;114090;'Amérique du Sud';1;242
+e;130164;'manger';1;10304
+e;43601;'se reproduire';1;502
+e;2442;'vivre';1;3276
+e;140318;'parler';1;4469
+e;251694;'mourir>126720';1;238;'mourir>cesser de vivre'
+e;259820;'vivre>160251';1;78;'vivre>être en vie'
+e;47918;'boire';1;4566
+e;326650;'::>14:68439>29:56921';8;50;'exploiter [objet] individu'
+e;161092;'::>14:68439>29:56921>13';9;50;'Qui pourrait exploiter un individu ?'
+e;327404;'::>14:74860>29:56921';8;50;'exploiter [objet] homme'
+e;160374;'::>14:74860>29:56921>13';9;50;'Qui pourrait exploiter un homme ?'
+e;326908;'::>14:139527>29:39058';8;50;'hanter [objet] ruine'
+e;239950;'mordre>135544';1;72;'mordre>morsure'
+e;157384;'::>14:139527>29:39058>13';9;50;'Qui pourrait hanter une ruine ?'
+e;45225;'effrayer';1;248
+e;33882;'se nourrir';1;436
+e;214745;'sucer>110836';1;16;'sucer>aspirer'
+e;6681658;'manger>113902';1;138;'manger>alimentation'
+e;105814;'regarder';1;3656
+e;14400050;'::>13:6546>29:43253';8;0;'dormir [sujet] vampire'
+e;14902704;'::>13:6546>29:110836';8;0;'aspirer [sujet] vampire'
+e;14936475;'en:spook';1;0
+e;16602574;'::>13:6546>29:1673338';8;0;'dormir dans un cercueil [sujet] vampire'
+e;16606744;'::>13:6546>29:64513';8;0;'mordre [sujet] vampire'
+e;14471897;'::>13:225916>29:7943';8;0;'tuer [sujet] personne>être humain'
+e;16531187;'::>13:116477>29:7943';8;0;'tuer [sujet] personne'
+e;248198;'_SEX_NO';36;50
+e;4311433;'bn:00851498n';444;0
+e;234721;'Edward Cullen';1;18
+e;161698;'Ver:IPre+SG+P1:IPre+SG+P3:SPre+SG+P1:SPre+SG+P3:ImPre+SG+P2';4;50
+e;109785;'peau';1;3979
+e;116980;'squelette';1;1226
+e;120157;'règne animal';1;102
+e;14715175;'dents de vampire';1;0
+e;1384;'vivant';1;3307
+e;3575927;'Morpho:min';18;50
+e;1964009;':r11254162';10;0
+e;3228593;'wiki:@';444;0
+e;4311434;'bn:03129053n';444;0
+e;38119;'spectre';1;2410
+e;125121;'farfadet';1;148
+e;213644;'os>116980';1;404;'os>squelette'
+e;2505679;'phantôme';1;0
+e;74846;'corps';1;5240
+e;390927;'tête>112609';1;72;'tête>anatomie'
+e;14916413;'Langue:français';18;50
+e;17456944;'::>66:6546>24:14771676';8;0;'vampire [peut] mordre [objet] personne'
+e;4445;'Carpates';1;72
+e;104621;'vision';1;3076
+e;80897;'apparence';1;1545
+e;413667;'Vampire';1;50
+e;212235;'Ver:';4;50
+e;316850;'entité physique';1;50
+e;144846;'tête';1;5937
+e;145953;'visage';1;3047
+e;108463;'ventre';1;2056
+e;141814;'vertèbre';1;392
+e;57875;'tube digestif';1;118
+e;326146;'système nerveux en position dorsale';1;56
+e;10664548;'L'Ombre du vampire';777;0
+e;330215;'bilatéralement symétrique';1;22
+e;4311430;'bn:00049788n';444;0
+e;4311438;'bn:15911059n';444;0
+e;4311439;'bn:01966678n';444;0
+e;141111;'s'enrichir';1;102
+e;151867;'pattes';1;2265
+e;26363;'bras';1;4155
+e;34898;'pied';1;4548
+e;139779;'ADN';1;1254
+e;219363;'corps>112609';1;190;'corps>anatomie'
+e;240720;'squelette>112609';1;152;'squelette>anatomie'
+e;187622;'patte antérieure';1;8
+e;221019;'bouche>112609';1;214;'bouche>anatomie'
+e;241352;'ventre>112609';1;100;'ventre>anatomie'
+e;95422;'cou';1;1944
+e;103311;'système nerveux';1;276
+e;83944;'nerf';1;858
+e;228289;'sexe>218086';1;282;'sexe>organe sexuel'
+e;126388;'articulation';1;730
+e;213792;'coeur>213791';1;186;'coeur>organe musculaire'
+e;221034;'bras>112609';1;186;'bras>anatomie'
+e;133424;'endotherme';1;50
+e;99220;'hétérotrophe';1;68
+e;162763;'_INFO-SEM-THING-CONCRETE';36;1238
+e;4311431;'bn:00026570n';444;0
+e;4311432;'bn:00078463n';444;0
+e;4311440;'bn:04823078n';444;0
+e;15216912;'en:fanger';1;0
+e;14940529;'en:ghoul';1;0
+e;14927607;'en:vampire bat';1;0
+e;14966395;'en:oupire';1;0
+e;14471898;'::>66:225916>24:7943';8;0;'personne>être humain [peut] tuer'
+e;16508951;'::>66:225916>24:16508946';8;0;'personne>être humain [peut] tuer [objet] vampire'
+e;17515224;'::>66:6546>24:326931';8;0;'vampire [peut] hanter [objet] manoir'
+e;6947917;'en:vertebrata';1;0
+e;6948258;'en:mammalia';1;0
+e;175720;'Mammalia';1;50
+e;14270798;'VerbalMode:Impératif';4;0
+e;14270847;'Ver:ImPre+SG+P2';4;0
+e;14270944;'VerbalPers:P3';4;0
+e;14270943;'VerbalPers:P2';4;0
+e;14270942;'VerbalPers:P1';4;0
+e;14270945;'VerbalNumber:SG';4;0
+e;150120;'Ver:SPre+SG+P3';4;50
+e;150119;'Ver:SPre+SG+P1';4;50
+e;150118;'Ver:IPre+SG+P3';4;50
+e;150117;'Ver:IPre+SG+P1';4;50
+e;1796534;'fantôme>171869';1;0;'fantôme>Adj:'
+e;1796533;'fantôme>171870';1;0;'fantôme>Nom:'
+e;589096;'suceur>171869';1;0;'suceur>Adj:'
+e;101689;'être animé';1;50
+e;14049831;'organisme vivant pluricellulaire hétérotrophe';1;6
+e;14049840;'organisme vivant pluricellulaire';1;0
+e;14049844;'organisme vivant hétérotrophe';1;0
+e;1655534;'cœlomate';1;0
+e;12321907;'en:eukaryote';1;0
+e;2461482;'métazoaire supérieur';1;0
+e;14940408;'en:gnathostome';1;0
+e;60152;'bassin';1;2996
+e;213977;'bassin>112609';1;20;'bassin>anatomie'
+e;94431;'neck';1;52
+e;12791689;'acide désoxyribo-nucléique';1;0
+e;6800176;'en:heart';1;0
+e;11405719;'heart';1;0
+e;398564;'mâchoires';1;50
+e;11008328;'ADN>30051';1;8;'ADN>code génétique'
+e;364788;'monde animal';1;50
+e;6312596;'vampire commun';1;0
+e;6369055;'main de vampire';1;0
+e;13642899;'La Marque du vampire';777;0
+e;14580155;'Nosférax le vampire';777;0
+e;11641;'tué';1;3210
+e;52413;'carnassier';1;402
+e;7332979;'Langue:anglais';18;50
+e;159452;'::>14:43945>29:39058>16';9;50;'Avec quoi pourrait-on hanter un manoir ?'
+e;15991431;'_ANIME-YES';36;50
+e;1912917;'_INFO-COUNTABLE-YES';36;0
+e;276096;'_INFO-WIKI-YES';36;50
+e;14935513;'en:ail';1;0
+e;27486;'apparition';1;2704
+e;22221;'phantasme';1;74
+e;32122;'légendaire';1;1907
+e;107846;'ombre';1;350
+e;115477;'chimère';1;200
+e;152125;'Zoologie';1;210
+e;1964006;':r10922020';10;0
+e;1964007;':r2895994';10;0
+e;1964008;':r12045696';10;0
+e;16035668;'desmodontidé';1;0
+e;248197;'_SEX_YES';36;50
+e;13451;'esprit';1;2686
+e;89665;'anthropophage';1;94
+e;62788;'miroir';1;2315
+e;39636;'pâle';1;665
+e;1964005;':r10784664';10;0
+e;254877;'_POL-NEUTRE_PC';36;50
+e;17515222;'::>13:6546>29:39058';8;0;'hanter [sujet] vampire'
+e;1964002;':r10767200';10;0
+e;1964004;':r10862296';10;0
+e;7256380;'en:zoology';1;0
+e;62803;'chiroptères';1;52
+e;254876;'_POL-POS_PC';36;50
+e;155740;'eau bénite';1;96
+e;1964003;':r2822199';10;0
+e;10314012;'en:heterotroph';1;0
+e;1964001;':r10789867';10;0
+e;1964030;':r2101790';10;0
+e;15760710;'mort de';1;0
+e;6797233;'en:vertebra';1;0
+e;15080161;'en:animal kingdom';1;0
+e;1963999;':r10778183';10;0
+e;317325;'_POLIT_4MD';36;50
+e;52169;'Folklore';1;50
+e;115926;'superstition';1;444
+e;143050;'Mythologie';1;68
+e;116084;'Confins militaires';1;50
+e;225158;'Empire ottoman';1;46
+e;88265;'linceul';1;90
+e;106655;'bénédictin';1;74
+e;166067;'fantômes';1;80
+e;121053;'décomposition';1;1560
+e;112192;'cadavre';1;861
+e;262891;'cadavres';1;108
+e;44559;'tuberculose';1;120
+e;95935;'rage';1;668
+e;121194;'porphyrie';1;52
+e;155302;'tueur en série';1;360
+e;272120;'George Gordon Byron';777;50
+e;272121;'Lord Byron';777;54
+e;189626;'Bram Stoker';1;64
+e;8914;'jeux vidéo';1;182
+e;112281;'jeux de rôle';1;58
+e;55179;'langue anglaise';1;50
+e;40186;'Serbie';1;1467
+e;63580;'Autriche';1;3252
+e;101486;'étymologie';1;242
+e;32132;'mot';1;4637
+e;12753;'vocable';1;90
+e;222796;'Bulgare';1;50
+e;111035;'bulgare';1;80
+e;35887;'croate';1;54
+e;173437;'Tchèque';1;4
+e;74866;'tchèque';1;2634
+e;101838;'slovaque';1;58
+e;102314;'polonais';1;2753
+e;173463;'Ukrainien';1;52
+e;29159;'ukrainien';1;64
+e;151499;'Russe';1;96
+e;32403;'russe';1;3492
+e;202672;'langues ouraliennes';1;50
+e;76305;'finnois';1;58
+e;11838;'langues altaïques';1;52
+e;37040;'tatar';1;52
+e;137330;'Colophon';1;50
+e;13746;'colophon';1;50
+e;107378;'glagolitique';1;50
+e;44433;'cyrillique';1;56
+e;20982;'paganisme';1;56
+e;91555;'Nosferatu';1;56
+e;104089;'Werner Herzog';1;56
+e;46022;'Düsseldorf';1;52
+e;143306;'Esprit';1;52
+e;75769;'esprits';1;2064
+e;144817;'Démon';1;50
+e;141886;'démons';1;430
+e;93461;'crieur';1;84
+e;101994;'appeleur';1;50
+e;10417;'Cauchemar';1;50
+e;145424;'cauchemar';1;328
+e;38186;'immortalité';1;78
+e;69979;'immortelle';1;104
+e;97628;'cimetière';1;2565
+e;123866;'excrément';1;410
+e;39009;'excréments';1;106
+e;13844;'théâtre';1;3848
+e;151725;'Cinéma';1;3099
+e;24916;'femme fatale';1;104
+e;54076;'vamp';1;88
+e;25667;'Église orthodoxe';1;52
+e;242516;'église orthodoxe';1;72
+e;49926;'profanation';1;90
+e;101895;'épidémie';1;718
+e;124380;'Tolstoï';1;68
+e;116863;'Moyen Âge';1;288
+e;23555;'choléra';1;78
+e;143261;'Peste';1;50
+e;67946;'peste';1;1906
+e;134744;'claudication';1;50
+e;101214;'Slaves';1;50
+e;60989;'stigmatisation';1;62
+e;100566;'Valachie';1;62
+e;32211;'étalon';1;222
+e;140927;'Noir';1;2530
+e;43134;'noire';1;3319
+e;216504;'cheval blanc';1;56
+e;15196;'blanc';1;4731
+e;255129;'religion orthodoxe';1;4
+e;33531;'fossoyeur';1;96
+e;136161;'bétail';1;148
+e;220989;'Poltergeist';1;54
+e;67383;'poltergeist';1;56
+e;1802;'nécromancie';1;236
+e;152685;'Animal';1;50
+e;137239;'Loup';1;824
+e;1125;'loup';1;2125
+e;103383;'inquisiteur';1;68
+e;1041;'sorcellerie';1;562
+e;60285;'lycanthrope';1;60
+e;100460;'lycanthropie';1;54
+e;62938;'décapitation';1;136
+e;1262;'Faucille';1;50
+e;136892;'faucille';1;72
+e;16496;'obole';1;72
+e;143412;'Charon';1;62
+e;60454;'pavot';1;92
+e;145527;'Millet';1;62
+e;35758;'millet';1;74
+e;21405;'âme';1;1765
+e;110215;'gitan';1;234
+e;135191;'Venise';1;3073
+e;98087;'apotropaïque';1;50
+e;170237;'ail cultivé';1;50
+e;123771;'aubépine';1;60
+e;28335;'moutarde';1;334
+e;5588;'Rosaire';1;50
+e;146169;'rosaire';1;52
+e;140356;'Église';1;3135
+e;271762;'sous-continent indien';1;56
+e;71930;'lithographie';1;102
+e;70085;'Paul Féval';1;58
+e;105497;'crémation';1;118
+e;23316;'frêne';1;66
+e;113669;'Russie';1;3633
+e;108930;'pays baltes';1;50
+e;34624;'chêne';1;1321
+e;4824;'Silésie';1;54
+e;122203;'pilum';1;72
+e;89142;'Allemagne';1;3719
+e;278310;'langues turques';777;50
+e;281534;'Nosferatu, fantôme de la nuit';1;50
+e;280590;'gitans';777;66
+e;189274;'Friedrich Wilhelm Murnau';1;50
+e;126998;'Murnau';1;54
+e;35819;'Pérou';1;2641
+e;129342;'Buffon';1;56
+e;51925;'Proverbe';1;50
+e;139468;'proverbe';1;170
+e;71903;'Diable';1;126
+e;34238;'Eucharistie';1;58
+e;12326;'sangsue';1;102
+e;141068;'Moustique';1;50
+e;59582;'moustique';1;800
+e;56302;'Madagascar';1;2705
+e;130277;'céphalopode';1;260
+e;143291;'Chine';1;3775
+e;175314;'Chat';1;904
+e;150;'chat';1;5437
+e;64278;'Balkans';1;66
+e;137519;'Papillon';1;56
+e;18285;'papillon';1;1702
+e;61810;'Daces';1;76
+e;12182;'psychopompe';1;60
+e;35114;'Grèce';1;3470
+e;77779;'Polésie';1;50
+e;75785;'Pologne';1;3511
+e;152005;'sorciers';1;84
+e;23900;'Bosnie-Herzégovine';1;56
+e;45773;'Bosnie';1;58
+e;138976;'Afrique de l'Ouest';1;84
+e;112276;'luciole';1;180
+e;172379;'Le Cap';1;50
+e;7910;'Cap';1;2715
+e;18229;'Oiseau';1;54
+e;140176;'oiseau';1;7456
+e;218165;'Foudre';1;50
+e;73892;'foudre';1;374
+e;34839;'Tonnerre';1;50
+e;138239;'tonnerre';1;392
+e;48486;'vaudou';1;434
+e;94998;'île Maurice';1;60
+e;52354;'Caraïbes';1;1345
+e;46228;'Louisiane';1;1444
+e;144403;'Trinité';1;521
+e;5079;'Colombie';1;2685
+e;39726;'Mapuches';1;50
+e;74414;'Rhode Island';1;50
+e;32302;'Connecticut';1;763
+e;46668;'Exeter';1;52
+e;42313;'Asie';1;3225
+e;138879;'Inde';1;3301
+e;146396;'Japon';1;3724
+e;109752;'Philippines';1;2384
+e;105453;'Malaisie';1;2160
+e;122529;'Indonésie';1;2222
+e;35595;'magie noire';1;424
+e;94530;'Bali';1;68
+e;76479;'Pontianak';1;50
+e;274527;'chinois simplifié';777;50
+e;274530;'chinois traditionnel';777;50
+e;80390;'pinyin';1;50
+e;219742;'Qi';1;4
+e;77416;'Mésopotamie';1;855
+e;62722;'hébraïque';1;54
+e;69754;'grecque';1;3490
+e;31280;'romaine';1;3567
+e;246838;'hystérie collective';1;58
+e;203066;'Lilith';1;90
+e;216164;'Égypte antique';1;34
+e;145289;'Sekhmet';1;50
+e;141835;'Baal';1;54
+e;144556;'Tezcatlipoca';1;50
+e;139062;'Perse';1;2432
+e;21297;'Bible';1;2897
+e;16974;'Moïse';1;76
+e;8768;'David';1;3712
+e;278685;'roi David';1;50
+e;141189;'Scythes';1;52
+e;68165;'scythes';1;50
+e;74161;'Huns';1;1333
+e;8942;'Zoulous';1;50
+e;43978;'Amérindiens';1;52
+e;12413;'Assyrie';1;70
+e;25015;'démonologie';1;54
+e;66571;'Lamia';1;50
+e;1316;'Grèce antique';1;244
+e;123696;'Rome antique';1;248
+e;150705;'stryge';1;50
+e;72150;'Hécate';1;50
+e;151552;'mythologie grecque';1;682
+e;145011;'Circé';1;82
+e;11889;'Médée';1;60
+e;138356;'Hadès';1;86
+e;50729;'Homère';1;276
+e;142687;'L'Odyssée';1;50
+e;138516;'Odyssée';1;226
+e;69560;'Créon';1;52
+e;33210;'Polynice';1;50
+e;143463;'Antigone';1;56
+e;124719;'Sophocle';1;80
+e;75253;'Aristée';1;50
+e;7286;'Platon';1;2672
+e;80298;'Démocrite';1;50
+e;3644;'Crète';1;738
+e;53411;'Ovide';1;76
+e;55152;'Théocrite';1;50
+e;108373;'Empire romain';1;92
+e;192;'Transylvanie';1;80
+e;18379;'christianisation';1;60
+e;62163;'au-delà';1;2803
+e;283493;'stryges';777;50
+e;283973;'Desmodontinae';777;50
+e;95544;'contrit';1;52
+e;269104;'âme en peine';1;50
+e;199500;'énergie vitale';1;58
+e;398987;'mythologiques';1;50
+e;414680;'Rage';1;58
+e;410731;'Mot';1;50
+e;425127;'Croate';1;50
+e;423561;'Polonais';1;58
+e;397221;'Sang';1;50
+e;429336;'Étalon';1;50
+e;417928;'cauchemars';1;50
+e;436002;'Sorcellerie';1;50
+e;407714;'Pavot';1;50
+e;425495;'Âme';1;50
+e;428501;'Gitan';1;50
+e;415321;'Moutarde';1;50
+e;404129;'églises';1;2499
+e;415475;'Miroir';1;50
+e;1775673;'rosier sauvage';1;0
+e;2201364;'folklores';2;0
+e;2049022;'gothiques';2;0
+e;2070410;'païennes';2;0
+e;2118059;'revenants';2;0
+e;2067907;'linceuls';2;0
+e;2059548;'inquisiteurs';2;0
+e;2442334;'Slovaque';1;0
+e;2440660;'Cercueil';1;0
+e;3228013;'Canines';777;0
+e;3186220;'Chauve-souris';1;0
+e;144578;'Revenant';1;50
+e;3304944;'Étymologie';777;1468
+e;2399579;'Albanais';1;0
+e;413215;'albanaise';1;50
+e;6260560;'Cadavre';1;0
+e;5558945;'vampirisme clinique';777;0
+e;5793470;'Oxford English Dictionary';777;0
+e;8856497;'Canine';1;0
+e;9967282;'Abraham Van Helsing';777;0
+e;432472;'Pratique';1;50
+e;145946;'pratique';1;3631
+e;5838003;'Rosa acicularis';777;0
+e;5829666;'aloe vera';777;0
+e;5369938;'Crucifix';1;0
+e;138244;'Voltaire';1;1693
+e;121511;'Dictionnaire philosophique';1;50
+e;189003;'Pierre Larousse';1;50
+e;10985160;'Dom Calmet';777;0
+e;10985159;'Augustin Calmet';777;0
+e;11030663;'Fossoyeur';1;0
+e;252105;'univers de fiction';1;2
+e;271288;'Donjons et Dragons';666;6
+e;11147701;'Ravenloft';777;0
+e;293880;'Howard Phillips Lovecraft';777;50
+e;2586189;'ricien';1;0
+e;10513313;'White Wolf Publishing';777;0
+e;11415688;'Claude Lecouteux';777;0
+e;12903110;'vrykolakas';1;0
+e;11646369;'H.P. Lovecraft';1;0
+e;13853567;'La Vampire';777;0
+e;13989044;'Linceul';1;0
+e;95989;'chapelet';1;108
+e;14192683;'Sous-continent indien';777;0
+e;172932;'Allemand';1;18
+e;105503;'allemand';1;3716
+e;65243;'serbo-croate';1;50
+e;5703462;'Langues slaves';777;0
+e;57909;'langues slaves';1;50
+e;10314480;'oupyr';777;0
+e;2378757;'proto-slave';1;0
+e;2501512;'polabe';1;0
+e;2401395;'Tatar';1;2
+e;2083037;'tatare';2;0
+e;416286;'Sanskrit';1;50
+e;13442443;'Chiroptera';1;0
+e;11645384;'Georges-Louis Leclerc de Buffon';1;0
+e;13665131;'Ferdinand Denis';777;0
+e;16323600;'Serbo-croate';777;0
+e;1733045;':r10760750';10;0
+e;1964000;':r10765968';10;0
+e;1964029;':r28431657';10;0
+e;237444;'être>94160';1;62;'être>existence'
+e;61316;'épouser';1;286
+e;8748004;':r2985420';10;0
+e;14917526;'en:deoxyribonucleic acid';1;0
+e;17515223;'::>66:6546>24:39058';8;0;'vampire [peut] hanter'
+e;214369;'animal imaginaire';1;12
+e;15204740;'en:hind paw';1;0
+e;47972;'réfléchir';1;762
+e;8753735;':r177327118';10;0
+e;14981175;':r391314606';10;0
+e;330963;'cordé>3674';1;50;'cordé>botanique'
+e;218947;'apparition>52906';1;54;'apparition>apparaître'
+e;74558;'os';1;3037
+e;225846;'organisme>332175';1;54;'organisme>ensemble des organes'
+e;225848;'organisme>118203';1;52;'organisme>corps humain'
+e;237441;'être>85728';1;12;'être>exister'
+e;237443;'être>37229';1;66;'être>se trouver'
+e;15047666;'en:alimentary canal';1;0
+e;1963998;':r650921';10;0
+e;2591888;':r570648';10;0
+e;2591889;':r18137955';10;0
+e;2591890;':r54715807';10;0
+e;15871078;':r413691618';10;0
+e;16498352;':r409561679';10;0
+e;17517298;':r478012116';10;0
+e;3702289;'spectre>103702';1;0;'spectre>palette'
+e;241950;'spectre>139624';1;50;'spectre>champ d'action'
+e;241951;'spectre>43504';1;50;'spectre>physique'
+e;249270;'mammifère volant';1;2
+e;13369;'être';1;3929
+e;58768;'organisme';1;2509
+e;157007;'être>146885';1;50;'être>Nom:Mas+SG'
+e;14918011;'en:DNA';1;0
+e;14657997;':r372511718';10;0
+e;225849;'organisme>86627';1;50;'organisme>organisation'
+e;396249;'individu>64226';1;54;'individu>administration'
+e;6798394;'en:neck';1;0
+e;37298;'amour';1;7157
+e;86356;'rouge';1;5574
+e;1964031;':r3023726';10;0
+e;1964032;':r2099190';10;0
+e;1964033;':r3021497';10;0
+e;14978235;':r390188453';10;0
+e;14979081;':r149051314';10;0
+e;3781186;'dbnary:fra:__ws_1_vampire__nom__1';444;0
+e;3890554;'dbnary:fra:__ws_2_vampire__nom__1';444;0
+e;3999558;'dbnary:fra:__ws_3_vampire__nom__1';444;0
+e;4107669;'dbnary:fra:__ws_4_vampire__nom__1';444;0
+e;76583;'volant';1;1789
+e;147184;'dents';1;2390
+e;244621;'être humain>23559';1;52;'être humain>bonté'
+e;234035;'être vivant>2442';1;4;'être vivant>vivre'
+e;3170279;'individu>25345';1;8;'individu>quidam'
+e;396248;'individu>69012';1;50;'individu>statistique'
+e;396250;'individu>35143';1;56;'individu>biologie'
+e;396146;'thérapside';1;54
+e;237324;'True Blood';1;8
+e;84098;'Bal des vampires';1;60
+e;14721397;'être attiré par l'odeur du sang';1;18
+e;14721398;'être alléché';1;24
+e;142520;'minuit';1;204
+e;237249;'vampirisation';1;4
+e;237323;'Sookie Stackhouse';1;22
+e;49836;'pieux';1;98
+e;9221014;'attiré par le sang';1;0
+e;225843;'goule>132838';1;50;'goule>mort-vivant'
+e;14946896;'en:werewolf';1;0
+e;222208;'loup garou';1;66
+e;245650;'::>66:26979>17:74183';8;50;'ail [carac] doux'
+e;234692;'Twilight';1;20
+e;234720;'Bella Swan';1;6
+e;233191;'Robert Pattinson';1;22
+e;259690;'apporter du sang neuf';1;50
+e;93097;'Les Chauves-Souris';1;50
+e;14653843;'odeur du sang';1;10
+e;428;'caveau';1;182
+e;257602;'soleil couchant';1;70
+e;305298;'chauve-souris des tombeaux';777;50
+e;15237077;'en:She was dressed up as a vampire.';1;0
+e;14721400;'blessure sanguinolente';1;40
+e;14721399;'avoir le goût du sang';1;42
+e;93735;'fantasme';1;226
+e;215012;'Joann Sfar';1;6
+e;218948;'apparition>38119';1;54;'apparition>spectre'
+e;143475;'Chiroptères';1;50
+e;241949;'spectre>19686';1;30;'spectre>fantôme'
+e;6088909;'Khayman';777;0
+e;144916;'argent';1;7284
+e;15194901;'en:setting sun';1;0
+e;9056;'victime';1;3224
+e;2498983;'Carpathes';1;0
+e;75617;'zombie';1;322
+e;16311119;'::>66:43945>26:39058';8;0;'manoir [se faire] hanter'
+e;16606747;'::>66:30238>26:64513';8;0;'jeune femme [se faire] mordre'
+e;16531188;'::>66:116477>24:7943';8;0;'personne [peut] tuer'
+e;16599814;'::>66:116477>24:16508946';8;0;'personne [peut] tuer [objet] vampire'
+e;16508952;'::>66:16508951>155:8472833';8;0;'personne>être humain [peut] tuer [objet] vampire [utilisant] balle en argent'
+e;13640062;'Akasha';777;0
+e;14902707;'::>66:2680>26:110836';8;0;'sang [se faire] aspirer'
+e;16530494;'::>66:16508951>155:16530490';8;0;'personne>être humain [peut] tuer [objet] vampire [utilisant] pieu en bois'
+e;14400053;'::>66:131418>30:43253';8;0;'cercueil [lieu pour] dormir'
+e;1395235;'être>171870';1;0;'être>Nom:'
+e;14771677;'::>66:116477>26:64513';8;0;'personne [se faire] mordre'
+e;6800353;'en:nervous system';1;0
+e;53338;'vampirique';1;50
+e;16059725;'vampiresque';1;0
+e;15088586;'en:systema nervosum';1;0
+e;108476;'inquiétant';1;106
+e;132281;'flippant';1;60
+e;51187;'angoissant';1;98
+e;15342254;'qui fait peur';1;0
+e;15216907;'en:canine teeth';1;0
+e;15216906;'en:dentes canini';1;0
+e;14934846;'en:scary';1;0
+e;15085126;'en:frightening';1;0
+e;221983;'homme>24956';1;218;'homme>être humain'
+e;14606397;'organisme hétérotrophe';1;2
+e;10039796;'JoJo's Bizarre Adventure';777;0
+e;17242822;'Sir Christopher Lee';777;0
+e;419255;'Quinn';1;50
+e;17221928;'Tarquin Anthony Blackwood';777;0
+e;5841052;'Nicki';1;0
+e;5893763;'Nicolas de Lenfent';777;0
+e;17221927;'Marius de Romanus';777;0
+e;88312;'Marius';1;502
+e;397375;'Jesse';1;50
+e;17221926;'Jesse Miriam Reeves';777;0
+e;17221925;'mael';777;0
+e;17221924;'David Talbot';777;0
+e;60885;'Armand';1;2290
+e;14669;'Claudia';1;50
+e;17221923;'Gabrielle de Lioncourt';777;0
+e;395149;'Lestat de Lioncourt';777;50
+e;17221921;'Louis de Pointe du Lac';777;0
+e;17221899;'Chroniques des vampires';777;0
+e;17181537;'Rosencrantz and Guildenstern Are Undead';777;0
+e;17175614;'Elizabeth Reaser';777;0
+e;17139295;'Asanbosam';777;0
+e;17058277;'Halley Brancket';777;0
+e;17058276;'Keith Valentine';777;0
+e;17058275;'Margarete Gertrude Zelle';777;0
+e;17058274;'Zhuzhen Liu';777;0
+e;17058273;'Alice Elliot';777;0
+e;17058272;'Yuri Hyuga';777;0
+e;17058270;'Shadow Hearts';777;0
+e;22105;'Morgan';1;1693
+e;234722;'Stephenie Meyer';1;2
+e;16831653;'CATUV';1;0
+e;7053316;'en:metazoa';1;0
+e;16802343;'Erica Leerhsen';777;0
+e;16802342;'Erica Lei Leerhsen';777;0
+e;5536212;'Cette section ne cite pas suffisamment ses sources';777;0
+e;235690;'Pat Benatar';1;50
+e;91753;'Andrzejewski';1;50
+e;16746985;'Patricia Mae Giraldo';777;0
+e;16587641;'Tarasque de Noves';777;0
+e;14927763;'en:hairy';1;0
+e;397616;'Légende';1;1030
+e;16320241;'Iratus';777;0
+e;10160249;'Cette section peut contenir un travail inédit ou des déclarations non vérifiées';777;0
+e;16319782;'Quelques inexactitudes';777;0
+e;16319781;'La Cauchemar de Dracula';777;0
+e;10344514;'Gerry Conway';777;0
+e;16310662;'Éditeur en chef de Marvel comics';777;0
+e;10344022;'Len Wein';777;0
+e;8917642;'Cette section doit être actualisée';777;0
+e;1649686;'Irma Vep';1;0
+e;5902242;'Oxymore';777;0
+e;403759;'Sources';1;3006
+e;16152240;'pièce condamnée';777;0
+e;42497;'Faust';1;88
+e;408503;'Smash';1;50
+e;16070965;'Amazon Riders';777;0
+e;16070964;'Amazonz';777;0
+e;390958;'patte arrière';1;50
+e;15050135;'en:chilling';1;0
+e;15782555;'Barjack';777;0
+e;15782554;'Radio Kaos';777;0
+e;15782553;'Machine Klatsh';777;0
+e;15782552;'Le Doigt Sonique';777;0
+e;51528;'son';1;3927
+e;15080160;'en:animalia';1;0
+e;14539352;'Source doublage';777;0
+e;15778100;'Jessica Stanley';777;0
+e;10459145;'Mike Newton';777;0
+e;13866547;'Charlie Swan';777;0
+e;15778099;'Phil Dwyer';777;0
+e;15778098;'Renée Higgenbotham/Dwyer';777;0
+e;1800993;'paralysie du sommeil';1;0
+e;258287;'terreur nocturne';1;8
+e;15776601;'Mauvais rêve';777;0
+e;15776550;'Centre français des porphyries';777;0
+e;14926383;'en:Carpathians';1;0
+e;15112028;'en:Carpathian Mountains';1;0
+e;14922214;'en:stinginess';1;0
+e;14922213;'en:avarice';1;0
+e;15251852;'en:tight-fistedness';1;0
+e;15251851;'en:pleonexia';1;0
+e;15052943;'en:niggardliness';1;0
+e;1643912;'Les Charlots contre Dracula';777;0
+e;14639718;'la peinture en 1547';777;0
+e;3321135;'OAV';1;0
+e;410879;'Films';1;2405
+e;10093153;'Anime';1;0
+e;151484;'Manga';1;50
+e;64325;'aimer';1;1642
+e;145450;'Marie';1;3628
+e;14626207;'RENÉGAT ARGENTÉ';777;0
+e;14626206;'GÉRANTE';777;0
+e;14626205;'ÉTRANGE';777;0
+e;14626204;'AEEGNRT';777;0
+e;5829288;'cure-dent de l'Arkansas';777;0
+e;10873367;'couteau Bowie';777;0
+e;5926790;'Sources et légende';777;0
+e;5725966;'le chevalier noir';777;0
+e;14580156;'Ansalom le sorcier';777;0
+e;187266;'Merlin l'enchanteur';1;2
+e;14580151;'Excalibur junior';777;0
+e;2949088;'Pip';777;0
+e;14539643;'Sibylline et la baguette rose';777;0
+e;14539642;'Sibylline contre-attaque';777;0
+e;14539641;'Sibylline et l'imposteur';777;0
+e;14539640;'ibylline';777;0
+e;14469422;'l'eau de la vie et l'eau de la mort';777;0
+e;14469421;'eau vive et l'eau morte';777;0
+e;14467194;'David Icke';777;0
+e;92479;'Apparitions';1;50
+e;14376809;'reptite';777;0
+e;14376808;'saurial';777;0
+e;14376807;'homme-lézard';777;0
+e;2369244;'dinosauroïde';1;0
+e;14376806;'reptoïde';777;0
+e;34158;'reptilien';1;58
+e;14376805;'reptile humanoïde';777;0
+e;14140086;'Liste des noms vernaculaires de chauves-souris';777;0
+e;14108989;'au moins trois';777;0
+e;579098;'récidivistes';1;0
+e;14095860;'Lust for a Vampire';777;0
+e;14095858;'Comtesse Mircalla Karnstein';777;0
+e;14094858;'Marv Wolfman';777;0
+e;10312229;'Anagramme';777;0
+e;2952654;'Liste détaillée';777;0
+e;13989677;'bakemonogatari';777;0
+e;13866541;'carmilla';777;0
+e;5669100;'Breaking Dawn';777;0
+e;5519383;'Eclipse';777;0
+e;5669099;'New Moon';777;0
+e;13866540;'Jasper Hale';777;0
+e;13866538;'lycée de Forks';777;0
+e;11181830;'Fascination';1;0
+e;14232161;'Le Club des monstres';777;0
+e;13518016;'Les Daniels';777;0
+e;12719326;'kamen rider';777;0
+e;12645851;'Katherine Reyes';777;0
+e;12645850;'Katherine von Drachenberg Galeano';777;0
+e;12645837;'Kat Von D';1;0
+e;12600327;'tchenbwa';777;0
+e;12311505;'sous-genres de la romance';777;0
+e;12268051;'Le Rapace nocturne';777;0
+e;10441981;'Omega Red';777;0
+e;12246516;'Arkady Rossovich';777;0
+e;275457;'Quête du Graal';777;50
+e;12081845;'bit-lit';777;0
+e;172861;'Kain';1;50
+e;12074498;'Spécial d'Halloween IV';777;0
+e;12074497;'Simpson Horror Show IV';777;0
+e;12008038;'Elena Anaya';777;0
+e;326575;'documenteur';777;50
+e;326574;'faux documentaire';777;50
+e;11825089;'Sesame Street';777;0
+e;11821604;'culture colombienne';777;0
+e;11821603;'culture de la Colombie';777;0
+e;10191361;'Laura Vandervoort';777;0
+e;392816;'Kristen Stewart';1;50
+e;11782079;'Les Vampires de Salem';777;0
+e;11782075;'Les Ailes de la nuit';777;0
+e;11768593;'Lina Leandersson';777;0
+e;11646253;'Jean Marigny';777;0
+e;10517248;'La présence juive en Alsace';777;0
+e;11575659;'Le Bébête show';777;0
+e;11507285;'Christophe Richard Ely Van De Ponseele';777;0
+e;11507284;'Richard Ely';777;0
+e;139892;'Terre';1;3614
+e;5942485;'The World';777;0
+e;235936;'The Elder Scrolls';1;50
+e;11347642;'Le Frisson des vampires';777;0
+e;11347443;'La Vampire nue';777;0
+e;11269200;'vampeta';777;0
+e;11269199;'Marcos André Batista Santos';777;0
+e;11252027;'Nosferatu à Venise';777;0
+e;5895443;'Orlok';1;0
+e;11252022;'comte Orlock';777;0
+e;11118219;'Aidan Turner';777;0
+e;11029826;'Genshiken';1;0
+e;251876;'Ken';1;2191
+e;408511;'Shi';1;50
+e;2959692;'Gen';1;0
+e;11029752;'Genshiken Nidaime';777;0
+e;11029751;'genshiken';777;0
+e;52390;'Sybaris';1;50
+e;302365;'chondrocalcinose articulaire';777;50
+e;592721;'chef de clinique assistant';1;0
+e;2936864;'cortex cingulaire antérieur';1;0
+e;566027;'CCA';1;50
+e;10989410;'Comics Code Authority';777;0
+e;10904216;'Les Lèvres rouges';777;0
+e;10870873;'Dangerous Women';777;0
+e;10865434;'Un appel de Transylvanie';777;0
+e;10850168;'Conker's Bad Fur Day';777;0
+e;10849243;'Bloodscream';777;0
+e;10823206;'Elizabeth Ann Reaser';777;0
+e;10748280;'John William Polidori';777;0
+e;10746821;'draghoula';777;0
+e;10745290;'Tsukuyomi - Moon Phase';777;0
+e;10671902;'Popsy';1;0
+e;248190;'Castlevania';1;50
+e;10623224;'croix de vie';777;0
+e;345368;'croix égyptienne';1;50
+e;10602613;'Bloody Mallory';777;0
+e;10516099;'Unsolved Mysteries';777;0
+e;425529;'Mystères';1;50
+e;10157002;'Wraiths';1;0
+e;10505988;'Quand le danger rôde';777;0
+e;10462683;'La Sagesse des crocodiles';777;0
+e;10462279;'Being Human';777;0
+e;10457090;'Walter Charles Dance';777;0
+e;10457089;'Charles Dance';777;0
+e;128633;'Christian';1;3264
+e;10368100;'William Jason Reso';777;0
+e;10327173;'Karmina';1;0
+e;10343986;'Brother Blood';777;0
+e;10343675;'Penny Dreadful';777;0
+e;10252084;'Vampire Academy';777;0
+e;10316608;'Aux frontières de l'aube';777;0
+e;10314517;'vetâla';777;0
+e;10312247;'Le shérif a les dents longues';777;0
+e;10252263;'Fright Night';777;0
+e;237036;'Anna Paquin';1;12
+e;10436871;'James Marsters';777;0
+e;10161224;'colonel Sebastian Moran';777;0
+e;10145153;'Dracula 2001';777;0
+e;10135890;'wraiths';777;0
+e;10098302;'Les Sorciers de Waverly Place';777;0
+e;10090496;'bloodrayne';777;0
+e;10084648;'highgate';777;0
+e;10071336;'Classe des Titans';777;0
+e;10064326;'The Dance of Vampire';777;0
+e;10054813;'La Nuit la plus longue';777;0
+e;10054812;'Une nuit en enfer';777;0
+e;5893838;'Le Maître';777;0
+e;10044996;'Kate Lockley';777;0
+e;17200;'Dru';1;50
+e;223333;'Drusilla';1;2
+e;10044989;'Darla';777;0
+e;10040773;'Jean Painlevé';777;0
+e;10040715;'Les Vampires de Chicago';777;0
+e;10006921;'L'Antre de Frankenstein';777;0
+e;10006206;'Dracula inédit';777;0
+e;10006145;'Dracula Untold';777;0
+e;10005622;'La Maison de Dracula';777;0
+e;10005590;'La Fille de Dracula';777;0
+e;9967418;'Béla Blaskó';777;0
+e;9967417;'Béla Lugosi';777;0
+e;9964504;'Eric Brooks';777;0
+e;430600;'Blade';1;50
+e;9961531;'preacher';777;0
+e;9572956;'Friedrich Heinrich Karl Haarmann';777;0
+e;9572955;'Fritz Haarmann';777;0
+e;9248305;'Estelle Valls de Gomis';777;0
+e;15692211;'Alex Russo';777;0
+e;15692212;'Justin Russo';777;0
+e;15692213;'Max Russo';777;0
+e;15692214;'Harper Finkle';777;0
+e;15692215;'Jerry Russo';777;0
+e;10519851;'Theresa Russo';777;0
+e;414394;'Note';1;2930
+e;301148;'Source et légende';777;50
+e;6100808;'Les Enquêtes de Murdoch';777;0
+e;5971319;'Le Bal du rat mort';777;0
+e;5962276;'Li'l Horrors';777;0
+e;5955695;'Dracula d'après l'oeuvre de Bram Stoker';777;0
+e;5955350;'Innocent Blood';777;0
+e;5536176;'écriture d'un article sur une oeuvre de fiction';777;0
+e;137648;'Mélusine';1;58
+e;2950040;'Les Monstres';777;0
+e;5941047;'lxg';777;0
+e;5941046;'La Ligue des Gentlemen Extraordinaires';777;0
+e;3961789;'catsuit';1;0
+e;5893994;'comte Orlok';777;0
+e;5893951;'Katherine von Swartzschild';777;0
+e;5893949;'Katherine Pierce';777;0
+e;5836323;'Lina Romay';777;0
+e;5534862;'Mise en garde médicale';777;0
+e;36043;'horreur';1;718
+e;5713767;'Martin Matin';777;0
+e;5681277;'Parker Lewis ne perd jamais';777;0
+e;166661;'Angel';1;2002
+e;5563195;'La Volupté du sang';777;0
+e;5563146;'Azalin Rex';777;0
+e;5563145;'Arnd de Tdon';777;0
+e;5563144;'Alhamazad le Sage';777;0
+e;5563143;'Aegwareth';777;0
+e;5563142;'Acérérak le Dévoreur';777;0
+e;5563141;'liste des personnages fictifs issus du décor de campagne de Faucongris';777;0
+e;5556853;'Anatomie de l'horreur';777;0
+e;5557466;'aswang';777;0
+e;4339523;'végétarisme hindou';1;0
+e;19356;'sexe';1;5772
+e;232465;'Les Prédateurs';1;4
+e;3244913;'Emblèmes';777;0
+e;3225536;'Christopher Lee';1;0
+e;3225540;'Christopher Frank Carandini Lee';777;0
+e;3223518;'Léa Silhol';777;0
+e;2283860;'satine';2;0
+e;2961653;'Sibylline';1;0
+e;2950808;'kenbwa';777;0
+e;1795954;'Vlad III Basarab';1;0
+e;2923434;'l'empaleur';777;0
+e;2921806;'wendigos';777;0
+e;2921805;'wendigowak';777;0
+e;2539525;'wendigo';1;0
+e;2508242;'yuki-onna';1;0
+e;2502811;'anagrammeur';1;0
+e;2488994;'rastafarien';1;0
+e;2475873;'diurnambule';1;0
+e;2452786;'came-cruse';1;0
+e;2398111;'cauchemards';1;2
+e;2579933;'dhampir';777;0
+e;2472655;'dhampire';1;0
+e;2345715;'Sucker';1;0
+e;96710;'mouvement rasta';1;50
+e;1878607;'trypanosomiase américaine';1;0
+e;1672808;'goth rock';777;0
+e;79513;'Salem';1;58
+e;1649682;'Les Vampires';1;2
+e;580186;'monstre mort-vivant';777;0
+e;1675244;'Merrick';1;0
+e;222659;'rastafari';1;96
+e;399771;'sibylline';1;52
+e;272980;'Le Cauchemar de Dracula';777;50
+e;188099;'Tentation';1;50
+e;226407;'Spleen et Idéal';1;74
+e;138290;'Morse';1;50
+e;138018;'L'Empaleur';1;50
+e;222336;'rastafarisme';1;2
+e;222658;'mouvement rastafari';1;60
+e;429088;'Tarasque';1;50
+e;372590;'pouvoir surnaturel';1;50
+e;213938;'Pandora';1;54
+e;392946;'Ombres et ténèbres';777;50
+e;319489;'body double';777;50
+e;316234;'William Jones';1;50
+e;315313;'trypanosomose';1;50
+e;247679;'surnaturelle';1;50
+e;237165;'rock gothique';1;2
+e;310652;'Bella Cullen';777;50
+e;310651;'Isabella Marie Swan';777;50
+e;234436;'croix ansée';1;4
+e;227256;'bal costumé';1;24
+e;222949;'Les Fleurs du mal';1;48
+e;167061;'Dare Dare Motus';1;50
+e;309142;'Stephen Edwin King';777;50
+e;18310;'mascarade';1;66
+e;158957;'bal masqué';1;74
+e;130954;'pellagre';1;58
+e;129204;'anagramme';1;58
+e;152170;'cauchemard';1;68
+e;92574;'Pandaemonium';1;50
+e;84617;'supranaturel';1;50
+e;299564;'Siebenbürgen';777;50
+e;299563;'Erdély';777;50
+e;82350;'Ardeal';1;50
+e;79866;'surnaturalisme';1;50
+e;299248;'Theodosia Burr Goodman';777;50
+e;78256;'Theda Bara';1;50
+e;76592;'surnaturel';1;80
+e;76927;'trypanosomiase';1;82
+e;121557;'trypanosomiases';1;52
+e;73913;'tarasque';1;50
+e;188489;'Tom Cruise';1;72
+e;11485;'Depp';1;52
+e;143544;'William';1;3601
+e;80317;'quimboiseur';1;50
+e;290283;'tjenbwa';777;50
+e;290282;'Kenbwa';777;50
+e;108973;'quimbois';1;50
+e;290125;'William Bradley Pitt';777;50
+e;250181;'roman gothique';1;50
+e;215317;'Johnny Depp';1;64
+e;55515;'fascination';1;142
+e;288457;'Jean Rollin';777;50
+e;288456;'Jean Michel Rollin Roth Le Gentil';777;50
+e;5893948;'Katerina Petrova';777;0
+e;286072;'The Damned';777;50
+e;271207;'Dark Shadows';1;50
+e;17351;'Carl Theodor Dreyer';1;50
+e;190480;'Art fantastique';1;50
+e;64843;'cinéma fantastique';1;64
+e;226177;'film fantastique';1;22
+e;234437;'ânkh';1;50
+e;272361;'Yeux';777;50
+e;51126;'cheveux';1;3421
+e;272360;'Espèce';777;50
+e;272716;'Genre';777;3164
+e;46994;'origine';1;3078
+e;166708;'Alias';1;50
+e;272981;'Les Maîtresses de Dracula';777;50
+e;39192;'nuit';1;4075
+e;146798;'Brad Pitt';1;66
+e;14334;'King Kong';1;62
+e;272940;'Le Bal des vampires';777;50
+e;80627;'scalper';1;74
+e;7585033;'en:midnight';1;0
+e;15660926;'en:12 midnight';1;0
+e;15454381;'en:12 am';1;0
+e;15454380;'en:twelve am';1;0
+e;15454379;'en:twelve o'clock';1;0
+e;7469738;'en:twelve';1;0
+e;15781381;'vrai métazoaire';1;0
+e;4340;'bercail';1;72
+e;247342;'Bill Compton';1;60
+e;571767;'BITE';1;50
+e;264641;'De Havilland Vampire';666;50
+e;107077;'lilith';1;50
+e;36453;'coexistence';1;50
+e;16123;'Lindsey';1;50
+e;143334;'Mammifères';1;52
+e;2931447;'twilight';666;0
+e;102611;'ankh';1;52
+e;247435;'Richard Bachman';1;60
+e;247404;'Stephen King';1;38
+e;5085;'croquemitaine';1;62
+e;97395;'croque-mitaine';1;54
+e;235255;'pervers narcissique';1;46
+e;49205;'lavallière';1;50
+e;152164;'kastar';1;58
+
+// les types de relations (Relation Types) : rt;rtid;'trname';'trgpname';'rthelp' 
+
+rt;0;'r_associated';'idée associée';Il est demandé d'énumérer les termes les plus étroitement associés au mot cible... Ce mot vous fait penser à quoi ?
+rt;1;'r_raff_sem';'raffinement sémantique';Raffinement sémantique vers un usage particulier du terme source
+rt;2;'r_raff_morpho';'raffinement morphologique';Raffinement morphologique vers un usage particulier du terme source
+rt;3;'r_domain';'domaine';Il est demandé de fournir des domaines relatifs au mot cible. Par exemple, pour 'corner', on pourra donner les domaines 'football' ou 'sport'.
+rt;4;'r_pos';'POS';Partie du discours (Nom, Verbe, Adjectif, Adverbe, etc.)
+rt;5;'r_syn';'synonyme';Il est demandé d'énumérer les synonymes ou quasi-synonymes de ce terme.
+rt;6;'r_isa';'générique';Il est demandé d'énumérer les GENERIQUES/hyperonymes du terme. Par exemple, 'animal' et 'mammifère' sont des génériques de 'chat'.
+rt;9;'r_has_part';'partie';Il faut donner des PARTIES/constituants/éléments (a pour méronymes) du mot cible. Par exemple, 'voiture' a comme parties : 'porte', 'roue', 'moteur', ...
+rt;10;'r_holo';'tout';Il est démandé d'énumérer des 'TOUT' (a pour holonymes)  de l'objet en question. Pour 'main', on aura 'bras', 'corps', 'personne', etc... Le tout est aussi l'ensemble comme 'classe' pour 'élève'.
+rt;11;'r_locution';'locution';A partir d'un terme, il est demandé d'énumérer les locutions, expression ou mots composés en rapport avec ce terme. Par exemple, pour 'moulin', ou pourra avoir 'moulin à vent', 'moulin à eau', 'moulin à café'. Pour 'vendre', on pourra avoir 'vendre la peau de l'ours avant de l'avoir tué', 'vendre à perte', etc..
+rt;13;'r_agent';'action>agent';L'agent (qu'on appelle aussi le sujet) est l'entité qui effectue l'action, OU la subit pour des formes passives ou des verbes d'état. Par exemple, dans - Le chat mange la souris -, l'agent est le chat. Des agents typiques de 'courir' peuvent être 'sportif', 'enfant',... (manger r_agent chat)
+rt;14;'r_patient';'action>patient';Le patient (qu'on appelle aussi l'objet) est l'entité qui subit l'action. Par exemple dans - Le chat mange la souris -, le patient est la souris. Des patients typiques de manger peuvent être 'viande', 'légume', 'pain', ... (manger r_patient pain)
+rt;15;'r_lieu';'chose>lieu';Il est demandé d'énumérer les LIEUX typiques où peut se trouver le terme/objet en question. (carotte r_lieu potager)
+rt;16;'r_instr';'action>instrument';L'instrument est l'objet avec lequel on fait l'action. Dans - Il mange sa salade avec une fourchette -, fourchette est l'instrument. Des instruments typiques de 'tuer' peuvent être 'arme', 'pistolet', 'poison', ... (couper r_instr couteau)
+rt;17;'r_carac';'caractéristique';Pour un terme donné, souvent un objet, il est demandé d'en énumérer les CARACtéristiques (adjectifs) possibles/typiques. Par exemple, 'liquide', 'froide', 'chaude', pour 'eau'.
+rt;18;'r_data';'r_data';Informations diverses (plutôt d'ordre lexicales)
+rt;19;'r_lemma';'r_lemma';Le lemme (par exemple 'mangent a pour lemme  'manger' ; 'avions' a pour lemme 'avion' ou 'avoir').
+rt;23;'r_carac-1';'caractéristique-1';Quels sont les objets (des noms) possédant typiquement/possiblement la caractérisque suivante ? Par exemple, 'soleil', 'feu', pour 'chaud'.
+rt;24;'r_agent-1';'agent typique-1';Que peut faire ce SUJET ? (par exemple chat => miauler, griffer, etc.) (chat r_agent-1 manger)
+rt;25;'r_instr-1';'instrument>action';L'instrument est l'objet avec lequel on fait l'action. Dans - Il mange sa salade avec une fourchette -, fourchette est l'instrument. On demande ici, ce qu'on peut faire avec un instrument donné... (scie r_instr-1 scier)
+rt;26;'r_patient-1';'patient-1';(inverse de r_patient) Que peut-on faire à cet OBJET. Pour 'pomme', on pourrait avoir 'manger', 'croquer', couper', 'éplucher',  etc. (pomme r_patient-1 manger)
+rt;27;'r_domain-1';'domaine-1';inverse de r_domain : à un domaine, on associe des termes
+rt;28;'r_lieu-1';'lieu>chose';A partir d'un lieu, il est demandé d'énumérer ce qui peut typiquement s'y trouver. Par exemple : Paris r_lieu-1 tour Eiffel
+rt;32;'r_sentiment';'sentiment';Pour un terme donné, évoquer des mots liés à des SENTIMENTS ou des EMOTIONS que vous pourriez associer à ce terme. Par exemple, la joie, le plaisir, le dégoût, la peur, la haine, l'amour, l'indifférence, l'envie, avoir peur, horrible, etc.
+rt;35;'r_meaning/glose';'glose/sens/signification';Quels SENS/SIGNIFICATIONS pouvez vous donner au terme proposé. Il s'agira de termes (des gloses) évoquant chacun des sens possibles, par exemple : 'forces de l'ordre', 'contrat d'assurance', 'police typographique', ... pour 'police'.
+rt;36;'r_infopot';'information potentielle';Information sémantique potentielle
+rt;55;'r_against';'s'oppose à';A quoi le terme suivant S'OPPOSE/COMBAT/EMPECHE ? Par exemple, un médicament s'oppose à la maladie.
+rt;56;'r_against-1';'a comme opposition';Inverse de r_against (s'oppose à) - a comme opposition active (S'OPPOSE/COMBAT/EMPECHE). Par exemple, une bactérie à comme opposition antibiotique.
+rt;66;'r_chunk_head';'r_chunk_head';
+rt;72;'r_syn_strict';'r_syn_strict';Termes strictement substituables, pour des termes hors du domaine général, et pour la plupart des noms (exemple : endométriose intra-utérine --> adénomyose)
+rt;106;'r_color';'couleur';A comme couleur(s)... chat r_color noir
+rt;115;'r_sentiment-1';'sentiment-1';Pour un SENTIMENT ou EMOTION donné, il est demandé d’énumérer les termes que vous pourriez associer. Par exemple, pour 'joie', on aurait 'cadeau', 'naissance', 'bonne nouvelle', etc.
+rt;121;'r_own';'pers>possession';Que POSSEDE le terme suivant ? (un soldat possède un fusil, une cavalière des bottes, ...  soldat r_own fusil, ...)
+rt;122;'r_own-1';'possession>pers';Par qui ou quoi EST POSSEDE le terme suivant ? (par exemple, fusil r_own-1 soldat)
+rt;128;'r_node2relnode-in';'r_node2relnode-in';Relation entre un noeud (quelconque) et un noeud de relation (type = 10)  - connecte le noeud d'entrée - permet de rendre le graphe connexe même avec les annotations de relations
+rt;130;'r_is_instance_of';'est une instance de';Une instance est un individu particulier. Il s'agit d'une entité nommée (personne, lieu, organisation, etc) - par exemple, 'Jolly Jumper' est une instance de 'cheval', 'Titanic' en est une de 'transatlantique'.
+rt;140;'r_node2relnode-out';'r_node2relnode-out';Relation entre un noeud (quelconque) et un noeud de relation (type = 10) - connecte le noeud de sortie - permet de rendre le graphe connexe même avec les annotations de relations
+rt;155;'r_make_use_of';'r_make_use_of';Peut utiliser un objet ou produit (par exemple électricité pour frigo).
+rt;156;'r_is_used_by';'r_is_used_by';Est utilisé par (par exemple essence pour voiture).
+rt;170;'r_sing_form';'r_sing_from';La forme au singulier d'un terme. Exemple : chevaux r_sing_from cheval (pas de relation inverse)
+rt;333;'r_translation';'r_translation';Traduction vers une autre langue.
+rt;444;'r_link';'r_link';Lien vers une ressource externe (WordNet, RadLex, UMLS, Wikipedia, etc...)
+rt;555;'r_cooccurrence';'r_cooccurrence';co-occurences (non utilisée)
+rt;666;'r_aki';'r_aki';(TOTAKI) equivalent pour TOTAKI de l'association libre
+rt;777;'r_wiki';'r_wiki';Associations issues de wikipedia...
+rt;999;'r_inhib';'r_inhib';relation d'inhibition, le terme inhibe les termes suivants... ce terme a tendance à exclure le terme associé.
+rt;2000;'r_raff_sem-1';'r_raff_sem-1';Inverse de r_raff_sem (automatique)
+
+// les relations sortantes : r;rid;node1;node2;type;w 
+// 1045 relations sortantes 
+
+r;23925060;6546;239128;0;1000000
+r;73945612;6546;2983124;555;25214
+r;2006119;6546;223172;36;580
+r;427917;6546;132838;0;409
+r;373945062;6546;14707487;128;313
+r;3096073;6546;94990;0;309
+r;15350207;6546;32303;0;300
+r;174301;6546;2680;0;267
+r;427910;6546;66460;0;206
+r;1377916;6546;85447;0;206
+r;115347;6546;10756;6;195
+r;101433;6546;74860;6;187
+r;532798;6546;116675;6;187
+r;13603625;6546;175325;6;184
+r;3023726;6546;244620;6;182
+r;13261183;6546;68439;6;182
+r;118530;6546;94990;6;181
+r;2853919;6546;49293;6;181
+r;3021497;6546;24956;6;181
+r;650921;6546;63235;6;177
+r;10760750;6546;265839;6;176
+r;96821893;6546;152096;0;175
+r;10765968;6546;110773;6;171
+r;373968859;6546;14710825;140;171
+r;10778183;6546;91794;6;170
+r;10789867;6546;101018;6;166
+r;2822199;6546;86640;6;165
+r;8576509;6546;19988;11;165
+r;8659696;6546;195213;11;164
+r;10862296;6546;265277;6;163
+r;8580204;6546;30729;11;163
+r;8635244;6546;176034;11;163
+r;8771832;6546;305995;11;163
+r;8600406;6546;89460;11;162
+r;8638430;6546;181481;11;162
+r;8740667;6546;272982;11;162
+r;8690491;6546;217065;11;161
+r;8715891;6546;252321;11;161
+r;26343240;6546;241794;36;161
+r;10784664;6546;317929;6;160
+r;10767200;6546;264881;6;159
+r;10922020;6546;142602;6;154
+r;2895994;6546;248081;6;153
+r;12045696;6546;330964;6;153
+r;11254162;6546;265220;6;151
+r;10750266;6546;115304;6;147
+r;10755553;6546;264880;6;145
+r;10779398;6546;264908;6;144
+r;172413;6546;17559;6;143
+r;9611305;6546;55823;6;141
+r;118938;6546;66517;6;139
+r;1956150;6546;233133;6;136
+r;11119062;6546;325741;6;130
+r;14414146;6546;329657;6;130
+r;2177080;6546;223173;36;129
+r;11128533;6546;325738;6;120
+r;2099190;6546;116477;6;117
+r;11135236;6546;325736;6;115
+r;83972;6546;132838;6;113
+r;11141854;6546;325731;6;113
+r;13615543;6546;274278;6;110
+r;28466220;6546;1733043;2;106
+r;11148475;6546;325728;6;104
+r;34484463;6546;312770;66;100
+r;365990255;6546;14400054;66;100
+r;365990258;6546;14400051;66;100
+r;389699013;6546;14902708;66;100
+r;389699016;6546;14902705;66;100
+r;96822556;6546;64513;24;97
+r;570652;6546;99408;5;96
+r;96822505;6546;122930;0;95
+r;570648;6546;94990;5;93
+r;10927017;6546;54794;6;93
+r;570649;6546;19686;5;91
+r;12203135;6546;81713;5;91
+r;570651;6546;37555;5;89
+r;434201962;6546;16508947;66;88
+r;413264845;6546;15838607;128;85
+r;437904812;6546;16602575;66;83
+r;437911717;6546;16606748;66;82
+r;437911720;6546;16606745;66;82
+r;2101790;6546;225916;6;81
+r;437909535;6546;16606746;24;80
+r;153059;6546;83764;6;79
+r;365783998;6546;1673338;24;79
+r;414074320;6546;15900460;128;79
+r;13982911;6546;260820;6;78
+r;31621562;6546;1964021;128;77
+r;11274865;6546;265220;0;76
+r;11168742;6546;325728;0;75
+r;31621574;6546;1964024;128;75
+r;31621578;6546;1964025;128;75
+r;3096072;6546;253770;0;74
+r;11181982;6546;325731;0;73
+r;31621566;6546;1964022;128;73
+r;31621570;6546;1964023;128;73
+r;31621582;6546;1964026;128;73
+r;54715806;6546;98971;5;72
+r;13879598;6546;65081;6;72
+r;54715807;6546;67271;5;71
+r;13921344;6546;225847;6;71
+r;11195221;6546;325736;0;70
+r;14030188;6546;237445;6;70
+r;9884931;6546;55823;0;69
+r;11208621;6546;325738;0;69
+r;115036;6546;31085;6;69
+r;117980;6546;131873;6;69
+r;3096071;6546;83764;0;68
+r;153062;6546;67271;6;68
+r;172569;6546;154718;6;68
+r;177836;6546;27822;6;68
+r;389698489;6546;14902706;24;68
+r;10792030;6546;101018;0;67
+r;11227117;6546;325741;0;67
+r;2325368;6546;254878;36;67
+r;10802432;6546;317929;0;66
+r;10812964;6546;264908;0;66
+r;10815394;6546;91794;0;66
+r;10920268;6546;265277;0;66
+r;10947904;6546;54794;0;66
+r;10957758;6546;142602;0;66
+r;434190410;6546;7943;26;66
+r;427911;6546;26979;0;65
+r;13722877;6546;234036;6;65
+r;434210040;6546;16508946;26;65
+r;10825882;6546;264881;0;64
+r;10828346;6546;110773;0;64
+r;10838780;6546;265839;0;64
+r;10849174;6546;264880;0;63
+r;28466223;6546;1733044;2;63
+r;389698474;6546;110836;24;63
+r;31621558;6546;1964020;128;63
+r;10859749;6546;115304;0;62
+r;2738837;6546;43253;24;61
+r;365783975;6546;14400052;24;61
+r;33158460;6546;626;32;61
+r;33158461;6546;22264;32;61
+r;33158462;6546;90830;32;61
+r;31621550;6546;1964018;128;61
+r;174299;6546;34901;0;60
+r;13039741;6546;265501;0;60
+r;14051569;6546;395054;0;60
+r;363905029;6546;14285287;2;60
+r;59372;6546;146883;4;60
+r;9829726;6546;24956;0;59
+r;9834175;6546;244620;0;59
+r;12302295;6546;37555;0;59
+r;59373;6546;146885;4;59
+r;340247;6546;6546;19;59
+r;33296101;6546;120892;32;59
+r;33296102;6546;20202;32;59
+r;33296103;6546;4552;32;59
+r;33296104;6546;60835;32;59
+r;33296105;6546;144681;32;59
+r;442651844;6546;16606773;66;59
+r;76604367;6546;3177135;11;58
+r;33296106;6546;23114;32;58
+r;28466227;6546;37555;35;58
+r;3212613;6546;270914;0;57
+r;1557146;6546;214997;1;57
+r;93455257;6546;3743813;11;57
+r;28466226;6546;132838;35;57
+r;442652441;6546;16603557;66;57
+r;31621546;6546;1964017;128;57
+r;9788007;6546;49293;0;56
+r;9800854;6546;248081;0;56
+r;532853;6546;171870;4;56
+r;33496480;6546;82489;32;56
+r;9783182;6546;86640;0;55
+r;11245187;6546;312770;0;55
+r;33296107;6546;17927;32;55
+r;31621538;6546;1964015;128;55
+r;31621542;6546;1964016;128;55
+r;18136938;6546;574841;6;54
+r;13929522;6546;395054;11;54
+r;9723201;6546;116477;0;53
+r;9728333;6546;225916;0;53
+r;11749807;6546;217271;0;53
+r;2086342;6546;71624;6;53
+r;476736251;6546;14771676;24;53
+r;3096074;6546;2835;0;52
+r;54715805;6546;2585996;36;52
+r;9709975;6546;71624;0;51
+r;78636270;6546;396042;6;51
+r;83347150;6546;396149;6;51
+r;31621534;6546;1964014;128;51
+r;85828416;6546;272985;0;50
+r;110000698;6546;5563394;11;50
+r;218736652;6546;9805948;11;50
+r;200596662;6546;9101992;11;50
+r;214239641;6546;9510432;11;50
+r;232082225;6546;10071367;11;50
+r;434205499;6546;16507943;11;50
+r;397500171;6546;15237076;11;50
+r;425014950;6546;16166309;11;50
+r;471135628;6546;17221908;11;50
+r;28466225;6546;94990;35;49
+r;1557200;6546;191670;36;49
+r;1557204;6546;214534;36;49
+r;50195535;6546;2362869;11;48
+r;390519253;6546;14927608;333;48
+r;1557140;6546;214996;1;47
+r;1557187;6546;214998;1;47
+r;53947179;6546;2586629;4;47
+r;79918968;6546;391009;6;47
+r;53929473;6546;2586628;4;46
+r;256307293;6546;10430109;11;46
+r;1557203;6546;191668;36;46
+r;28466222;6546;438949;36;46
+r;1973576;6546;216283;0;45
+r;9690060;6546;233133;0;45
+r;53941739;6546;2586634;4;45
+r;53976284;6546;2586627;4;45
+r;472859510;6546;15513258;11;45
+r;476191782;6546;16606752;24;45
+r;2241202;6546;250116;36;45
+r;476192346;6546;16602581;24;44
+r;1957084;6546;162761;36;44
+r;96822579;6546;129044;0;43
+r;28431657;6546;396247;6;43
+r;80361348;6546;267642;6;43
+r;96822582;6546;64300;17;43
+r;90933625;6546;3576104;18;43
+r;31621554;6546;1964019;128;43
+r;31241215;6546;143669;0;42
+r;96822551;6546;124600;0;42
+r;79926727;6546;87789;6;42
+r;233028104;6546;10090793;11;42
+r;233028110;6546;10090791;11;42
+r;233028699;6546;10090574;11;42
+r;31621586;6546;1964027;128;42
+r;96822554;6546;100640;0;41
+r;79934487;6546;391010;6;41
+r;232082221;6546;10071368;11;41
+r;232098313;6546;10064383;11;41
+r;269373087;6546;10760942;11;41
+r;424997949;6546;16166308;11;41
+r;96822557;6546;67407;0;40
+r;96822577;6546;101193;0;40
+r;96822578;6546;86997;0;40
+r;1645969;6546;217817;36;40
+r;31621522;6546;1964011;128;40
+r;96822552;6546;38710;0;39
+r;96822583;6546;164433;0;39
+r;31217144;6546;143669;3;39
+r;2676697;6546;77424;9;39
+r;1579261;6546;9763;0;38
+r;96822567;6546;27890;0;38
+r;96822553;6546;395040;0;37
+r;96822580;6546;252321;0;37
+r;2300708;6546;171869;4;37
+r;102006340;6546;38988;121;37
+r;31621530;6546;1964013;128;37
+r;31621590;6546;1964028;128;37
+r;102006350;6546;164433;155;37
+r;87875918;6546;2394785;0;36
+r;96822544;6546;29592;0;36
+r;2756364;6546;142086;9;36
+r;2819806;6546;140715;9;36
+r;253390474;6546;10329335;11;36
+r;419679881;6546;15237078;11;36
+r;274691545;6546;10921519;24;36
+r;427912;6546;78053;0;35
+r;427915;6546;60902;0;35
+r;427918;6546;131514;0;35
+r;427919;6546;166174;0;35
+r;1033522;6546;38459;0;35
+r;1033527;6546;42275;0;35
+r;1351695;6546;122864;0;35
+r;9630639;6546;116675;0;35
+r;9630683;6546;77750;0;35
+r;14126627;6546;260820;0;35
+r;15376655;6546;117095;0;35
+r;96822550;6546;139272;0;35
+r;96822558;6546;166676;0;35
+r;96822606;6546;43222;0;35
+r;97126542;6546;4311427;0;35
+r;77734160;6546;3093590;4;35
+r;108381055;6546;109811;6;35
+r;2752737;6546;81934;9;35
+r;25779229;6546;1636805;9;35
+r;290722032;6546;11347641;11;35
+r;3081080;6546;43222;17;35
+r;1557202;6546;191669;36;35
+r;31621526;6546;1964012;128;35
+r;96822529;6546;4311437;444;35
+r;427913;6546;166173;0;34
+r;427914;6546;131418;0;34
+r;427916;6546;135544;0;34
+r;1033516;6546;109811;0;34
+r;1033520;6546;117895;0;34
+r;1033525;6546;98971;0;34
+r;13615597;6546;274278;0;34
+r;96822545;6546;29672;0;34
+r;96822549;6546;24207;0;34
+r;96822555;6546;64513;0;34
+r;499712;6546;117095;3;34
+r;2739853;6546;47319;9;34
+r;116581642;6546;5955321;11;34
+r;96822581;6546;14738;17;34
+r;96822576;6546;14338;24;34
+r;102006353;6546;58404;155;34
+r;9621512;6546;31085;0;32
+r;9621520;6546;10756;0;32
+r;12445014;6546;330964;0;32
+r;77734157;6546;2935005;4;32
+r;77734158;6546;2946892;4;32
+r;18137955;6546;574841;5;32
+r;2746767;6546;32735;9;32
+r;2809716;6546;187620;9;32
+r;2846015;6546;126285;9;32
+r;14714758;6546;16747;9;32
+r;227630124;6546;10032448;11;32
+r;269413366;6546;10741629;11;32
+r;22529699;6546;48855;17;32
+r;15795102;6546;224422;24;32
+r;478012097;6546;39058;24;32
+r;478012106;6546;326931;24;32
+r;427920;6546;166175;0;31
+r;9622886;6546;17559;0;31
+r;96822630;6546;59765;0;31
+r;97126541;6546;119018;0;31
+r;2697764;6546;225934;9;31
+r;2736560;6546;16110;9;31
+r;2775679;6546;96211;9;31
+r;11689009;6546;39031;9;31
+r;15874132;6546;114327;9;31
+r;2635690;6546;36886;10;31
+r;52971304;6546;2384226;11;31
+r;227656793;6546;10005789;11;31
+r;77734163;6546;2394785;19;31
+r;33561663;6546;49337;32;31
+r;31621518;6546;1964010;128;31
+r;217255801;6546;9677321;128;31
+r;96822527;6546;4311435;444;31
+r;96822528;6546;4311436;444;31
+r;1351694;6546;77389;0;30
+r;9647714;6546;63235;0;30
+r;11833815;6546;247057;0;30
+r;14065531;6546;65081;0;30
+r;14147147;6546;237445;0;30
+r;30930316;6546;32851;0;30
+r;310842090;6546;589095;0;30
+r;16087155;6546;146894;4;30
+r;16092578;6546;146888;4;30
+r;77734159;6546;3093591;4;30
+r;83902774;6546;436570;6;30
+r;2657134;6546;77008;9;30
+r;2740868;6546;152844;9;30
+r;2828973;6546;107477;9;30
+r;2832419;6546;233138;9;30
+r;310671686;6546;3326768;11;30
+r;96822626;6546;131418;15;30
+r;96822627;6546;226186;15;30
+r;96822628;6546;43945;15;30
+r;96822629;6546;32732;15;30
+r;97126539;6546;114090;15;30
+r;2613200;6546;130164;24;30
+r;2645363;6546;43601;24;30
+r;2662736;6546;2442;24;30
+r;2679910;6546;140318;24;30
+r;2686825;6546;124600;24;30
+r;2800642;6546;251694;24;30
+r;2919641;6546;259820;24;30
+r;3074510;6546;47918;24;30
+r;14808940;6546;326650;24;30
+r;14809741;6546;161092;24;30
+r;14812259;6546;327404;24;30
+r;14813737;6546;160374;24;30
+r;14822227;6546;326908;24;30
+r;14833196;6546;239950;24;30
+r;14838362;6546;157384;24;30
+r;14838564;6546;45225;24;30
+r;14838659;6546;34901;24;30
+r;78268037;6546;33882;24;30
+r;96822621;6546;85447;24;30
+r;96822622;6546;214745;24;30
+r;234480405;6546;6681658;24;30
+r;347587508;6546;105814;24;30
+r;365784248;6546;14400050;24;30
+r;389698803;6546;14902704;24;30
+r;397637626;6546;14936475;24;30
+r;438103079;6546;16602574;24;30
+r;438103541;6546;16606744;24;30
+r;434190451;6546;14471897;26;30
+r;438145310;6546;16531187;26;30
+r;2188541;6546;248198;36;30
+r;96822525;6546;4311433;444;30
+r;10602146;6546;234721;0;29
+r;14683898;6546;329657;0;29
+r;1636962;6546;32303;3;29
+r;30914982;6546;32851;3;29
+r;77734161;6546;161698;4;29
+r;2761869;6546;109785;9;29
+r;2840431;6546;116980;9;29
+r;2843049;6546;120157;10;29
+r;374000798;6546;14715175;11;29
+r;2700367;6546;1384;17;29
+r;90059553;6546;3575927;18;29
+r;31621514;6546;1964009;128;29
+r;77998231;6546;3228593;444;29
+r;96822526;6546;4311434;444;29
+r;1033514;6546;38119;0;28
+r;1033519;6546;125121;0;28
+r;13655585;6546;175325;0;28
+r;13774872;6546;234036;0;28
+r;15785527;6546;213644;0;28
+r;96390548;6546;2505679;5;28
+r;2727801;6546;74846;9;28
+r;12997204;6546;390927;9;28
+r;2878714;6546;122864;17;28
+r;390519246;6546;14916413;18;28
+r;96822625;6546;26979;56;28
+r;476781790;6546;17456944;66;28
+r;427909;6546;4445;0;27
+r;1033518;6546;104621;0;27
+r;1033524;6546;80897;0;27
+r;9621252;6546;74860;0;27
+r;13305624;6546;68439;0;27
+r;14084155;6546;225847;0;27
+r;14435884;6546;413667;0;27
+r;77734162;6546;212235;4;27
+r;570650;6546;2835;5;27
+r;83921507;6546;316850;6;27
+r;2651585;6546;144846;9;27
+r;2814589;6546;145953;9;27
+r;2984149;6546;108463;9;27
+r;2985420;6546;141814;9;27
+r;10772956;6546;57875;9;27
+r;11260021;6546;326146;9;27
+r;15781822;6546;213644;9;27
+r;267325802;6546;10664548;11;27
+r;11827765;6546;330215;17;27
+r;96822522;6546;4311430;444;27
+r;96822530;6546;4311438;444;27
+r;96822531;6546;4311439;444;27
+r;9622898;6546;154718;0;26
+r;12302294;6546;99408;0;26
+r;25844803;6546;1636805;0;26
+r;28458601;6546;396247;0;26
+r;97126540;6546;141111;0;26
+r;390931305;6546;14927608;0;26
+r;478012098;6546;39058;0;26
+r;2706533;6546;151867;9;26
+r;2719969;6546;26363;9;26
+r;2767923;6546;34898;9;26
+r;2869778;6546;139779;9;26
+r;2929579;6546;219363;9;26
+r;2934935;6546;240720;9;26
+r;2940006;6546;187622;9;26
+r;2947177;6546;221019;9;26
+r;2960016;6546;241352;9;26
+r;2962243;6546;95422;9;26
+r;2966396;6546;103311;9;26
+r;2971435;6546;83944;9;26
+r;3032261;6546;228289;9;26
+r;3038726;6546;126388;9;26
+r;11687856;6546;213792;9;26
+r;350893984;6546;221034;9;26
+r;2867874;6546;133424;17;26
+r;78258805;6546;99220;17;26
+r;77951670;6546;162763;36;26
+r;96822523;6546;4311431;444;26
+r;96822524;6546;4311432;444;26
+r;96822532;6546;4311440;444;26
+r;476736270;6546;17456944;0;25
+r;365783959;6546;43253;0;25
+r;365783990;6546;14400054;0;25
+r;389698475;6546;110836;0;25
+r;389698518;6546;14902708;0;25
+r;415889311;6546;15216912;0;25
+r;415889313;6546;14940529;0;25
+r;415975903;6546;14927607;0;25
+r;415975905;6546;14966395;0;25
+r;434190457;6546;14471898;0;25
+r;434190469;6546;16508951;0;25
+r;437739249;6546;1673338;0;25
+r;437909564;6546;16606748;0;25
+r;478012125;6546;17515224;0;25
+r;385235781;6546;6947917;3;25
+r;385241663;6546;6948258;3;25
+r;385263177;6546;175720;3;25
+r;361886150;6546;14270798;4;25
+r;363199120;6546;14270847;4;25
+r;363020540;6546;14270944;4;25
+r;363011583;6546;14270943;4;25
+r;363002690;6546;14270942;4;25
+r;362993815;6546;14270945;4;25
+r;362984629;6546;150120;4;25
+r;362975641;6546;150119;4;25
+r;362966708;6546;150118;4;25
+r;362957770;6546;150117;4;25
+r;309912305;6546;1796534;5;25
+r;309912321;6546;1796533;5;25
+r;310121784;6546;589095;5;25
+r;310121786;6546;589096;5;25
+r;390931306;6546;14927608;5;25
+r;314926208;6546;101689;6;25
+r;357104968;6546;14049831;6;25
+r;357269733;6546;14049840;6;25
+r;359482947;6546;14049844;6;25
+r;479730969;6546;1655534;6;25
+r;377455934;6546;12321907;6;25
+r;383991637;6546;2461482;6;25
+r;391410828;6546;14940408;6;25
+r;372367110;6546;60152;9;25
+r;372497111;6546;213977;9;25
+r;377518717;6546;94431;9;25
+r;377816734;6546;12791689;9;25
+r;391313599;6546;6800176;9;25
+r;391314606;6546;11405719;9;25
+r;424941588;6546;398564;9;25
+r;479128297;6546;11008328;9;25
+r;414013449;6546;364788;10;25
+r;299594356;6546;6312596;11;25
+r;302972139;6546;6369055;11;25
+r;346221325;6546;13642899;11;25
+r;370466387;6546;14580155;11;25
+r;477518755;6546;11641;17;25
+r;352102982;6546;52413;17;25
+r;390143216;6546;7332979;18;25
+r;376175003;6546;326931;25;25
+r;376185280;6546;159452;25;25
+r;417400623;6546;15991431;36;25
+r;437084665;6546;1912917;36;25
+r;466111459;6546;276096;36;25
+r;391910664;6546;14935513;56;25
+r;390143217;6546;14927608;72;25
+r;390519243;6546;14966395;333;25
+r;390519251;6546;14927607;333;25
+r;394229684;6546;14940529;333;25
+r;394229686;6546;15216912;333;25
+r;307601386;6546;1733044;2000;25
+r;1033513;6546;27486;0;24
+r;1033523;6546;22221;0;24
+r;11301488;6546;326146;0;24
+r;104908923;6546;32122;17;24
+r;1033517;6546;107846;0;23
+r;1033521;6546;115477;0;23
+r;9622305;6546;67271;0;23
+r;15719567;6546;152125;0;23
+r;310842091;6546;589096;0;23
+r;31621502;6546;1964006;128;23
+r;31621506;6546;1964007;128;23
+r;31621510;6546;1964008;128;23
+r;1033526;6546;81713;0;22
+r;9621575;6546;131873;0;22
+r;9621617;6546;66517;0;22
+r;11116173;6546;108463;0;22
+r;98387508;6546;2505679;0;22
+r;310905866;6546;1796533;0;22
+r;417851620;6546;16035668;0;22
+r;417851621;6546;48855;0;22
+r;2192951;6546;248197;36;22
+r;1033515;6546;13451;0;21
+r;1033528;6546;89665;0;21
+r;9623095;6546;27822;0;21
+r;12302296;6546;19686;0;21
+r;18181693;6546;574841;0;21
+r;96822624;6546;62788;0;21
+r;310814557;6546;1796534;0;21
+r;14801462;6546;39636;17;21
+r;31621498;6546;1964005;128;21
+r;26478825;6546;254877;36;19
+r;478326303;6546;17515222;24;18
+r;10493990;6546;103311;0;17
+r;10504064;6546;83944;0;17
+r;10969074;6546;57875;0;17
+r;31621486;6546;1964002;128;17
+r;31621494;6546;1964004;128;17
+r;10465179;6546;221019;0;16
+r;10481856;6546;241352;0;16
+r;11066042;6546;126388;0;16
+r;11073552;6546;228289;0;16
+r;10438869;6546;219363;0;15
+r;10449557;6546;240720;0;15
+r;10459593;6546;187622;0;15
+r;473558422;6546;7256380;3;15
+r;448922899;6546;77750;5;15
+r;448922925;6546;62803;5;15
+r;2325367;6546;254876;36;15
+r;473696275;6546;155740;56;15
+r;473696276;6546;59765;56;15
+r;31621490;6546;1964003;128;15
+r;10345020;6546;233138;0;14
+r;10353388;6546;126285;0;14
+r;10169966;6546;151867;0;13
+r;275389871;6546;10314012;17;13
+r;31621482;6546;1964001;128;13
+r;31621598;6546;1964030;128;13
+r;10315776;6546;187620;0;12
+r;10321036;6546;145953;0;12
+r;10557130;6546;120157;0;12
+r;10256995;6546;109785;0;11
+r;10276668;6546;96211;0;11
+r;10536469;6546;36886;0;11
+r;11705770;6546;39031;0;11
+r;11708076;6546;213792;0;11
+r;246260734;6546;396042;0;11
+r;246261798;6546;396149;0;11
+r;418376183;6546;15760710;0;11
+r;177327118;6546;6797233;9;11
+r;413691618;6546;15080161;10;11
+r;3189417;6546;39636;106;11
+r;31621474;6546;1963999;128;11
+r;10229804;6546;32735;0;10
+r;10238757;6546;81934;0;10
+r;273931442;6546;267642;0;10
+r;273931444;6546;391009;0;10
+r;273931445;6546;87789;0;10
+r;273931447;6546;391010;0;10
+r;458734354;6546;62803;0;10
+r;96822620;6546;317325;36;10
+r;3535275;6546;52169;777;10
+r;3535276;6546;115926;777;10
+r;3535277;6546;143050;777;10
+r;3535278;6546;116084;777;10
+r;3535279;6546;225158;777;10
+r;3535280;6546;88265;777;10
+r;3535281;6546;106655;777;10
+r;3535282;6546;19686;777;10
+r;3535283;6546;166067;777;10
+r;3535284;6546;121053;777;10
+r;3535285;6546;112192;777;10
+r;3535286;6546;262891;777;10
+r;3535287;6546;44559;777;10
+r;3535288;6546;95935;777;10
+r;3535289;6546;121194;777;10
+r;3535290;6546;155302;777;10
+r;3535291;6546;272120;777;10
+r;3535292;6546;272121;777;10
+r;3535293;6546;189626;777;10
+r;3535294;6546;38710;777;10
+r;3535295;6546;8914;777;10
+r;3535296;6546;112281;777;10
+r;3535297;6546;55179;777;10
+r;3535298;6546;40186;777;10
+r;3535299;6546;63580;777;10
+r;3535300;6546;101486;777;10
+r;3535301;6546;32132;777;10
+r;3535302;6546;12753;777;10
+r;3535303;6546;222796;777;10
+r;3535304;6546;111035;777;10
+r;3535305;6546;35887;777;10
+r;3535306;6546;173437;777;10
+r;3535307;6546;74866;777;10
+r;3535308;6546;101838;777;10
+r;3535309;6546;102314;777;10
+r;3535310;6546;173463;777;10
+r;3535311;6546;29159;777;10
+r;3535312;6546;151499;777;10
+r;3535313;6546;32403;777;10
+r;3535314;6546;202672;777;10
+r;3535315;6546;76305;777;10
+r;3535316;6546;11838;777;10
+r;3535317;6546;37040;777;10
+r;3535318;6546;137330;777;10
+r;3535319;6546;13746;777;10
+r;3535320;6546;107378;777;10
+r;3535321;6546;44433;777;10
+r;3535322;6546;20982;777;10
+r;3535323;6546;91555;777;10
+r;3535324;6546;104089;777;10
+r;3535325;6546;46022;777;10
+r;3535326;6546;58404;777;10
+r;3535327;6546;164433;777;10
+r;3535328;6546;143306;777;10
+r;3535329;6546;75769;777;10
+r;3535330;6546;144817;777;10
+r;3535331;6546;141886;777;10
+r;3535332;6546;93461;777;10
+r;3535333;6546;101994;777;10
+r;3535334;6546;10417;777;10
+r;3535335;6546;145424;777;10
+r;3535336;6546;38186;777;10
+r;3535337;6546;69979;777;10
+r;3535338;6546;97628;777;10
+r;3535339;6546;123866;777;10
+r;3535340;6546;39009;777;10
+r;3535341;6546;38988;777;10
+r;3535342;6546;13844;777;10
+r;3535343;6546;151725;777;10
+r;3535345;6546;24916;777;10
+r;3535346;6546;54076;777;10
+r;3535347;6546;25667;777;10
+r;3535348;6546;242516;777;10
+r;3535349;6546;272985;777;10
+r;3535350;6546;265501;777;10
+r;3535351;6546;49926;777;10
+r;3535352;6546;101895;777;10
+r;3535353;6546;124380;777;10
+r;3535354;6546;116863;777;10
+r;3535355;6546;23555;777;10
+r;3535356;6546;143261;777;10
+r;3535357;6546;67946;777;10
+r;3535358;6546;134744;777;10
+r;3535359;6546;101214;777;10
+r;3535360;6546;60989;777;10
+r;3535361;6546;100566;777;10
+r;3535362;6546;32211;777;10
+r;3535363;6546;140927;777;10
+r;3535364;6546;43134;777;10
+r;3535365;6546;216504;777;10
+r;3535366;6546;15196;777;10
+r;3535367;6546;255129;777;10
+r;3535368;6546;33531;777;10
+r;3535369;6546;136161;777;10
+r;3535370;6546;220989;777;10
+r;3535371;6546;67383;777;10
+r;3535372;6546;1802;777;10
+r;3535373;6546;155740;777;10
+r;3535374;6546;152685;777;10
+r;3535375;6546;17559;777;10
+r;3535376;6546;137239;777;10
+r;3535377;6546;1125;777;10
+r;3535378;6546;103383;777;10
+r;3535379;6546;1041;777;10
+r;3535380;6546;60285;777;10
+r;3535381;6546;100460;777;10
+r;3535382;6546;62938;777;10
+r;3535383;6546;1262;777;10
+r;3535384;6546;136892;777;10
+r;3535385;6546;16496;777;10
+r;3535386;6546;143412;777;10
+r;3535387;6546;60454;777;10
+r;3535388;6546;145527;777;10
+r;3535389;6546;35758;777;10
+r;3535390;6546;21405;777;10
+r;3535391;6546;110215;777;10
+r;3535392;6546;135191;777;10
+r;3535393;6546;98087;777;10
+r;3535394;6546;170237;777;10
+r;3535395;6546;123771;777;10
+r;3535396;6546;114090;777;10
+r;3535397;6546;28335;777;10
+r;3535398;6546;59765;777;10
+r;3535399;6546;5588;777;10
+r;3535400;6546;146169;777;10
+r;3535401;6546;140356;777;10
+r;3535402;6546;62788;777;10
+r;3535403;6546;271762;777;10
+r;3535404;6546;71930;777;10
+r;3535405;6546;70085;777;10
+r;3535406;6546;105497;777;10
+r;3535407;6546;23316;777;10
+r;3535408;6546;113669;777;10
+r;3535409;6546;108930;777;10
+r;3535410;6546;34624;777;10
+r;3535411;6546;4824;777;10
+r;3535412;6546;122203;777;10
+r;3535413;6546;89142;777;10
+r;3535414;6546;19988;777;10
+r;4674770;6546;278310;777;10
+r;4674784;6546;281534;777;10
+r;4674913;6546;280590;777;10
+r;4674977;6546;189274;777;10
+r;4674978;6546;126998;777;10
+r;4674981;6546;35819;777;10
+r;4674984;6546;129342;777;10
+r;4674987;6546;51925;777;10
+r;4674988;6546;139468;777;10
+r;4674992;6546;71903;777;10
+r;4674995;6546;34238;777;10
+r;4674998;6546;12326;777;10
+r;4675001;6546;141068;777;10
+r;4675002;6546;59582;777;10
+r;4675007;6546;56302;777;10
+r;4675013;6546;130277;777;10
+r;4675015;6546;26363;777;10
+r;4675017;6546;143291;777;10
+r;4675019;6546;175314;777;10
+r;4675020;6546;150;777;10
+r;4675023;6546;64278;777;10
+r;4675025;6546;137519;777;10
+r;4675026;6546;18285;777;10
+r;4675030;6546;61810;777;10
+r;4675033;6546;12182;777;10
+r;4675038;6546;139272;777;10
+r;4675040;6546;35114;777;10
+r;4675045;6546;77779;777;10
+r;4675047;6546;75785;777;10
+r;4675049;6546;129044;777;10
+r;4675051;6546;152005;777;10
+r;4675055;6546;23900;777;10
+r;4675057;6546;45773;777;10
+r;4675068;6546;138976;777;10
+r;4675070;6546;112276;777;10
+r;4675076;6546;172379;777;10
+r;4675077;6546;7910;777;10
+r;4675087;6546;18229;777;10
+r;4675088;6546;140176;777;10
+r;4675091;6546;218165;777;10
+r;4675092;6546;73892;777;10
+r;4675100;6546;34839;777;10
+r;4675101;6546;138239;777;10
+r;4675114;6546;48486;777;10
+r;4675119;6546;94998;777;10
+r;4675125;6546;52354;777;10
+r;4675131;6546;46228;777;10
+r;4675139;6546;144403;777;10
+r;4675145;6546;5079;777;10
+r;4675150;6546;39726;777;10
+r;4675160;6546;74414;777;10
+r;4675165;6546;32302;777;10
+r;4675173;6546;46668;777;10
+r;4675180;6546;42313;777;10
+r;4675185;6546;138879;777;10
+r;4675188;6546;99408;777;10
+r;4675194;6546;146396;777;10
+r;4675200;6546;109752;777;10
+r;4675211;6546;105453;777;10
+r;4675214;6546;122529;777;10
+r;4675228;6546;35595;777;10
+r;4675237;6546;94530;777;10
+r;4675242;6546;76479;777;10
+r;4675255;6546;274527;777;10
+r;4675261;6546;274530;777;10
+r;4675267;6546;80390;777;10
+r;4675272;6546;219742;777;10
+r;4675276;6546;77416;777;10
+r;4675280;6546;62722;777;10
+r;4675285;6546;69754;777;10
+r;4675290;6546;31280;777;10
+r;4675293;6546;246838;777;10
+r;4675296;6546;203066;777;10
+r;4675303;6546;216164;777;10
+r;4675308;6546;145289;777;10
+r;4675315;6546;141835;777;10
+r;4675324;6546;144556;777;10
+r;4675327;6546;139062;777;10
+r;4675330;6546;21297;777;10
+r;4675333;6546;16974;777;10
+r;4675335;6546;8768;777;10
+r;4675336;6546;278685;777;10
+r;4675340;6546;141189;777;10
+r;4675341;6546;68165;777;10
+r;4675344;6546;74161;777;10
+r;4675348;6546;8942;777;10
+r;4675350;6546;43978;777;10
+r;4675358;6546;12413;777;10
+r;4675364;6546;25015;777;10
+r;4675366;6546;66571;777;10
+r;4675373;6546;1316;777;10
+r;4675375;6546;123696;777;10
+r;4675384;6546;150705;777;10
+r;4675389;6546;72150;777;10
+r;4675393;6546;151552;777;10
+r;4675396;6546;145011;777;10
+r;4675399;6546;11889;777;10
+r;4675402;6546;138356;777;10
+r;4675407;6546;50729;777;10
+r;4675409;6546;142687;777;10
+r;4675410;6546;138516;777;10
+r;4675414;6546;69560;777;10
+r;4675418;6546;33210;777;10
+r;4675420;6546;143463;777;10
+r;4675422;6546;124719;777;10
+r;4675424;6546;75253;777;10
+r;4675428;6546;7286;777;10
+r;4675433;6546;80298;777;10
+r;4675440;6546;3644;777;10
+r;4675447;6546;53411;777;10
+r;4675454;6546;55152;777;10
+r;4675466;6546;108373;777;10
+r;4675487;6546;192;777;10
+r;4675490;6546;18379;777;10
+r;4675500;6546;62163;777;10
+r;5894555;6546;283493;777;10
+r;5894898;6546;283973;777;10
+r;5895349;6546;95544;777;10
+r;5895357;6546;269104;777;10
+r;5895366;6546;199500;777;10
+r;17444543;6546;398987;777;10
+r;17444554;6546;414680;777;10
+r;17444565;6546;410731;777;10
+r;17444571;6546;425127;777;10
+r;17444575;6546;423561;777;10
+r;17444592;6546;397221;777;10
+r;17444617;6546;429336;777;10
+r;17444635;6546;417928;777;10
+r;17444657;6546;436002;777;10
+r;17444665;6546;407714;777;10
+r;17444668;6546;425495;777;10
+r;17444671;6546;428501;777;10
+r;17444676;6546;415321;777;10
+r;17444683;6546;404129;777;10
+r;17444686;6546;415475;777;10
+r;31621614;6546;1775673;777;10
+r;34051523;6546;2201364;777;10
+r;34051541;6546;2049022;777;10
+r;34051545;6546;2070410;777;10
+r;34051547;6546;2118059;777;10
+r;34051551;6546;2067907;777;10
+r;34051556;6546;2059548;777;10
+r;34051567;6546;100640;777;10
+r;72052426;6546;2442334;777;10
+r;72052427;6546;2440660;777;10
+r;77817777;6546;3228013;777;10
+r;77817778;6546;3186220;777;10
+r;85017539;6546;144578;777;10
+r;85017540;6546;3304944;777;10
+r;98609097;6546;2399579;777;10
+r;98609098;6546;413215;777;10
+r;221917250;6546;6260560;777;10
+r;221917252;6546;5558945;777;10
+r;221917253;6546;5793470;777;10
+r;221917254;6546;8856497;777;10
+r;221917255;6546;9967282;777;10
+r;221917256;6546;432472;777;10
+r;221917257;6546;145946;777;10
+r;221917258;6546;5838003;777;10
+r;221917259;6546;5829666;777;10
+r;221917260;6546;5369938;777;10
+r;269289304;6546;138244;777;10
+r;269289305;6546;121511;777;10
+r;269289306;6546;189003;777;10
+r;277540257;6546;10985160;777;10
+r;277540258;6546;10985159;777;10
+r;283383391;6546;11030663;777;10
+r;283386840;6546;252105;777;10
+r;283386841;6546;271288;777;10
+r;283386842;6546;11147701;777;10
+r;283386843;6546;293880;777;10
+r;283386844;6546;2586189;777;10
+r;283386845;6546;10513313;777;10
+r;322825141;6546;11415688;777;10
+r;346958227;6546;12903110;777;10
+r;348859193;6546;11646369;777;10
+r;350432396;6546;13853567;777;10
+r;356610491;6546;13989044;777;10
+r;372233373;6546;95989;777;10
+r;372233374;6546;14192683;777;10
+r;393633765;6546;172932;777;10
+r;393633766;6546;105503;777;10
+r;393633769;6546;65243;777;10
+r;393633771;6546;5703462;777;10
+r;393633772;6546;57909;777;10
+r;393633775;6546;10314480;777;10
+r;393633777;6546;2378757;777;10
+r;393633779;6546;2501512;777;10
+r;393633781;6546;2401395;777;10
+r;393633782;6546;2083037;777;10
+r;393633785;6546;416286;777;10
+r;393633787;6546;13442443;777;10
+r;393633789;6546;11645384;777;10
+r;393633792;6546;13665131;777;10
+r;430353480;6546;16323600;777;10
+r;10212145;6546;16110;0;9
+r;10216712;6546;47319;0;9
+r;10218578;6546;152844;0;9
+r;28466324;6546;1733045;128;9
+r;31621478;6546;1964000;128;9
+r;31621594;6546;1964029;128;9
+r;284751189;6546;237444;999;9
+r;13134592;6546;390927;0;7
+r;8801585;6546;61316;24;7
+r;177377862;6546;8748004;128;7
+r;442194887;6546;14917526;9;6
+r;478012226;6546;17515224;66;6
+r;478012229;6546;17515223;66;6
+r;1662608;6546;2680;666;6
+r;10132867;6546;77008;0;5
+r;23349503;6546;214369;6;5
+r;435280906;6546;15204740;9;5
+r;8794815;6546;47972;24;5
+r;179419894;6546;8753735;128;5
+r;391604282;6546;14981175;128;5
+r;30402278;6546;330963;999;5
+r;285381395;6546;218947;999;5
+r;391420944;6546;14940408;0;4
+r;97580204;6546;74558;9;4
+r;29661468;6546;225846;999;4
+r;29683076;6546;225848;999;4
+r;31895327;6546;237441;999;4
+r;31966842;6546;237443;999;4
+r;401789064;6546;15047666;9;3
+r;31621470;6546;1963998;128;3
+r;54715810;6546;2591888;128;3
+r;54715814;6546;2591889;128;3
+r;54715818;6546;2591890;128;3
+r;413761622;6546;15871078;128;3
+r;434070969;6546;16498352;140;3
+r;478038149;6546;17517298;140;3
+r;1678584;6546;85447;666;3
+r;1678585;6546;60902;666;3
+r;1783416;6546;132838;666;3
+r;285661123;6546;3702289;999;3
+r;285661144;6546;241950;999;3
+r;285661154;6546;241951;999;3
+r;18226810;6546;249270;6;2
+r;97729480;6546;13369;6;2
+r;97797875;6546;58768;6;2
+r;97887825;6546;157007;6;2
+r;436465738;6546;14918011;9;2
+r;372817366;6546;14657997;140;2
+r;1662611;6546;26979;666;2
+r;2144871;6546;94990;666;2
+r;29704682;6546;225849;999;2
+r;284568020;6546;396249;999;2
+r;215798313;6546;6798394;9;1
+r;19534283;6546;37298;32;1
+r;3181117;6546;86356;106;1
+r;31621602;6546;1964031;128;1
+r;31621606;6546;1964032;128;1
+r;31621610;6546;1964033;128;1
+r;391532790;6546;14978235;140;1
+r;391536174;6546;14979081;140;1
+r;94180988;6546;3781186;444;1
+r;94278496;6546;3890554;444;1
+r;94375819;6546;3999558;444;1
+r;94473255;6546;4107669;444;1
+r;1662609;6546;131418;666;1
+r;1662610;6546;95422;666;1
+r;1662612;6546;66460;666;1
+r;1783415;6546;83764;666;1
+r;2144870;6546;110836;666;1
+r;2219780;6546;17559;666;1
+r;2219781;6546;76583;666;1
+r;2219782;6546;63235;666;1
+r;3211702;6546;147184;666;1
+r;34202246;6546;244621;999;1
+r;34209637;6546;234035;999;1
+r;284195658;6546;3170279;999;1
+r;284399764;6546;396248;999;1
+r;284750577;6546;396250;999;1
+r;10121870;6546;144846;0;-4
+r;8793671;6546;13844;10;-5
+r;10165038;6546;225934;0;-8
+r;10195064;6546;26363;0;-8
+r;10202884;6546;74846;0;-8
+r;10262031;6546;34898;0;-11
+r;10245998;6546;142086;0;-13
+r;10372907;6546;139779;0;-13
+r;10338314;6546;107477;0;-14
+r;10348557;6546;116980;0;-14
+r;10152591;6546;77424;0;-15
+r;10331457;6546;140715;0;-17
+r;10486126;6546;95422;0;-17
+r;15663935;6546;152125;3;-19
+r;15934664;6546;16747;0;-21
+r;15917748;6546;114327;0;-22
+r;384634323;6546;1733044;1;-25
+r;468313;6546;63235;3;-29
+r;532830;6546;77750;6;-51
+r;83360495;6546;396146;6;-51
+
+// les relations entrantes : r;rid;node1;node2;type;w 
+// 1002 relations entrantes 
+
+r;427922;66460;6546;0;438
+r;148712193;6797233;6546;10;360
+r;11113884;141814;6546;10;358
+r;12979393;265501;6546;6;215
+r;84990819;272985;6546;6;211
+r;15821929;114327;6546;10;202
+r;398888110;14918011;6546;10;200
+r;398703121;14917526;6546;10;200
+r;9527866;252321;6546;0;197
+r;9472617;195213;6546;0;197
+r;3212614;270914;6546;6;190
+r;31241213;143669;6546;27;181
+r;31241214;143669;6546;0;179
+r;150580855;6947917;6546;27;177
+r;150576415;6947917;6546;0;177
+r;9553517;272982;6546;0;158
+r;1579239;132838;6546;0;154
+r;2159124;237324;6546;0;150
+r;9588447;305995;6546;0;147
+r;9504822;217065;6546;0;147
+r;9449340;181481;6546;0;146
+r;9445866;176034;6546;0;146
+r;1576925;89460;6546;0;144
+r;76604368;3177135;6546;0;143
+r;9384516;30729;6546;0;143
+r;2305030;253770;6546;0;143
+r;1529021;19988;6546;0;143
+r;8559247;312770;6546;6;136
+r;2305010;253770;6546;6;126
+r;153332;84098;6546;0;120
+r;1918689;26979;6546;0;116
+r;374576963;14721397;6546;0;115
+r;18116082;574841;6546;5;114
+r;713892;94990;6546;5;112
+r;413393812;14721398;6546;0;110
+r;359861;45225;6546;13;110
+r;18116081;574841;6546;0;109
+r;366709;94990;6546;0;106
+r;415975902;14927607;6546;0;105
+r;1859906;234721;6546;0;103
+r;437909559;16606748;6546;0;100
+r;437909526;16606745;6546;0;100
+r;437909517;16606744;6546;13;100
+r;437739254;16602575;6546;0;100
+r;437739243;16602574;6546;13;100
+r;434190398;16508946;6546;14;100
+r;389698469;14902704;6546;13;100
+r;365783954;14400050;6546;13;100
+r;9866839;312770;6546;0;100
+r;30930315;32851;6546;0;99
+r;575274;19686;6546;5;98
+r;434190413;16508947;6546;0;97
+r;30930314;32851;6546;27;97
+r;3212603;270914;6546;0;97
+r;205968003;6948258;6546;0;95
+r;205967180;6948258;6546;27;95
+r;389698513;14902708;6546;0;90
+r;389698480;14902705;6546;0;90
+r;11646085;142520;6546;0;90
+r;464933;166676;6546;0;90
+r;570654;37555;6546;5;89
+r;398347897;14917526;6546;0;85
+r;95727775;2505679;6546;5;84
+r;215728913;175720;6546;0;83
+r;2439428;237249;6546;0;83
+r;365783987;14400054;6546;0;82
+r;365783964;14400051;6546;0;82
+r;215729635;175720;6546;27;81
+r;13072561;237323;6546;0;81
+r;11414935;101018;6546;0;81
+r;395970172;14936475;6546;13;80
+r;391196516;14940408;6546;0;80
+r;321863828;12321907;6546;0;80
+r;13929523;395054;6546;0;80
+r;1771239;66460;6546;6;80
+r;114949;49836;6546;0;80
+r;111143;2680;6546;0;80
+r;437909534;16606746;6546;13;79
+r;365783999;1673338;6546;13;78
+r;13989234;395054;6546;6;76
+r;11511554;54794;6546;0;76
+r;10578777;77750;6546;0;76
+r;398798629;14918011;6546;0;75
+r;391240453;14935513;6546;0;75
+r;97748326;64513;6546;13;74
+r;370325506;9221014;6546;0;71
+r;368586123;225843;6546;6;71
+r;78279453;99220;6546;23;69
+r;15570112;120157;6546;0;69
+r;389698488;14902706;6546;13;68
+r;93455258;3743813;6546;0;68
+r;1684320;81713;6546;5;67
+r;434190395;7943;6546;14;66
+r;3207149;62803;6546;0;66
+r;405707150;15080161;6546;0;65
+r;253143734;10314012;6546;23;65
+r;200596663;9101992;6546;0;65
+r;55336803;98971;6546;5;65
+r;10574206;66517;6546;0;64
+r;1760437;26979;6546;55;64
+r;389698466;110836;6546;13;63
+r;10557131;120157;6546;9;62
+r;100911;99408;6546;5;62
+r;365783974;14400052;6546;13;61
+r;14981962;43253;6546;13;61
+r;14379684;281534;6546;0;61
+r;13013987;326650;6546;13;61
+r;13008944;161092;6546;13;61
+r;12143456;327404;6546;13;61
+r;12065186;160374;6546;13;61
+r;804;2835;6546;0;61
+r;409561679;364788;6546;9;60
+r;409561678;364788;6546;0;60
+r;405682578;15080161;6546;9;60
+r;396557330;14946896;6546;0;60
+r;391240175;14935513;6546;55;60
+r;102259077;32122;6546;23;60
+r;14385221;329657;6546;0;60
+r;13406903;222208;6546;0;60
+r;12034062;330964;6546;0;60
+r;11553631;326908;6546;13;60
+r;11538085;325741;6546;0;60
+r;11480872;265277;6546;0;60
+r;11398035;264881;6546;0;60
+r;11391622;265839;6546;0;60
+r;11380290;325728;6546;0;60
+r;10891179;248081;6546;0;60
+r;10574189;131873;6546;0;60
+r;10574164;31085;6546;0;60
+r;2116748;245650;6546;0;60
+r;1859902;234692;6546;0;60
+r;920806;42275;6546;0;60
+r;368491;157384;6546;13;60
+r;357993;34901;6546;13;60
+r;356243;34901;6546;0;60
+r;442651845;16606773;6546;0;59
+r;13379629;68439;6546;0;59
+r;11409735;317929;6546;0;59
+r;10879960;24956;6546;0;59
+r;10575236;83764;6546;0;59
+r;10574168;10756;6546;0;59
+r;340247;6546;6546;19;59
+r;340246;24207;6546;19;59
+r;28364433;396247;6546;0;58
+r;11564946;326931;6546;16;58
+r;11500254;325738;6546;0;58
+r;11486524;115304;6546;0;58
+r;11403259;91794;6546;0;58
+r;10895588;49293;6546;0;58
+r;10879709;244620;6546;0;58
+r;10619865;225916;6546;0;58
+r;10574060;74860;6546;0;58
+r;1867173;234720;6546;0;58
+r;244338;159452;6546;16;58
+r;442652442;16603557;6546;0;57
+r;289323424;214997;6546;2000;57
+r;14030187;237445;6546;0;57
+r;13982910;260820;6546;0;57
+r;13921343;225847;6546;0;57
+r;13879597;65081;6546;0;57
+r;13804315;234036;6546;0;57
+r;10575455;154718;6546;0;57
+r;2435059;233191;6546;0;57
+r;471457;91555;6546;0;57
+r;78748199;87789;6546;0;56
+r;78729016;391010;6546;0;56
+r;78709835;391009;6546;0;56
+r;78696352;267642;6546;0;56
+r;13645783;274278;6546;0;56
+r;11491794;264880;6546;0;56
+r;11479530;325736;6546;0;56
+r;11404470;264908;6546;0;56
+r;11373697;325731;6546;0;56
+r;11236396;55823;6546;0;56
+r;10575448;17559;6546;0;56
+r;102050139;259690;6546;0;55
+r;10585039;63235;6546;0;55
+r;10575527;27822;6546;0;55
+r;13455068;175325;6546;0;54
+r;11506651;142602;6546;0;54
+r;10619096;116477;6546;0;54
+r;10575237;67271;6546;0;54
+r;3207278;116675;6546;0;54
+r;476736250;14771676;6546;13;53
+r;476736265;17456944;6546;0;53
+r;55336806;67271;6546;5;53
+r;11532930;265220;6546;0;52
+r;11396818;110773;6546;0;52
+r;10969075;57875;6546;10;52
+r;10897585;86640;6546;0;52
+r;2811624;249270;6546;0;52
+r;1859873;234721;6546;6;52
+r;263822;93097;6546;0;52
+r;372564695;14653843;6546;0;51
+r;219657608;59765;6546;0;51
+r;89107697;428;6546;0;51
+r;77546947;135544;6546;0;51
+r;24232398;257602;6546;0;51
+r;14112322;305298;6546;0;51
+r;430904214;15237077;6546;0;50
+r;401123016;15047666;6546;10;50
+r;397500172;15237076;6546;0;50
+r;374568298;14721400;6546;0;50
+r;374555905;14721399;6546;0;50
+r;232082226;10071367;6546;0;50
+r;214239642;9510432;6546;0;50
+r;390519254;14927608;6546;333;48
+r;434205500;16507943;6546;0;48
+r;957822;22221;6546;0;48
+r;289323425;214998;6546;2000;47
+r;289323423;214996;6546;2000;47
+r;13436189;93735;6546;0;46
+r;1013120;98971;6546;0;46
+r;476191783;16606752;6546;13;45
+r;390188453;11405719;6546;10;45
+r;476192347;16602581;6546;13;44
+r;10613844;71624;6546;0;42
+r;218736653;9805948;6546;0;41
+r;149051314;6800176;6546;10;41
+r;97747146;14338;6546;13;41
+r;425014951;16166309;6546;0;40
+r;196035532;6798394;6546;10;39
+r;72910262;215012;6546;0;38
+r;355052974;2461482;6546;0;37
+r;212105920;94431;6546;10;37
+r;10659147;16747;6546;10;37
+r;10486127;95422;6546;10;37
+r;10372908;139779;6546;10;37
+r;274691546;10921519;6546;13;35
+r;220177146;141814;6546;0;35
+r;148710679;6797233;6546;0;35
+r;21144686;77389;6546;0;35
+r;9131037;218948;6546;0;35
+r;3206508;143475;6546;0;35
+r;3081048;43222;6546;23;35
+r;1986549;241949;6546;0;35
+r;1557147;214997;6546;0;35
+r;1557141;214996;6546;0;35
+r;119684962;6088909;6546;6;34
+r;1557188;214998;6546;0;34
+r;670987;2835;6546;5;34
+r;309431511;1796534;6546;5;33
+r;309431510;1796533;6546;5;33
+r;309292466;589096;6546;5;33
+r;309292465;589095;6546;5;33
+r;478012089;39058;6546;13;32
+r;97523316;157007;6546;0;32
+r;97145624;58768;6546;0;32
+r;96803729;13369;6546;0;32
+r;14763310;133424;6546;23;32
+r;2486663;144916;6546;0;32
+r;478012120;17515224;6546;0;31
+r;478012105;326931;6546;13;31
+r;478012103;17515223;6546;0;31
+r;478012092;17515222;6546;13;31
+r;78291438;33882;6546;13;31
+r;761651;27486;6546;0;31
+r;478990937;11008328;6546;10;30
+r;478012116;17515224;6546;6;30
+r;437690530;16531187;6546;14;30
+r;434190450;14471897;6546;14;30
+r;389698509;14902708;6546;6;30
+r;411998475;15194901;6546;0;30
+r;347731543;105814;6546;13;30
+r;330202570;12791689;6546;10;30
+r;330121371;12791689;6546;0;30
+r;307587428;1733044;6546;2000;30
+r;232513418;6681658;6546;13;30
+r;97748206;214745;6546;13;30
+r;97748205;85447;6546;13;30
+r;25844804;1636805;6546;10;30
+r;22544316;48855;6546;23;30
+r;15806665;224422;6546;13;30
+r;15015208;130164;6546;13;30
+r;15009290;43601;6546;13;30
+r;15003221;2442;6546;13;30
+r;14995370;140318;6546;13;30
+r;14993734;124600;6546;13;30
+r;14974921;251694;6546;13;30
+r;14950539;259820;6546;13;30
+r;14915463;47918;6546;13;30
+r;12813735;108463;6546;0;30
+r;10604010;233133;6546;0;30
+r;10165039;225934;6546;10;30
+r;3186732;39636;6546;23;30
+r;2058962;239950;6546;13;30
+r;846201;117895;6546;0;30
+r;471135629;17221908;6546;0;29
+r;413969616;9056;6546;0;29
+r;310121785;589096;6546;0;29
+r;96824734;14738;6546;23;29
+r;95744591;2498983;6546;0;29
+r;14435885;413667;6546;0;29
+r;11301489;326146;6546;10;29
+r;10152592;77424;6546;10;29
+r;945618;107846;6546;0;29
+r;437522;24207;6546;0;29
+r;427925;166173;6546;0;29
+r;427908;4445;6546;0;29
+r;413325585;75617;6546;0;28
+r;25906890;1636805;6546;0;28
+r;21111181;122864;6546;0;28
+r;15147484;32303;6546;27;28
+r;15816149;395040;6546;0;28
+r;14776205;1384;6546;23;28
+r;14762697;122864;6546;23;28
+r;1006723;38459;6546;0;28
+r;989929;109811;6546;0;28
+r;864211;125121;6546;0;28
+r;798758;115477;6546;0;28
+r;398211755;15204740;6546;10;27
+r;15785528;213644;6546;10;27
+r;15528660;152125;6546;27;27
+r;15198052;63235;6546;27;27
+r;11116174;108463;6546;10;27
+r;945345;81713;6546;0;27
+r;415001868;131418;6546;0;26
+r;415001785;38988;6546;0;26
+r;235994332;10071367;6546;6;26
+r;84990798;272985;6546;0;26
+r;15791842;213644;6546;0;26
+r;15376654;117095;6546;0;26
+r;15178775;117095;6546;27;26
+r;14737110;330215;6546;23;26
+r;12984462;265501;6546;0;26
+r;12302292;37555;6546;0;26
+r;761497;80897;6546;0;26
+r;479233721;1733044;6546;1;25
+r;478012108;16311119;6546;0;25
+r;478012107;326931;6546;0;25
+r;478012099;17515223;6546;6;25
+r;478012095;17515222;6546;0;25
+r;478012090;39058;6546;0;25
+r;475876914;24207;6546;170;25
+r;437909555;16606748;6546;6;25
+r;437909544;16606747;6546;0;25
+r;437909536;16606746;6546;0;25
+r;437909522;16606745;6546;6;25
+r;437909520;16606744;6546;0;25
+r;437909515;64513;6546;0;25
+r;437739250;16602575;6546;6;25
+r;437739247;16602574;6546;0;25
+r;437739241;1673338;6546;0;25
+r;437690483;16531188;6546;0;25
+r;437607508;16599814;6546;0;25
+r;436151274;62803;6546;5;25
+r;436150811;77750;6546;5;25
+r;434190483;16508952;6546;0;25
+r;434190466;16508951;6546;0;25
+r;434190456;14471898;6546;0;25
+r;434190406;16508947;6546;6;25
+r;434190405;16508946;6546;0;25
+r;434190396;7943;6546;0;25
+r;425041693;13640062;6546;6;25
+r;415975904;14966395;6546;0;25
+r;415889312;14940529;6546;0;25
+r;415889310;15216912;6546;0;25
+r;394229687;15216912;6546;333;25
+r;394229685;14940529;6546;333;25
+r;390931308;14927608;6546;5;25
+r;390519252;14927607;6546;333;25
+r;390519244;14966395;6546;333;25
+r;390143218;14927608;6546;72;25
+r;389698498;14902707;6546;0;25
+r;389698490;14902706;6546;0;25
+r;389698476;14902705;6546;6;25
+r;389698472;14902704;6546;0;25
+r;389698467;110836;6546;0;25
+r;388030865;10071367;6546;130;25
+r;386977930;272985;6546;130;25
+r;385588182;265501;6546;130;25
+r;385523730;395054;6546;130;25
+r;385465536;270914;6546;130;25
+r;385420440;253770;6546;130;25
+r;385397665;66460;6546;130;25
+r;434575544;16530494;6546;0;25
+r;376096575;52413;6546;23;25
+r;375612601;164433;6546;156;25
+r;375612600;58404;6546;156;25
+r;375590215;38988;6546;122;25
+r;374000799;14715175;6546;0;25
+r;365783983;14400054;6546;6;25
+r;365783980;14400053;6546;0;25
+r;365783960;14400051;6546;6;25
+r;365783957;14400050;6546;0;25
+r;365783952;43253;6546;0;25
+r;350900882;221034;6546;10;25
+r;310433197;1395235;6546;0;25
+r;256307294;10430109;6546;0;25
+r;235994333;10071368;6546;6;25
+r;476736261;17456944;6546;6;25
+r;476736252;14771676;6546;0;25
+r;476736253;14771677;6546;0;25
+r;50195536;2362869;6546;0;24
+r;1011526;38119;6546;0;24
+r;856082;13451;6546;0;24
+r;390931307;14927608;6546;0;23
+r;310121783;589095;6546;0;23
+r;110000699;5563394;6546;0;23
+r;15578961;152125;6546;0;23
+r;1037324;104621;6546;0;23
+r;154164254;6800353;6546;10;22
+r;96737991;1733044;6546;0;22
+r;15280843;32303;6546;0;22
+r;10493991;103311;6546;10;22
+r;472859511;15513258;6546;0;21
+r;418376190;53338;6546;0;21
+r;418376187;16059725;6546;0;21
+r;96824733;64300;6546;23;21
+r;95727774;2505679;6546;0;21
+r;13451202;150705;6546;0;21
+r;12324760;99408;6546;0;21
+r;12299165;19686;6546;0;21
+r;759996;89665;6546;0;21
+r;444488537;15088586;6546;10;20
+r;435780275;108476;6546;23;20
+r;435779980;132281;6546;23;20
+r;435779329;51187;6546;23;20
+r;435779023;15342254;6546;23;20
+r;409227648;15216907;6546;156;20
+r;409227583;15216906;6546;156;20
+r;409199355;14934846;6546;23;20
+r;409199080;15085126;6546;23;20
+r;368586701;99408;6546;6;20
+r;425221440;398564;6546;10;18
+r;233028700;10090574;6546;0;18
+r;233028111;10090791;6546;0;18
+r;233028105;10090793;6546;0;18
+r;96728187;74558;6546;0;18
+r;12806359;326146;6546;0;18
+r;424997950;16166308;6546;0;17
+r;269373088;10760942;6546;0;17
+r;232098314;10064383;6546;0;17
+r;232082222;10071368;6546;0;17
+r;10504065;83944;6546;10;17
+r;10331458;140715;6546;10;17
+r;10315777;187620;6546;10;17
+r;274016005;221983;6546;0;16
+r;96728834;74558;6546;10;16
+r;11073553;228289;6546;10;16
+r;11066043;126388;6546;10;16
+r;10481857;241352;6546;10;16
+r;10465180;221019;6546;10;16
+r;390579664;7256380;6546;0;15
+r;390578647;7256380;6546;27;15
+r;309912320;1796533;6546;0;15
+r;309912304;1796534;6546;0;15
+r;10459594;187622;6546;10;15
+r;10449558;240720;6546;10;15
+r;10438870;219363;6546;10;15
+r;10353389;126285;6546;10;14
+r;10348558;116980;6546;10;14
+r;10345021;233138;6546;10;14
+r;10338315;107477;6546;10;14
+r;10245999;142086;6546;10;13
+r;10195065;26363;6546;10;13
+r;419679882;15237078;6546;0;12
+r;253390475;10329335;6546;0;12
+r;10321037;145953;6546;10;12
+r;418376204;101193;6546;0;11
+r;290722033;11347641;6546;0;11
+r;11708077;213792;6546;10;11
+r;11705771;39031;6546;10;11
+r;10536470;36886;6546;9;11
+r;10276669;96211;6546;10;11
+r;10262032;34898;6546;10;11
+r;10256996;109785;6546;10;11
+r;467909520;14606397;6546;23;10
+r;466194074;10039796;6546;777;10
+r;466111701;17242822;6546;777;10
+r;464637867;419255;6546;777;10
+r;464637865;17221928;6546;777;10
+r;464637766;5841052;6546;777;10
+r;464637765;5893763;6546;777;10
+r;464637670;17221927;6546;777;10
+r;464637668;88312;6546;777;10
+r;464637586;397375;6546;777;10
+r;464637584;17221926;6546;777;10
+r;464637548;17221925;6546;777;10
+r;464637498;17221924;6546;777;10
+r;464637439;60885;6546;777;10
+r;464637403;14669;6546;777;10
+r;464637367;17221923;6546;777;10
+r;464637352;395149;6546;777;10
+r;464637287;17221921;6546;777;10
+r;464635266;17221899;6546;777;10
+r;462333991;17181537;6546;777;10
+r;461632607;17175614;6546;777;10
+r;459038525;17139295;6546;777;10
+r;454218833;17058277;6546;777;10
+r;454218831;17058276;6546;777;10
+r;454218829;17058275;6546;777;10
+r;454218827;17058274;6546;777;10
+r;454218825;17058273;6546;777;10
+r;454218823;17058272;6546;777;10
+r;454218821;17058270;6546;777;10
+r;452011800;22105;6546;777;10
+r;452011798;234722;6546;777;10
+r;447105479;16831653;6546;777;10
+r;445793645;7053316;6546;0;10
+r;442841946;16802343;6546;777;10
+r;442841944;16802342;6546;777;10
+r;440711897;5536212;6546;777;10
+r;440071415;235690;6546;777;10
+r;440071413;91753;6546;777;10
+r;440071411;16746985;6546;777;10
+r;436751856;16587641;6546;777;10
+r;435956014;14927763;6546;23;10
+r;431821657;397616;6546;777;10
+r;428980058;16320241;6546;777;10
+r;428936428;10160249;6546;777;10
+r;428936313;16319782;6546;777;10
+r;428936203;16319781;6546;777;10
+r;428344805;10344514;6546;777;10
+r;428344803;16310662;6546;777;10
+r;428344801;10344022;6546;777;10
+r;428344799;8917642;6546;777;10
+r;426783888;1649686;6546;777;10
+r;426765940;5902242;6546;777;10
+r;423207057;403759;6546;777;10
+r;422885315;16152240;6546;777;10
+r;418670303;42497;6546;777;10
+r;418670301;408503;6546;777;10
+r;418670299;16070965;6546;777;10
+r;418670297;16070964;6546;777;10
+r;414860368;13640062;6546;777;10
+r;411815604;390958;6546;10;10
+r;411795281;15050135;6546;23;10
+r;410059082;15782555;6546;777;10
+r;410059080;15782554;6546;777;10
+r;410059078;15782553;6546;777;10
+r;410059076;15782552;6546;777;10
+r;410059074;51528;6546;777;10
+r;408603200;15080160;6546;9;10
+r;408595649;15080160;6546;0;10
+r;407790207;14539352;6546;777;10
+r;407729423;15778100;6546;777;10
+r;407729421;10459145;6546;777;10
+r;407729419;13866547;6546;777;10
+r;407729417;15778099;6546;777;10
+r;407729415;15778098;6546;777;10
+r;406945411;1800993;6546;777;10
+r;406945409;258287;6546;777;10
+r;406945407;15776601;6546;777;10
+r;406942811;15776550;6546;777;10
+r;399807744;14926383;6546;0;10
+r;399807711;15112028;6546;0;10
+r;397929581;14922214;6546;0;10
+r;397929398;14922213;6546;0;10
+r;397929210;15251852;6546;0;10
+r;397929035;15251851;6546;0;10
+r;397928843;15052943;6546;0;10
+r;372604994;1643912;6546;777;10
+r;372236530;14639718;6546;777;10
+r;371799284;3321135;6546;777;10
+r;371799282;410879;6546;777;10
+r;371799281;10093153;6546;777;10
+r;371799279;151484;6546;777;10
+r;371512625;64325;6546;777;10
+r;371512623;145450;6546;777;10
+r;371512621;14626207;6546;777;10
+r;371512619;14626206;6546;777;10
+r;371512617;14626205;6546;777;10
+r;371512615;14626204;6546;777;10
+r;370842431;5829288;6546;777;10
+r;370842429;10873367;6546;777;10
+r;370445710;5926790;6546;777;10
+r;370441426;5725966;6546;777;10
+r;370441424;14580156;6546;777;10
+r;370441422;14580155;6546;777;10
+r;370441420;187266;6546;777;10
+r;370441418;14580151;6546;777;10
+r;370441416;2949088;6546;777;10
+r;369553060;14539643;6546;777;10
+r;369553058;14539642;6546;777;10
+r;369553056;14539641;6546;777;10
+r;369553054;14539640;6546;777;10
+r;367226116;14469422;6546;777;10
+r;367226114;14469421;6546;777;10
+r;367115023;14467194;6546;777;10
+r;366353179;92479;6546;777;10
+r;365151339;14376809;6546;777;10
+r;365151337;14376808;6546;777;10
+r;365151335;14376807;6546;777;10
+r;365151333;2369244;6546;777;10
+r;365151331;14376806;6546;777;10
+r;365151329;34158;6546;777;10
+r;365151327;14376805;6546;777;10
+r;358688335;14140086;6546;777;10
+r;357023262;14108989;6546;777;10
+r;357023260;579098;6546;777;10
+r;356611895;14095860;6546;777;10
+r;356611765;14095858;6546;777;10
+r;356544242;14094858;6546;777;10
+r;356487379;10312229;6546;777;10
+r;352376988;2952654;6546;777;10
+r;352331249;13989677;6546;777;10
+r;350432342;13866541;6546;777;10
+r;350432232;5669100;6546;777;10
+r;350432231;5519383;6546;777;10
+r;350432230;5669099;6546;777;10
+r;350432229;13866540;6546;777;10
+r;350432133;13866538;6546;777;10
+r;350431947;11181830;6546;777;10
+r;350080801;13853567;6546;777;10
+r;361295899;14232161;6546;777;10
+r;342366492;13518016;6546;777;10
+r;326461517;12719326;6546;777;10
+r;323860492;12645851;6546;777;10
+r;323860490;12645850;6546;777;10
+r;323860488;12645837;6546;777;10
+r;322824914;12600327;6546;777;10
+r;319777120;12311505;6546;777;10
+r;318725919;12268051;6546;777;10
+r;317552282;10441981;6546;777;10
+r;317552280;12246516;6546;777;10
+r;315655554;275457;6546;777;10
+r;314839661;12081845;6546;777;10
+r;314544451;172861;6546;777;10
+r;314454856;12074498;6546;777;10
+r;314454854;12074497;6546;777;10
+r;312989903;12008038;6546;777;10
+r;312466882;326575;6546;777;10
+r;312466881;326574;6546;777;10
+r;305397140;11825089;6546;777;10
+r;305070338;11821604;6546;777;10
+r;305070336;11821603;6546;777;10
+r;305036258;10191361;6546;777;10
+r;302636523;392816;6546;777;10
+r;302611948;11782079;6546;777;10
+r;302611101;11782075;6546;777;10
+r;301777023;11768593;6546;777;10
+r;298277224;11646253;6546;777;10
+r;297748145;10517248;6546;777;10
+r;297535772;11575659;6546;777;10
+r;295770701;11507285;6546;777;10
+r;295770699;11507284;6546;777;10
+r;293622474;139892;6546;777;10
+r;293622472;5942485;6546;777;10
+r;292886560;235936;6546;777;10
+r;290704366;11347642;6546;777;10
+r;290693118;11347443;6546;777;10
+r;288682388;11269200;6546;777;10
+r;288682386;11269199;6546;777;10
+r;288302351;11252027;6546;777;10
+r;288302273;5895443;6546;777;10
+r;288302271;11252022;6546;777;10
+r;282208342;11118219;6546;777;10
+r;279576203;11029826;6546;777;10
+r;279574722;251876;6546;777;10
+r;279574720;408511;6546;777;10
+r;279574718;2959692;6546;777;10
+r;279574716;11029752;6546;777;10
+r;279574714;11029751;6546;777;10
+r;279006158;52390;6546;777;10
+r;279006156;66571;6546;777;10
+r;277538575;302365;6546;777;10
+r;277538573;592721;6546;777;10
+r;277538571;2936864;6546;777;10
+r;277538569;566027;6546;777;10
+r;277538567;10989410;6546;777;10
+r;273629223;10904216;6546;777;10
+r;272636612;10870873;6546;777;10
+r;272358502;10865434;6546;777;10
+r;271854283;10850168;6546;777;10
+r;271782756;10849243;6546;777;10
+r;270261662;10823206;6546;777;10
+r;269325384;10760942;6546;777;10
+r;268980835;10748280;6546;777;10
+r;268886682;10746821;6546;777;10
+r;268838169;10745290;6546;777;10
+r;268391450;10671902;6546;777;10
+r;267505739;248190;6546;777;10
+r;267157075;10664548;6546;777;10
+r;266808946;10623224;6546;777;10
+r;266808944;345368;6546;777;10
+r;264427935;10602613;6546;777;10
+r;262092292;10516099;6546;777;10
+r;262092290;425529;6546;777;10
+r;261994897;10157002;6546;777;10
+r;261051299;10505988;6546;777;10
+r;259121861;10462683;6546;777;10
+r;259068477;10462279;6546;777;10
+r;258671854;10457090;6546;777;10
+r;258671852;10457089;6546;777;10
+r;254571322;128633;6546;777;10
+r;254571320;10368100;6546;777;10
+r;254164348;10327173;6546;777;10
+r;253309123;10343986;6546;777;10
+r;253279476;10343675;6546;777;10
+r;252760327;10252084;6546;777;10
+r;250283457;10316608;6546;777;10
+r;250066223;10314517;6546;777;10
+r;250064253;10314480;6546;777;10
+r;249797250;10312247;6546;777;10
+r;244624497;10252263;6546;777;10
+r;244601057;237036;6546;777;10
+r;256181577;10436871;6546;777;10
+r;237471007;10161224;6546;777;10
+r;236218695;10145153;6546;777;10
+r;235185662;10135890;6546;777;10
+r;233529726;10098302;6546;777;10
+r;232755727;10090496;6546;777;10
+r;232377550;10084648;6546;777;10
+r;231788823;10071368;6546;777;10
+r;231788821;10071367;6546;777;10
+r;231783861;10071336;6546;777;10
+r;230828956;10064326;6546;777;10
+r;228070195;10054813;6546;777;10
+r;228070193;10054812;6546;777;10
+r;226908406;5893838;6546;777;10
+r;226908015;10044996;6546;777;10
+r;226907214;17200;6546;777;10
+r;226907212;223333;6546;777;10
+r;226907117;10044989;6546;777;10
+r;226906707;166175;6546;777;10
+r;226623518;10040773;6546;777;10
+r;226611427;10040715;6546;777;10
+r;223328566;10032448;6546;777;10
+r;222619098;10006921;6546;777;10
+r;222614412;10006206;6546;777;10
+r;222614410;10006145;6546;777;10
+r;222606236;10005622;6546;777;10
+r;222604942;10005590;6546;777;10
+r;221085731;9967418;6546;777;10
+r;221085729;9967417;6546;777;10
+r;221000079;9964504;6546;777;10
+r;221000076;430600;6546;777;10
+r;220983922;9961531;6546;777;10
+r;214917350;9572956;6546;777;10
+r;214917348;9572955;6546;777;10
+r;211493654;9248305;6546;777;10
+r;218734863;9805948;6546;777;10
+r;403438290;15692211;6546;777;10
+r;403438292;15692212;6546;777;10
+r;403438294;15692213;6546;777;10
+r;403438296;15692214;6546;777;10
+r;403438298;15692215;6546;777;10
+r;403438300;10519851;6546;777;10
+r;403459298;414394;6546;777;10
+r;403459299;301148;6546;777;10
+r;119388685;6100808;6546;777;10
+r;119345798;6088909;6546;777;10
+r;116741768;5971319;6546;777;10
+r;116581643;5955321;6546;0;10
+r;116505187;5962276;6546;777;10
+r;116427416;5955695;6546;777;10
+r;116418785;5955350;6546;777;10
+r;116417476;5536176;6546;777;10
+r;116397476;137648;6546;777;10
+r;116389285;2950040;6546;777;10
+r;115982798;5941047;6546;777;10
+r;115982796;5941046;6546;777;10
+r;115637493;3961789;6546;777;10
+r;114661847;5893994;6546;777;10
+r;114660484;5893951;6546;777;10
+r;114660482;5893949;6546;777;10
+r;113849871;5836323;6546;777;10
+r;112253979;5534862;6546;777;10
+r;112138150;36043;6546;777;10
+r;112114995;5713767;6546;777;10
+r;111477672;5681277;6546;777;10
+r;111321215;166661;6546;777;10
+r;109997706;5563195;6546;777;10
+r;109996709;5563146;6546;777;10
+r;109996707;5563145;6546;777;10
+r;109996705;5563144;6546;777;10
+r;109996703;5563143;6546;777;10
+r;109996701;5563142;6546;777;10
+r;109996699;5563141;6546;777;10
+r;109825790;5556853;6546;777;10
+r;109851609;5557466;6546;777;10
+r;99006671;4339523;6546;777;10
+r;98054080;19356;6546;10;10
+r;88305476;232465;6546;777;10
+r;78483392;3244913;6546;777;10
+r;77678100;3225536;6546;777;10
+r;77678098;3225540;6546;777;10
+r;77561110;3223518;6546;777;10
+r;75341913;2283860;6546;777;10
+r;75260297;2961653;6546;777;10
+r;72738532;2950808;6546;777;10
+r;71570796;1795954;6546;777;10
+r;71570794;2923434;6546;777;10
+r;71543388;2921806;6546;777;10
+r;71543386;2921805;6546;777;10
+r;71543384;2539525;6546;777;10
+r;69253159;2508242;6546;777;10
+r;65116990;2502811;6546;777;10
+r;62099173;2488994;6546;777;10
+r;57930705;2475873;6546;777;10
+r;55526303;2452786;6546;777;10
+r;53249870;2398111;6546;777;10
+r;52971330;2579933;6546;777;10
+r;52971327;2472655;6546;777;10
+r;34520908;2345715;6546;777;10
+r;30563624;96710;6546;777;10
+r;30371888;1878607;6546;777;10
+r;29408319;1672808;6546;777;10
+r;29141516;79513;6546;777;10
+r;28890005;1649682;6546;777;10
+r;28828806;580186;6546;777;10
+r;27767582;1675244;6546;777;10
+r;25227663;222659;6546;777;10
+r;21780888;399771;6546;777;10
+r;20937516;272980;6546;777;10
+r;19644540;188099;6546;777;10
+r;18702075;226407;6546;777;10
+r;18650180;138290;6546;777;10
+r;18321370;138018;6546;777;10
+r;17910972;222336;6546;777;10
+r;17910970;222658;6546;777;10
+r;17615078;429088;6546;777;10
+r;17495404;417928;6546;777;10
+r;17124475;372590;6546;777;10
+r;13929376;395054;6546;777;10
+r;13346314;213938;6546;777;10
+r;13224552;392946;6546;777;10
+r;10238758;81934;6546;10;10
+r;10229805;32735;6546;10;10
+r;9030927;319489;6546;777;10
+r;8894143;316234;6546;777;10
+r;8846232;315313;6546;777;10
+r;8488188;247679;6546;777;10
+r;8413815;237165;6546;777;10
+r;8381547;310652;6546;777;10
+r;8381546;310651;6546;777;10
+r;8380307;234436;6546;777;10
+r;8371711;227256;6546;777;10
+r;8354932;222949;6546;777;10
+r;8214314;167061;6546;777;10
+r;8211469;309142;6546;777;10
+r;7865530;18310;6546;777;10
+r;7865528;158957;6546;777;10
+r;7706260;130954;6546;777;10
+r;7687480;129204;6546;777;10
+r;7535696;152170;6546;777;10
+r;7327161;92574;6546;777;10
+r;7261218;84617;6546;777;10
+r;7240192;299564;6546;777;10
+r;7240191;299563;6546;777;10
+r;7240190;82350;6546;777;10
+r;7240189;192;6546;777;10
+r;7217330;79866;6546;777;10
+r;7204253;299248;6546;777;10
+r;7204252;78256;6546;777;10
+r;7193607;76592;6546;777;10
+r;7191858;76927;6546;777;10
+r;7191856;121557;6546;777;10
+r;7165886;73913;6546;777;10
+r;6805364;188489;6546;777;10
+r;6761227;24916;6546;777;10
+r;6641956;11485;6546;777;10
+r;6310968;143544;6546;777;10
+r;6304735;80317;6546;777;10
+r;6304734;290283;6546;777;10
+r;6304733;290282;6546;777;10
+r;6304732;108973;6546;777;10
+r;6286880;290125;6546;777;10
+r;6259318;250181;6546;777;10
+r;6170408;215317;6546;777;10
+r;6062897;55515;6546;777;10
+r;6062125;288457;6546;777;10
+r;6062124;288456;6546;777;10
+r;5740797;222208;6546;777;10
+r;114660479;5893948;6546;777;10
+r;5273512;286072;6546;777;10
+r;5185587;54076;6546;777;10
+r;5017506;60285;6546;777;10
+r;4752170;121194;6546;777;10
+r;4503330;271207;6546;777;10
+r;4464380;17351;6546;777;10
+r;4394882;10417;6546;777;10
+r;4394881;145424;6546;777;10
+r;4199048;190480;6546;777;10
+r;3863784;77750;6546;777;10
+r;3753470;64843;6546;777;10
+r;3753468;226177;6546;777;10
+r;3592474;234437;6546;777;10
+r;3514384;265501;6546;777;10
+r;3513445;272361;6546;777;10
+r;3513444;51126;6546;777;10
+r;3513443;272360;6546;777;10
+r;3513442;272716;6546;777;10
+r;3513441;46994;6546;777;10
+r;3513440;166708;6546;777;10
+r;3513439;272985;6546;777;10
+r;3512714;272982;6546;777;10
+r;3512551;272981;6546;777;10
+r;10218579;152844;6546;10;9
+r;10216713;47319;6546;10;9
+r;10212146;16110;6546;10;9
+r;10121871;144846;6546;10;9
+r;3572238;39192;6546;777;9
+r;269413367;10741629;6546;0;8
+r;227630125;10032448;6546;0;8
+r;10202885;74846;6546;10;8
+r;10169967;151867;6546;10;8
+r;6286879;146798;6546;777;8
+r;3753432;14334;6546;777;8
+r;3509049;272940;6546;777;8
+r;434990710;1795954;6546;0;7
+r;227656794;10005789;6546;0;7
+r;52971305;2384226;6546;0;7
+r;13134593;390927;6546;10;7
+r;15043446;126285;6546;0;6
+r;427308687;80627;6546;0;5
+r;414315615;7585033;6546;0;5
+r;414309508;15660926;6546;0;5
+r;414304612;15454381;6546;0;5
+r;414304560;15454380;6546;0;5
+r;414304508;15454379;6546;0;5
+r;414304447;7469738;6546;0;5
+r;414146698;15781381;6546;0;5
+r;372511718;213977;6546;10;5
+r;23349502;214369;6546;0;5
+r;15501394;233138;6546;0;5
+r;15489608;145953;6546;0;5
+r;15486204;187620;6546;0;5
+r;10132868;77008;6546;10;5
+r;373520007;225843;6546;0;4
+r;12933837;219363;6546;0;4
+r;12928494;240720;6546;0;4
+r;12923490;187622;6546;0;4
+r;12920699;221019;6546;0;4
+r;12912401;241352;6546;0;4
+r;12906360;103311;6546;0;4
+r;12901325;83944;6546;0;4
+r;12887470;57875;6546;0;4
+r;12838712;126388;6546;0;4
+r;12834979;228289;6546;0;4
+r;1596529;66460;6546;666;4
+r;1529024;19988;6546;666;4
+r;372369155;60152;6546;10;3
+r;267325803;10664548;6546;0;3
+r;104942101;131418;6546;28;3
+r;104942102;226186;6546;28;3
+r;104942103;43945;6546;28;3
+r;104942104;32732;6546;28;3
+r;104940479;114090;6546;28;3
+r;15506237;213792;6546;0;3
+r;15504943;39031;6546;0;3
+r;8559219;84098;6546;666;3
+r;431495068;226407;6546;0;2
+r;423198340;4340;6546;0;2
+r;2160823;247342;6546;666;2
+r;470427858;571767;6546;0;1
+r;452694234;264641;6546;0;1
+r;439544506;2508242;6546;0;1
+r;428032710;107077;6546;0;1
+r;427882666;13640062;6546;0;1
+r;425802028;54076;6546;0;1
+r;423921051;36453;6546;0;1
+r;423631745;16123;6546;0;1
+r;422169732;76592;6546;0;1
+r;370466388;14580155;6546;0;1
+r;346221328;13642899;6546;0;1
+r;302972140;6369055;6546;0;1
+r;299594357;6312596;6546;0;1
+r;82236045;143334;6546;27;1
+r;82236044;143334;6546;0;1
+r;82235054;150705;6546;5;1
+r;71874851;2931447;6546;666;1
+r;54874538;234692;6546;666;1
+r;34630423;49337;6546;115;1
+r;34630422;17927;6546;115;1
+r;34630421;23114;6546;115;1
+r;34630420;144681;6546;115;1
+r;34630419;60835;6546;115;1
+r;34630418;4552;6546;115;1
+r;34630417;20202;6546;115;1
+r;34630416;120892;6546;115;1
+r;34630415;90830;6546;115;1
+r;34630414;22264;6546;115;1
+r;34630413;626;6546;115;1
+r;34630412;82489;6546;115;1
+r;29271701;96211;6546;0;1
+r;29263002;109785;6546;0;1
+r;13407010;42275;6546;777;1
+r;13402988;102611;6546;777;1
+r;8211472;247435;6546;777;1
+r;8211471;247404;6546;777;1
+r;7047120;281534;6546;666;1
+r;3273192;5085;6546;777;1
+r;3273190;97395;6546;777;1
+r;3212626;270914;6546;666;1
+r;2313553;235255;6546;0;1
+r;2260935;26979;6546;666;1
+r;2164445;4445;6546;666;1
+r;1792880;49205;6546;666;1
+r;1791461;152164;6546;666;1
+r;29265127;34898;6546;0;-1
+r;12910266;95422;6546;0;-4
+r;15502465;116980;6546;0;-5
+r;15497157;107477;6546;0;-5
+r;15495197;140715;6546;0;-5
+r;427308641;80627;6546;6;-25
+r;96938336;77424;6546;0;-27
+r;25926910;225934;6546;0;-28
+r;13495904;16747;6546;0;-37
+r;12961442;139779;6546;0;-37
+r;15821928;114327;6546;0;-82
+
+// END
+</CODE>
+
+
+</div>
+</div>
+</body>
+</html>
