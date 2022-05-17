@@ -11,6 +11,21 @@ const bodyParser = require('body-parser')
 const port = process.env.PORT || 3000;
 const cors = require("cors");
 
+//Geometric mean
+function geometricMean(array) {
+    return Math.pow(array.reduce((a, b) => a * b), 1 / array.length);
+}
+
+//Root mean square
+function rootMeanSquare(array) {
+    return Math.sqrt(array.reduce((a, b) => a + b * b) / array.length);
+}
+
+//Mean
+function mean(array) {
+    return array.reduce((a, b) => a + b) / array.length;
+}
+
 // create application/json parser
 var jsonParser = bodyParser.json()
 
@@ -251,59 +266,57 @@ async function findLinkBetweenWords(w1, r, w2) {
     let word1 = words[0].outgoingRelationship;
     //Keep only the nodes that are related to the relation
     let word1filtered = word1.filter(relation => relation.type === relationId);
-    //Keep only the node key
-    let word1filteredNodes = word1filtered.map(relation => relation.node);
+    let word1filterWeighted = {}
+    word1filtered.forEach(relation => { word1filterWeighted[relation.node] = relation.weight});
+
+
 
     //Read all ingoing nodes for word2
     let word2 = words[1].ingoingRelationship;
     //Keep only the nodes that are related to the relation
     let word2filtered = word2.filter(relation => relation.type === relationId);
-    //Keep only the node key
-    let word2filteredNodes = word2filtered.map(relation => relation.node);
+    let word2filterWeighted = {}
+    word2filtered.forEach(relation => { word2filterWeighted[relation.node] = relation.weight});
 
     //Check if the relation exists between the two words
     //w1 relation x new_relation w2
-    let a = word2.filter(node => word1filteredNodes.includes(node.node));
-    //Keep only positive correlations
-    a = a.filter(node => node.weight > 0);
+    let a = word2.filter(node => Object.keys(word1filterWeighted).includes(node.node.toString()));
     //Sort by weight
     a.sort((a, b) => b.weight - a.weight);
-    // for(let rel of a) {
-    //     console.log(w1 + " " + r + " " + words[1].nodeTerms[rel.node].name + " " + words[1].relationType[rel.type].name + " (" + rel.weight + ") " + w2);
-    // }
+    //for(let rel of a) {
+    //    console.log(w1 + " " + r + " (" + word1filterWeighted[rel.node] + ") " + words[1].nodeTerms[rel.node].name + " " + words[1].relationType[rel.type].name + " (" + rel.weight + ") " + w2);
+    //}
     let interestingRelations1 = {};
     for (let relation of a) {
         if (!(relation.type in interestingRelations1)) {
             interestingRelations1[relation.type] = {
-                w1: w1,
-                r1: r,
-                y: words[1].nodeTerms[relation.node].name,
-                r2: words[1].relationType[relation.type].name,
-                weight: relation.weight,
-                w2: w2
+                words: [w1, words[1].nodeTerms[relation.node].name, w2],
+                relations: [r, words[1].relationType[relation.type].name],
+                weights: [word1filterWeighted[relation.node], relation.weight],
+                scoreGeo:geometricMean([word1filterWeighted[relation.node], relation.weight]),
+                scoreCube:rootMeanSquare([word1filterWeighted[relation.node], relation.weight]),
+                scoreMoy:mean([word1filterWeighted[relation.node], relation.weight])
             };
         }
     }
 
     //w1 new_relation x relation w2
-    let b = word1.filter(node => word2filteredNodes.includes(node.node));
-    //Keep only positive correlations
-    b = b.filter(node => node.weight > 0);
+    let b = word1.filter(node => Object.keys(word2filterWeighted).includes(node.node.toString()));
     //Sort by weight
     b.sort((a, b) => b.weight - a.weight);
-    // for(let rel of b) {
-    //     console.log(w1 + " " + words[0].relationType[rel.type].name + " (" + rel.weight + ") " + words[0].nodeTerms[rel.node].name + " " + r + " " + w2);
-    // }
+    //for(let rel of b) {
+    //    console.log(w1 + " " + words[0].relationType[rel.type].name + " (" + rel.weight + ") " + words[0].nodeTerms[rel.node].name + " " + r + " (" + word2filterWeighted[rel.node] + ") " + w2);
+    //}
     let interestingRelations2 = {};
     for (let relation of b) {
         if (!(relation.type in interestingRelations2)) {
             interestingRelations2[relation.type] = {
-                w1: w1,
-                r1: words[0].relationType[relation.type].name,
-                weight: relation.weight,
-                y: words[0].nodeTerms[relation.node].name,
-                r2: r,
-                w2: w2
+                words: [w1, words[0].nodeTerms[relation.node].name, w2],
+                relations: [words[0].relationType[relation.type].name, r],
+                weights: [relation.weight, word2filterWeighted[relation.node]],
+                scoreGeo:geometricMean([relation.weight, word2filterWeighted[relation.node]]),
+                scoreCube:rootMeanSquare([relation.weight, word2filterWeighted[relation.node]]),
+                somme:mean([relation.weight, word2filterWeighted[relation.node]])
             };
         }
     }
@@ -316,11 +329,14 @@ function prettyPrintRelations(relations) {
     let relationsArray = Object.keys(relations).map(key => relations[key]);
     //Sort by weight
     relationsArray.sort((a, b) => b.weight - a.weight);
-    //Only keep the 3 first
-    relationsArray = relationsArray.slice(0, 3);
 
     for (let relation of relationsArray) {
-        console.log(relation.w1 + " " + relation.r1 + " " + relation.y + " " + relation.r2 + " " + relation.w2 + " (" + relation.weight + ")");
+        let i = 0;
+        while(i<relation.relations.length) {
+            process.stdout.write(relation.words[i] + " " + relation.relations[i] + " (" + relation.weights[i] + ") " + relation.words[i+1] + " & ");
+            i++;
+        }
+        console.log("");
     }
 
     return relationsArray;
@@ -349,7 +365,29 @@ async function executeInference(sentence) {
             throw new Error(error.message);
         }
     }
+}
 
+async function searchFurther(relation, position) {
+    let [r1, r2] = await findLinkBetweenWords(relation.words[position], relation.relations[position], relation.words[position + 1]);
+    r1 = prettyPrintRelations(r1);
+    r2 = prettyPrintRelations(r2);
+    let relations = r1.concat(r2);
+    let newRelations = [];
+    for (let r of relations) {
+        let newWords = relation.words.slice(0, position).concat(r.words).concat(relation.words.slice(position + 1).splice(1));
+        let new_r = relation.relations.slice(0, position).concat(r.relations).concat(relation.relations.slice(position + 1));
+        let newWeights = relation.weights.slice(0, position).concat(r.weights).concat(relation.weights.slice(position + 1));
+        let newRelation = {
+            words: newWords,
+            relations: new_r,
+            weights: newWeights,
+            scoreGeo: geometricMean(newWeights),
+            scoreCube: rootMeanSquare(newWeights),
+            somme: mean(newWeights)
+        }
+        newRelations.push(newRelation);
+    }
+    return newRelations;
 }
 
 //Read relations.json
@@ -357,7 +395,11 @@ let relations = JSON.parse(fs.readFileSync("./relations.json"));
 
 async function main() {
     // await executeInference("pigeon r_agent-1 voler");
-    // await executeInference("pizza r_has_part mozza");
+    let rel = await executeInference("pizza r_has_part mozza");
+    let newRel = await searchFurther(rel[0], 0);
+    //console.log(newRel);
+    let newRel2 = await searchFurther(newRel[0], 2);
+    console.log(newRel2);
     //     await executeInference("demander r_provider serveuse"); //CAN'T FIND r_provider
     // await executeInference("chat r_agent-1 miauler");
     //
@@ -387,6 +429,7 @@ async function main() {
 
 main().then(r => console.log("Done"));
 
+/*
 app.use(cors());
 
 app.post("/", jsonParser, (req, res) => {
@@ -403,3 +446,4 @@ app.post("/", jsonParser, (req, res) => {
 app.listen(port, () => {
     console.log("Server started on port " + port);
 });
+*/
