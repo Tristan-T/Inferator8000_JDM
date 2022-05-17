@@ -13,17 +13,17 @@ const cors = require("cors");
 
 //Geometric mean
 function geometricMean(array) {
-    return Math.pow(array.reduce((a, b) => a * b), 1 / array.length);
+    return Math.pow(array.reduce((a, b) => parseInt(a) * parseInt(b)), 1 / array.length);
 }
 
 //Root mean square
 function rootMeanSquare(array) {
-    return Math.sqrt(array.reduce((a, b) => a + b * b) / array.length);
+    return Math.sqrt(array.reduce((a, b) => parseInt(a) + parseInt(b) * parseInt(b)) / array.length);
 }
 
 //Mean
 function mean(array) {
-    return array.reduce((a, b) => a + b) / array.length;
+    return array.reduce((a, b) => parseInt(a) + parseInt(b)) / array.length;
 }
 
 // create application/json parser
@@ -66,7 +66,7 @@ async function getWord(word) {
             throw new Error(word + " est trop gros pour être traité par le site");
         }
     } else {
-        console.log("Word not in cache, fetching from RezoDump");
+        console.log(word + " not in cache, fetching from RezoDump");
         return await getWordFromRezoDump(word);
     }
 }
@@ -124,12 +124,12 @@ async function getWordFromRezoDump(word) {
         let id = eid[0].split("=")[1];
 
         //Check if the word isn't too big, contains TOOBIG_USE_DUMP
-        let tooBig = decodedData.match("TOOBIG_USE_DUMP");
-        if (tooBig) {
-            cached.push({id: id, word: word, state:"TOOBIG"});
-            fs.writeFileSync("./cache/cached.json", JSON.stringify(cached, null, 4));
-            throw new Error(word + " est trop gros pour être traité par le site");
-        }
+        //let tooBig = decodedData.match("TOOBIG_USE_DUMP");
+        //if (tooBig) {
+        //    cached.push({id: id, word: word, state:"TOOBIG"});
+        //    fs.writeFileSync("./cache/cached.json", JSON.stringify(cached, null, 4));
+        //    throw new Error(word + " est trop gros pour être traité par le site");
+        //}
 
         //Save raw file (in windows-1252)
         fs.writeFileSync(`./cache/${id}.html`, decodedData);
@@ -316,7 +316,7 @@ async function findLinkBetweenWords(w1, r, w2) {
                 weights: [relation.weight, word2filterWeighted[relation.node]],
                 scoreGeo:geometricMean([relation.weight, word2filterWeighted[relation.node]]),
                 scoreCube:rootMeanSquare([relation.weight, word2filterWeighted[relation.node]]),
-                somme:mean([relation.weight, word2filterWeighted[relation.node]])
+                scoreMoy:mean([relation.weight, word2filterWeighted[relation.node]])
             };
         }
     }
@@ -332,10 +332,12 @@ function prettyPrintRelations(relations) {
 
     for (let relation of relationsArray) {
         let i = 0;
+        console.log(relation);
         while(i<relation.relations.length) {
             process.stdout.write(relation.words[i] + " " + relation.relations[i] + " (" + relation.weights[i] + ") " + relation.words[i+1] + " & ");
             i++;
         }
+        process.stdout.write("(scores : cube = " + relation.scoreCube + " / geo = " + relation.scoreGeo + " / somme = " + relation.scoreMoy + ") \n");
         console.log("");
     }
 
@@ -383,7 +385,7 @@ async function searchFurther(relation, position) {
             weights: newWeights,
             scoreGeo: geometricMean(newWeights),
             scoreCube: rootMeanSquare(newWeights),
-            somme: mean(newWeights)
+            scoreMoy: mean(newWeights)
         }
         newRelations.push(newRelation);
     }
@@ -394,12 +396,13 @@ async function searchFurther(relation, position) {
 let relations = JSON.parse(fs.readFileSync("./relations.json"));
 
 async function main() {
+    await executeInference("autruche r_agent-1 voler");
     // await executeInference("pigeon r_agent-1 voler");
-    let rel = await executeInference("pizza r_has_part mozza");
-    let newRel = await searchFurther(rel[0], 0);
-    //console.log(newRel);
-    let newRel2 = await searchFurther(newRel[0], 2);
-    console.log(newRel2);
+    // let rel = await executeInference("pizza r_has_part mozza");
+    // let newRel = await searchFurther(rel[0], 0);
+    // console.log(newRel);
+    // let newRel2 = await searchFurther(newRel[0], 2);
+    // console.log(newRel2);
     //     await executeInference("demander r_provider serveuse"); //CAN'T FIND r_provider
     // await executeInference("chat r_agent-1 miauler");
     //
