@@ -39,6 +39,7 @@ function requestFurther(relation, position) {
         };
         const response = await fetch('http://localhost:3000', requestOptions);
         const data = await response.json();
+        console.log(data);
         fillInferences(data);
     })();
 }
@@ -70,17 +71,21 @@ function fillInferences(data) {
             div.appendChild(tempSpan);
             let tempLink = document.createElement('a');
             tempLink.innerText = inference.relations[i];
-            tempLink.href = '#';
             tempLink.className = 'relation';
             tempLink.addEventListener('click', function () {
                 //requestInference(inference.relations[i]);
-                alert("IL A CLIQUE SUR LE BOUTON LE BOUTON LE BOUTON LE BOUTON");
+                requestFurther(inference, i);
             });
             div.appendChild(tempLink);
         }
         let tempSpan = document.createElement('span');
         tempSpan.innerText = " " + inference.words[inference.relations.length];
         tempSpan.className = 'word';
+        let scoreSpan = document.createElement('span');
+        scoreSpan.className = 'score';
+        scoreSpan.innerText = "   Score géo : " + inference.scoreGeo + " Score cubique : " + inference.scoreCube + " Score moyen : " + inference.scoreMoy;
+        tempSpan.appendChild(scoreSpan);
+
         div.appendChild(tempSpan);
 
         //Append the div to the inference container

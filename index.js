@@ -446,6 +446,9 @@ app.post("/", jsonParser, (req, res) => {
     console.log(req.body.type);
     switch(req.body.type) {
         case "further":
+            console.log("further");
+            console.log(req.body.relation);
+            console.log(req.body.position);
             searchFurther(req.body.relation, req.body.position).then(relations => {
                 res.send(relations);
             }).catch(err => {
