@@ -1,3 +1,5 @@
+
+
 //When DOM is loaded
 document.addEventListener('DOMContentLoaded', function () {
     //Get the submit button
@@ -52,43 +54,79 @@ function fillInferences(data) {
     }
     //Get the inference container
     let inferenceContainer = document.getElementById('output');
-    //Clear the inference container
-    //inferenceContainer.innerHTML = '';
-    //Add br tag at the beginning of the container
-    inferenceContainer.innerHTML += '<br>';
     //Loop through the data
+    let div = document.createElement('div');
+    //Set the div's class
+    div.className = 'inference';
+
+    //Create a new table
+    let table = document.createElement('table');
+    table.className = 'sortable';
+    //Create thead
+    let thead = document.createElement('thead');
+    //Create a new row
+    let row = document.createElement('tr');
+    //Create a new cell
+    let cellRelation = document.createElement('th');
+    //Set the text of the cell
+    cellRelation.innerHTML = "Relation";
+    let cellScoreCube = document.createElement('th');
+    cellScoreCube.innerHTML = "Score Cube";
+    cellScoreCube.className = "order-by-desc";
+    let cellScore = document.createElement('th');
+    cellScore.innerHTML = "Score Moyen";
+    let cellScoreGeo = document.createElement('th');
+    cellScoreGeo.innerHTML = "Score Géométrique";
+
+    //Add the cell to the row
+    row.appendChild(cellRelation);
+    row.appendChild(cellScoreCube);
+    row.appendChild(cellScore);
+    row.appendChild(cellScoreGeo);
+    //Add the row to the thead
+    thead.appendChild(row);
+
+    //Add the row to the table
+    table.appendChild(thead);
+
+    //Create tbody
+    let tbody = document.createElement('tbody');
+
     for(let inference of data) {
-        //Create a new div
-        let div = document.createElement('div');
-        //Set the div's class
-        div.className = 'inference';
-        //Set the div's innerHTML
-        let htmlString = "";
+        row = document.createElement('tr');
+        cellRelation = document.createElement('td');
         for(let i = 0; i < inference.relations.length; i++) {
             let tempSpan = document.createElement('span');
             tempSpan.innerText = " " + inference.words[i] + " ";
             tempSpan.className = 'word';
-            div.appendChild(tempSpan);
+            cellRelation.appendChild(tempSpan);
             let tempLink = document.createElement('a');
             tempLink.innerText = inference.relations[i];
             tempLink.className = 'relation';
             tempLink.addEventListener('click', function () {
-                //requestInference(inference.relations[i]);
                 requestFurther(inference, i);
             });
-            div.appendChild(tempLink);
+            cellRelation.appendChild(tempLink);
         }
         let tempSpan = document.createElement('span');
         tempSpan.innerText = " " + inference.words[inference.relations.length];
         tempSpan.className = 'word';
-        let scoreSpan = document.createElement('span');
-        scoreSpan.className = 'score';
-        scoreSpan.innerText = "   Score géo : " + inference.scoreGeo + " Score cubique : " + inference.scoreCube + " Score moyen : " + inference.scoreMoy;
-        tempSpan.appendChild(scoreSpan);
+        let cellScoreCube = document.createElement('td');
+        cellScoreCube.innerText = inference.scoreCube;
+        let cellScore = document.createElement('td');
+        cellScore.innerText = inference.scoreMoy;
+        let cellScoreGeo = document.createElement('td');
+        cellScoreGeo.innerText = inference.scoreGeo;
 
-        div.appendChild(tempSpan);
-
-        //Append the div to the inference container
-        inferenceContainer.appendChild(div);
+        //Add the cell to the row
+        cellRelation.appendChild(tempSpan);
+        row.appendChild(cellRelation);
+        row.appendChild(cellScoreCube);
+        row.appendChild(cellScore);
+        row.appendChild(cellScoreGeo);
+        tbody.appendChild(row);
     }
+    table.appendChild(tbody);
+    //Append the div to the inference container
+    inferenceContainer.appendChild(table);
 }
