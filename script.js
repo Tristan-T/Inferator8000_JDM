@@ -106,17 +106,25 @@ function fillInferences(data) {
             tempLink.addEventListener('click', function () {
                 requestFurther(inference, i);
             });
+            let tempWeight = document.createElement('span');
+            tempWeight.innerText = " (" + inference.weights[i] + ")";
+            tempWeight.className = 'weight';
             cellRelation.appendChild(tempLink);
+            cellRelation.appendChild(tempWeight);
         }
         let tempSpan = document.createElement('span');
         tempSpan.innerText = " " + inference.words[inference.relations.length];
         tempSpan.className = 'word';
         let cellScoreCube = document.createElement('td');
-        cellScoreCube.innerText = inference.scoreCube;
+        cellScoreCube.innerText = inference.scoreCube.toFixed(2);
         let cellScore = document.createElement('td');
-        cellScore.innerText = inference.scoreMoy;
+        cellScore.innerText = inference.scoreMoy.toFixed(2);
         let cellScoreGeo = document.createElement('td');
-        cellScoreGeo.innerText = inference.scoreGeo;
+        //Check that scoreGeo is not NaN
+        if(!isNaN(inference.scoreGeo) && inference.scoreGeo!==null) {
+            console.log(inference.scoreGeo);
+            cellScoreGeo.innerText = inference.scoreGeo.toFixed(2);
+        }
 
         //Add the cell to the row
         cellRelation.appendChild(tempSpan);
@@ -128,5 +136,5 @@ function fillInferences(data) {
     }
     table.appendChild(tbody);
     //Append the div to the inference container
-    inferenceContainer.appendChild(table);
+    inferenceContainer.prepend(table);
 }
