@@ -1,5 +1,3 @@
-
-
 //When DOM is loaded
 document.addEventListener('DOMContentLoaded', function () {
     //Get the submit button
@@ -11,6 +9,23 @@ document.addEventListener('DOMContentLoaded', function () {
         //Get the value of the input field
         let value = input.value;
         requestInference(value);
+    });
+
+    //detect konami code
+    let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    let konamiCodeIndex = 0;
+    document.addEventListener('keydown', function (event) {
+        if (event.keyCode === konamiCode[konamiCodeIndex]) {
+            konamiCodeIndex++;
+            if (konamiCodeIndex === konamiCode.length) {
+                konamiCodeIndex = 0;
+                console.log("Konami code activated");
+                //Redirect to rickroll
+                window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+            }
+        } else {
+            konamiCodeIndex = 0;
+        }
     });
 });
 
