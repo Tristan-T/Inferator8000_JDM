@@ -14,7 +14,45 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+document.addEventListener("click", function (event) {
+    //Play modem.mp3
+    let audio = document.getElementById('sound');
+    let audioSource = document.getElementById('audioSource');
+    audioSource.src = './img/welcome.mp3';
+    audio.load();
+    audio.play();
+    //Destroy event listener
+    document.removeEventListener("click", arguments.callee);
+});
+
+function playModem() {
+    //Play modem.mp3
+    let audio = document.getElementById('sound');
+    let audioSource = document.getElementById('audioSource');
+    audioSource.src = './img/modem.mp3';
+    audio.load();
+    audio.play();
+}
+
+function stopModem() {
+    //Stop modem.mp3
+    let audio = document.getElementById('sound');
+    audio.pause();
+    //Set back to beginning
+    audio.currentTime = 0;
+}
+
+function playError() {
+    //Play error.mp3
+    let audio = document.getElementById('sound');
+    let audioSource = document.getElementById('audioSource');
+    audioSource.src = './img/error.mp3';
+    audio.load();
+    audio.play();
+}
+
 function requestInference(sentence) {
+    playModem();
     //Set value for the input
     document.getElementById('input').value = sentence;
 
@@ -32,6 +70,7 @@ function requestInference(sentence) {
 }
 
 function requestFurther(relation, position) {
+    playModem();
     //Make post request to the local server
     (async () => {
         const requestOptions = {
@@ -41,17 +80,24 @@ function requestFurther(relation, position) {
         };
         const response = await fetch('http://localhost:3000', requestOptions);
         const data = await response.json();
-        console.log(data);
         fillInferences(data);
     })();
 }
 
 function fillInferences(data) {
+    stopModem();
+    console.log("here")
     console.log(data);
     if("error" in data) {
         //Display error with alert
+        playError();
         alert(data.error);
+        //Change input class
+        document.getElementById('groupform').classList.add("error");
+    } else {
+        document.getElementById('groupform').classList.remove("error");
     }
+
     //Get the inference container
     let inferenceContainer = document.getElementById('output');
     //Loop through the data
@@ -68,15 +114,41 @@ function fillInferences(data) {
     let row = document.createElement('tr');
     //Create a new cell
     let cellRelation = document.createElement('th');
+    cellRelation.className = 'no-sort';
     //Set the text of the cell
     cellRelation.innerHTML = "Relation";
     let cellScoreCube = document.createElement('th');
     cellScoreCube.innerHTML = "Score Cube";
-    cellScoreCube.className = "order-by-desc";
     let cellScore = document.createElement('th');
     cellScore.innerHTML = "Score Moyen";
     let cellScoreGeo = document.createElement('th');
-    cellScoreGeo.innerHTML = "Score Géométrique";
+    cellScoreGeo.innerHTML = "Score Géo";
+
+    cellScoreCube.addEventListener('click', function () {
+        if(cellScoreCube.innerText === "Score Cube 🔼") {
+            cellScoreCube.innerText = "Score Cube 🔽";
+        } else {
+            cellScoreCube.innerText = "Score Cube 🔼";
+        }
+    });
+
+    cellScore.addEventListener('click', function () {
+        if(cellScore.innerText === "Score Moyen 🔼") {
+            cellScore.innerText = "Score Moyen 🔽";
+        } else {
+            cellScore.innerText = "Score Moyen 🔼";
+        }
+    });
+
+    cellScoreGeo.addEventListener('click', function () {
+        if(cellScoreGeo.innerText === "Score Géométrique 🔼") {
+            cellScoreGeo.innerText = "Score Géométrique 🔽";
+        } else {
+            cellScoreGeo.innerText = "Score Géométrique 🔼";
+        }
+    });
+
+
 
     //Add the cell to the row
     row.appendChild(cellRelation);
@@ -136,5 +208,6 @@ function fillInferences(data) {
     }
     table.appendChild(tbody);
     //Append the div to the inference container
-    inferenceContainer.prepend(table);
+    div.appendChild(table);
+    inferenceContainer.prepend(div);
 }

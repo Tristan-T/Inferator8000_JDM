@@ -3,13 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Inferator 8000 JDM</title>
-    <link rel="stylesheet" href="./style.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <h1>Inferator 8000 JDM</h1>
-    <input type="text" id="input" placeholder="Enter a sentence">
-    <button id="submit">Submit</button>
+<!-- Empty invisible sound element -->
+<audio id="sound" style="display: none;">
+    <source id="audioSource" src=""></source>
+</audio>
+<h1><img src="img/test/hacker.gif">&nbsp;<FONT COLOR="#FF0000">I</FONT><FONT COLOR="#FF5A00">N</FONT><FONT COLOR="#FFB400">F</FONT><FONT COLOR="#FFff00">E</FONT><FONT COLOR="#A5ff00">R</FONT><FONT COLOR="#4Bff00">A</FONT><FONT COLOR="#00ff00">T</FONT><FONT COLOR="#00ff5A">O</FONT><FONT COLOR="#00ffB4">R</FONT><FONT COLOR="#00ffff"> </FONT><blink><FONT COLOR="#00B4ff">8</FONT><FONT COLOR="#005Aff">0</FONT><FONT COLOR="#0000ff">0</FONT><FONT COLOR="#4B00ff">0</FONT><FONT COLOR="#A500ff"> </FONT><FONT COLOR="#FF00ff">J</FONT><FONT COLOR="#FF00B4">D</FONT><FONT COLOR="#00ff4b">M</FONT></blink></h1>
+        <form id="groupform" class="center well form-search" onsubmit="return false">
+            <input type="text" id="input" placeholder="Enter a sentence" value="vampire r_agent-1 mordre" class="input-medium search-query" style="width:250px;">
+            <button id="submit" class="btn btn-primary btn-large">Submit</button>
+        </form>
+    </div>
     <div id="output"></div>
+
+    <div id="pub_jdm"></div>
 
     <script src="sortable.min.js"></script>
     <script src="./script.js"></script>
