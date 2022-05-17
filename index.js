@@ -265,14 +265,19 @@ async function findLinkBetweenWords(w1, r, w2) {
     //Read all outgoing nodes for word1
     let word1 = words[0].outgoingRelationship;
     //Keep only the nodes that are related to the relation
+
+    //Read all ingoing nodes for word2
+    let word2 = words[1].ingoingRelationship;
+
+    if(word1 === undefined || word2 === undefined) {
+        throw new Error("Le dump est incomplet, abandon");
+    }
+
     let word1filtered = word1.filter(relation => relation.type === relationId);
     let word1filterWeighted = {}
     word1filtered.forEach(relation => { word1filterWeighted[relation.node] = relation.weight});
 
 
-
-    //Read all ingoing nodes for word2
-    let word2 = words[1].ingoingRelationship;
     //Keep only the nodes that are related to the relation
     let word2filtered = word2.filter(relation => relation.type === relationId);
     let word2filterWeighted = {}
@@ -282,7 +287,7 @@ async function findLinkBetweenWords(w1, r, w2) {
     //w1 relation x new_relation w2
     let a = word2.filter(node => Object.keys(word1filterWeighted).includes(node.node.toString()));
     //Sort by weight
-    a.sort((a, b) => b.weight - a.weight);
+    a.sort((a, b) => Math.abs(b.weight) - Math.abs(a.weight));
     //for(let rel of a) {
     //    console.log(w1 + " " + r + " (" + word1filterWeighted[rel.node] + ") " + words[1].nodeTerms[rel.node].name + " " + words[1].relationType[rel.type].name + " (" + rel.weight + ") " + w2);
     //}
@@ -303,7 +308,7 @@ async function findLinkBetweenWords(w1, r, w2) {
     //w1 new_relation x relation w2
     let b = word1.filter(node => Object.keys(word2filterWeighted).includes(node.node.toString()));
     //Sort by weight
-    b.sort((a, b) => b.weight - a.weight);
+    b.sort((a, b) => Math.abs(b.weight) - Math.abs(a.weight));
     //for(let rel of b) {
     //    console.log(w1 + " " + words[0].relationType[rel.type].name + " (" + rel.weight + ") " + words[0].nodeTerms[rel.node].name + " " + r + " (" + word2filterWeighted[rel.node] + ") " + w2);
     //}
@@ -327,12 +332,9 @@ async function findLinkBetweenWords(w1, r, w2) {
 function prettyPrintRelations(relations) {
     //Turn to array
     let relationsArray = Object.keys(relations).map(key => relations[key]);
-    //Sort by weight
-    relationsArray.sort((a, b) => b.weight - a.weight);
 
     for (let relation of relationsArray) {
         let i = 0;
-        console.log(relation);
         while(i<relation.relations.length) {
             process.stdout.write(relation.words[i] + " " + relation.relations[i] + " (" + relation.weights[i] + ") " + relation.words[i+1] + " & ");
             i++;
@@ -366,6 +368,8 @@ async function executeInference(sentence) {
         } catch (error) {
             throw new Error(error.message);
         }
+    } else {
+        throw new Error("Phrase trop longue, veuillez n'inclure qu'une seule relation");
     }
 }
 
@@ -389,6 +393,7 @@ async function searchFurther(relation, position) {
         }
         newRelations.push(newRelation);
     }
+
     return newRelations;
 }
 
@@ -396,7 +401,8 @@ async function searchFurther(relation, position) {
 let relations = JSON.parse(fs.readFileSync("./relations.json"));
 
 async function main() {
-    await executeInference("autruche r_agent-1 voler");
+    // await executeInference("vampire r_agent-1 mourir"); //DUMP TOO BIG
+    // await executeInference("autruche r_agent-1 voler");
     // await executeInference("pigeon r_agent-1 voler");
     // let rel = await executeInference("pizza r_has_part mozza");
     // let newRel = await searchFurther(rel[0], 0);
@@ -432,21 +438,34 @@ async function main() {
 
 main().then(r => console.log("Done"));
 
-/*
+
 app.use(cors());
 
 app.post("/", jsonParser, (req, res) => {
     console.log(req.body);
-    executeInference(req.body.sentence).then(r => {
-        res.send(r);
-    })
-    .catch(e => {
-        res.send({error: e.message});
-    });
-
+    console.log(req.body.type);
+    switch(req.body.type) {
+        case "further":
+            searchFurther(req.body.relation, req.body.position).then(relations => {
+                res.send(relations);
+            }).catch(err => {
+                console.log(err.error);
+                res.send({error: err.toString()});
+            });
+            break;
+        case "inference":
+            executeInference(req.body.sentence).then(relations => {
+                res.send(relations);
+            }).catch(err => {
+                console.log(err.error);
+                res.send({error: err.toString()});
+            });
+            break;
+        default:
+            res.send({error : "Unknown type"});
+    }
 });
 
 app.listen(port, () => {
     console.log("Server started on port " + port);
 });
-*/
