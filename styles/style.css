@@ -2,6 +2,14 @@ body {
     background-size: cover;
 }
 
+.pub_jdm {
+    padding-top: 55vh;
+}
+
+#ad {
+    background-image: url("../img/textLETTERbcsmall.jpg");
+}
+
 .inference {
     padding-bottom: 20px;
 }
