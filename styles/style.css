@@ -3,11 +3,11 @@ body {
 }
 
 * {
-    cursor: url("../img/test/spinningearth.gif"), default;
+    /*cursor: url("../img/test/spinningearth.gif"), default;*/
 }
 
 .pub_jdm {
-    padding-top: 55vh;
+    padding-top: 45vh;
 }
 
 #ad {
