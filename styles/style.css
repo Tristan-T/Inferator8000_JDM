@@ -2,6 +2,10 @@ body {
     background-size: cover;
 }
 
+* {
+    cursor: url("../img/test/spinningearth.gif"), default;
+}
+
 .pub_jdm {
     padding-top: 55vh;
 }
