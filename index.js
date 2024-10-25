@@ -181,7 +181,7 @@ async function readLineByLine(wordId, wordString) {
                 reading = "relationType";
                 word["relationType"] = {};
                 break;
-            case "// les relations sortantes : r;rid;node1;node2;type;w ":
+            case "// les relations sortantes : r;rid;node1;node2;type;w;w_normed;rank ":
                 reading = "outgoingRelationship";
                 word["outgoingRelationship"] = [];
                 break;
