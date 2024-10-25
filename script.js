@@ -78,7 +78,7 @@ function requestInference(sentence) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ type: "inference", sentence: sentence})
         };
-        const response = await fetch('http://localhost:3000', requestOptions);
+        const response = await fetch('http://inferator8000.torisu.fr:3000', requestOptions);
         const data = await response.json();
         fillInferences(data);
     })();
@@ -93,7 +93,7 @@ function requestFurther(relation, position) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ type: "further", relation: relation, position: position})
         };
-        const response = await fetch('http://localhost:3000', requestOptions);
+        const response = await fetch('http://inferator8000.torisu.fr:3000', requestOptions);
         const data = await response.json();
         fillInferences(data);
     })();
